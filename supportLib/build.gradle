@@ -2,13 +2,13 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
 }
-
+def config = rootProject.ext.android
 android {
-    compileSdk 32
+    compileSdk config.compileSdkVersion
 
     defaultConfig {
-        minSdk 24
-        targetSdk 32
+        config.minSdkVersion
+        config.targetSdkVersiontargetSdk
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
