@@ -1,0 +1,56 @@
+def config = rootProject.ext.android
+if (config.httpIsApplication) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
+apply plugin: 'org.jetbrains.kotlin.android'
+android {
+    compileSdk config.compileSdkVersion
+
+    defaultConfig {
+        if (config.httpIsApplication) {
+            applicationId "com.work.httplib"
+        }
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersiontargetSdk
+        versionCode config.versionCode
+        versionName config.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    sourceSets {
+        main {
+            if (config.appIsApplication) {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest/AndroidManifest.xml'
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation androidBaseLib.ktx
+    implementation androidBaseLib.appcompat
+    implementation androidBaseLib.material
+    implementation project(path: ':supportLib')
+    testImplementation androidBaseLib.junit
+    androidTestImplementation androidBaseLib.extJunit
+    androidTestImplementation androidBaseLib.espresso
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+}

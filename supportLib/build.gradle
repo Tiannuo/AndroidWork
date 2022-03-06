@@ -1,11 +1,11 @@
 def config = rootProject.ext.android
 def androidBaseLib = rootProject.ext.androidBaseLib
-if (config.loginIsApplication){
-    apply plugin:'com.android.application'
-}else {
-    apply plugin:'com.android.library'
+if (config.loginIsApplication) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
 }
-apply plugin:'org.jetbrains.kotlin.android'
+apply plugin: 'org.jetbrains.kotlin.android'
 android {
     compileSdk config.compileSdkVersion
 
@@ -31,7 +31,6 @@ android {
         jvmTarget = '1.8'
     }
 }
-
 dependencies {
     implementation androidBaseLib.ktx
     implementation androidBaseLib.appcompat
@@ -39,4 +38,17 @@ dependencies {
     testImplementation androidBaseLib.junit
     androidTestImplementation androidBaseLib.extJunit
     androidTestImplementation androidBaseLib.espresso
+    // https://github.com/orhanobut/logger
+    api 'com.orhanobut:logger:' + androidBaseLib.version_logger
+    //https://github.com/ReactiveX/RxJava
+    api "io.reactivex.rxjava3:rxjava:" + androidBaseLib.version_rxjava
+    //https://github.com/ReactiveX/RxAndroid
+    api 'io.reactivex.rxjava3:rxandroid:' + androidBaseLib.version_android
+    api 'com.squareup.retrofit2:retrofit:' + androidBaseLib.version_retrofit
+    api 'com.squareup.retrofit2:adapter-rxjava3:' + androidBaseLib.version_adapter_rxjava
+    api 'com.squareup.retrofit2:converter-gson:' + androidBaseLib.version_converter_gson
+    api("com.squareup.okhttp3:okhttp:" + androidBaseLib.version_okhttp)
+    api("com.squareup.okhttp3:logging-interceptor:" + androidBaseLib.version_logging_interceptor)
+    // https://github.com/getActivity/XXPermissions
+    api 'com.github.getActivity:XXPermissions:' + androidBaseLib.version_xxPermissions
 }

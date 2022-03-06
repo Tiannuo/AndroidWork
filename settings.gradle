@@ -10,9 +10,12 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url "https://oss.jfrog.org/libs-snapshot" }
+        maven { url 'https://jitpack.io' }
     }
 }
 rootProject.name = "TheIsle"
 include ':app'
 include ':supportLib'
 include ':appLogin'
+include ':httplib'
