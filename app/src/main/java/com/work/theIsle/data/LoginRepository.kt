@@ -1,6 +1,6 @@
-package com.work.theisle.data
+package com.work.theIsle.data
 
-import com.work.theisle.data.model.LoggedInUser
+import com.work.theIsle.data.model.LoggedInUser
 
 /**
  * Class that requests authentication and user information from the remote data source and

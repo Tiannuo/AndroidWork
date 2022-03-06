@@ -1,4 +1,4 @@
-package com.work.theisle.ui.login
+package com.work.theIsle.ui.login
 
 /**
  * Data validation state of the login form.

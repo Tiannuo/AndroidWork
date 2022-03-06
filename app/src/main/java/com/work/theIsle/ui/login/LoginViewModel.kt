@@ -1,13 +1,13 @@
-package com.work.theisle.ui.login
+package com.work.theIsle.ui.login
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import android.util.Patterns
-import com.work.theisle.data.LoginRepository
-import com.work.theisle.data.Result
+import com.work.theIsle.data.LoginRepository
+import com.work.theIsle.data.Result
 
-import com.work.theisle.R
+import com.work.theIsle.R
 
 class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel() {
 

@@ -1,4 +1,4 @@
-package com.work.theisle.data
+package com.work.theIsle.data
 
 /**
  * A generic class that holds a value with its loading status.

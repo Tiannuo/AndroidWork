@@ -1,17 +1,14 @@
-def config = rootProject.ext.android
-def androidBaseLib = rootProject.ext.androidBaseLib
-if (config.loginIsApplication){
-    apply plugin:'com.android.application'
-}else {
-    apply plugin:'com.android.library'
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
 }
-apply plugin:'org.jetbrains.kotlin.android'
+def config = rootProject.ext.android
 android {
     compileSdk config.compileSdkVersion
-
+    buildToolsVersion config.buildToolsVersion
     defaultConfig {
-        config.minSdkVersion
-        config.targetSdkVersiontargetSdk
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersiontargetSdk
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -30,12 +27,23 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    sourceSets {
+        main {
+            if (config.appIsApplication) {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest/AndroidManifest.xml'
+            }
+        }
+    }
 }
 
 dependencies {
     implementation androidBaseLib.ktx
     implementation androidBaseLib.appcompat
     implementation androidBaseLib.material
+    implementation project(path: ':supportLib')
     testImplementation androidBaseLib.junit
     androidTestImplementation androidBaseLib.extJunit
     androidTestImplementation androidBaseLib.espresso

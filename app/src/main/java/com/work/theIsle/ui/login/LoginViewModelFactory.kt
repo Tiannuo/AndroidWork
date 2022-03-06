@@ -1,9 +1,9 @@
-package com.work.theisle.ui.login
+package com.work.theIsle.ui.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.work.theisle.data.LoginDataSource
-import com.work.theisle.data.LoginRepository
+import com.work.theIsle.data.LoginDataSource
+import com.work.theIsle.data.LoginRepository
 
 /**
  * ViewModel provider factory to instantiate LoginViewModel.

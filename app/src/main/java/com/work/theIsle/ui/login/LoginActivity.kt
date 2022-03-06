@@ -1,4 +1,4 @@
-package com.work.theisle.ui.login
+package com.work.theIsle.ui.login
 
 import android.app.Activity
 import androidx.lifecycle.Observer
@@ -12,9 +12,9 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.Toast
-import com.work.theisle.databinding.ActivityLoginBinding
+import com.work.theIsle.databinding.ActivityLoginBinding
 
-import com.work.theisle.R
+import com.work.theIsle.R
 
 class LoginActivity : AppCompatActivity() {
 
