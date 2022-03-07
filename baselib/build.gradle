@@ -1,6 +1,6 @@
 def config = rootProject.ext.android
 def androidBaseLib = rootProject.ext.androidBaseLib
-if (config.httpIsApplication) {
+if (config.baseIsApplication) {
     apply plugin: 'com.android.application'
 } else {
     apply plugin: 'com.android.library'
@@ -10,8 +10,8 @@ android {
     compileSdk config.compileSdkVersion
 
     defaultConfig {
-        if (config.httpIsApplication) {
-            applicationId "com.work.httplib"
+        if (config.baseIsApplication) {
+            applicationId "com.work.baselib"
         }
         minSdkVersion config.minSdkVersion
         targetSdkVersion config.targetSdkVersiontargetSdk
@@ -36,12 +36,15 @@ android {
     }
     sourceSets {
         main {
-            if (config.appIsApplication) {
+            if (config.baseIsApplication) {
                 manifest.srcFile 'src/main/AndroidManifest.xml'
             } else {
                 manifest.srcFile 'src/main/AndroidManifest/AndroidManifest.xml'
             }
         }
+    }
+    buildFeatures {
+        viewBinding true
     }
 }
 
@@ -54,4 +57,5 @@ dependencies {
     androidTestImplementation androidBaseLib.espresso
     implementation androidBaseLib.constraintlayout
     implementation project(path: ':supportLib')
+    implementation project(path: ':httplib')
 }
