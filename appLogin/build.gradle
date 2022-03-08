@@ -1,6 +1,13 @@
+def config = rootProject.ext.android
+def androidBaseLib = rootProject.ext.androidBaseLib
+if (config.loginIsApplication) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
 apply plugin: 'com.android.library'
 apply plugin: 'org.jetbrains.kotlin.android'
-def config = rootProject.ext.android
+
 android {
     compileSdk config.compileSdkVersion
     buildToolsVersion config.buildToolsVersion
@@ -42,6 +49,8 @@ dependencies {
     implementation androidBaseLib.appcompat
     implementation androidBaseLib.material
     implementation project(path: ':supportLib')
+    implementation project(path: ':baselib')
+    implementation project(path: ':httplib')
     testImplementation androidBaseLib.junit
     androidTestImplementation androidBaseLib.extJunit
     androidTestImplementation androidBaseLib.espresso

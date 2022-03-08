@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">appLogin</string>
+    <string name="str_et_account_hint">账号</string>
+</resources>
