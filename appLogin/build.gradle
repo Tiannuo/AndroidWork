@@ -1,14 +1,12 @@
-plugins {
-    id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
-}
+apply plugin: 'com.android.library'
+apply plugin: 'org.jetbrains.kotlin.android'
 def config = rootProject.ext.android
 android {
     compileSdk config.compileSdkVersion
     buildToolsVersion config.buildToolsVersion
     defaultConfig {
         minSdkVersion config.minSdkVersion
-        targetSdkVersion config.targetSdkVersiontargetSdk
+        targetSdkVersion config.targetSdkVersion
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"

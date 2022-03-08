@@ -11,10 +11,15 @@ android {
 
     defaultConfig {
         config.minSdkVersion
-        config.targetSdkVersiontargetSdk
+        config.targetSdkVersion
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
     }
 
     buildTypes {
@@ -51,4 +56,9 @@ dependencies {
     api("com.squareup.okhttp3:logging-interceptor:" + androidBaseLib.version_logging_interceptor)
     // https://github.com/getActivity/XXPermissions
     api 'com.github.getActivity:XXPermissions:' + androidBaseLib.version_xxPermissions
+    api 'com.pgyer:analytics:' + androidBaseLib.version_pgyer
+    // 吐司框架：https://github.com/getActivity/ToastUtils
+    api 'com.github.getActivity:ToastUtils:' + androidBaseLib.version_toastUtils
+    api 'com.alibaba:arouter-api:'+androidBaseLib.version_arouter_api
+    annotationProcessor 'com.alibaba:arouter-compiler:'+androidBaseLib.version_arouter_compiler
 }

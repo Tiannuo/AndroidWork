@@ -1,4 +1,5 @@
 def config = rootProject.ext.android
+def androidBaseLib = rootProject.ext.androidBaseLib
 if (config.appIsApplication) {
     apply plugin: 'com.android.application'
 } else {
@@ -13,7 +14,7 @@ android {
             applicationId "com.work.theIsle"
         }
         minSdkVersion config.minSdkVersion
-        targetSdkVersion config.targetSdkVersiontargetSdk
+        targetSdkVersion config.targetSdkVersion
         versionCode config.versionCode
         versionName config.versionName
 

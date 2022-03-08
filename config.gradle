@@ -24,8 +24,12 @@ ext {
             version_retrofit           : '2.9.0',
             version_adapter_rxjava     : '2.9.0',
             version_converter_gson     : '2.9.0',
-            version_version_okhttp     : "4.9.3",
+            version_okhttp             : "4.9.3",
             version_logging_interceptor: "4.9.1",
-            version_xxPermissions      : '13.5'
+            version_xxPermissions      : '13.5',
+            version_pgyer              : "4.2.0",
+            version_toastUtils         : '10.3',
+            version_arouter_api        : '1.5.2',
+            version_arouter_compiler   : '1.5.2'
     ]
 }

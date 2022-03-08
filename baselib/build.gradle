@@ -14,7 +14,7 @@ android {
             applicationId "com.work.baselib"
         }
         minSdkVersion config.minSdkVersion
-        targetSdkVersion config.targetSdkVersiontargetSdk
+        targetSdkVersion config.targetSdkVersion
         versionCode config.versionCode
         versionName config.versionName
 

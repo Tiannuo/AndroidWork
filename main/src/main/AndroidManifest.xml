@@ -8,7 +8,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_isle_launcher"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TheIsle">
+        android:theme="@style/Theme.TheIsle"
+        android:name=".app.BaseApp"
+        android:requestLegacyExternalStorage="true"
+        >
         <activity
             android:name=".splash.SplashActivity"
             android:exported="true"
@@ -21,6 +24,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="PGYER_API_KEY"
+            android:value="74ccdc5e3947229728128b6e97f07128"></meta-data>
+        <meta-data
+            android:name="PGYER_FRONTJS_KEY"
+            android:value="a17b2a3a3d9fbeb4421278c1b3ec5de2"></meta-data>
+
+        <!--添加新版本检测-->
+        <meta-data
+            android:name="PGYER_FEATURE_CHECK_UNPDATE"
+            android:value="true"></meta-data>
     </application>
 
 </manifest>

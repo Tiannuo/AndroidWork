@@ -4,12 +4,19 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.hjq.permissions.OnPermissionCallback
+import com.hjq.permissions.Permission
+import com.hjq.permissions.XXPermissions
+import com.hjq.toast.ToastUtils
+import com.work.theIsle.R
 import com.work.theIsle.databinding.ActivitySplashBinding
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
-
+/*
+* 启动类就没有必要弄MVP了
+* */
 class SplashActivity : AppCompatActivity() {
     private var binding: ActivitySplashBinding? = null
     private var tv_remain: TextView? = null;
@@ -18,7 +25,36 @@ class SplashActivity : AppCompatActivity() {
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
         tv_remain = binding!!.tvRemain
+        requestPermission();
         delayFinish();
+    }
+
+    /*
+    * 请求必要权限
+    * */
+    private fun requestPermission() {
+        XXPermissions.with(this)
+            .permission(Permission.MANAGE_EXTERNAL_STORAGE)
+           // .permission(Permission.REQUEST_INSTALL_PACKAGES)
+            .permission(Permission.READ_PHONE_STATE)
+            .request(object : OnPermissionCallback {
+                override fun onGranted(permissions: MutableList<String>?, all: Boolean) {
+                    if (all) {
+                        ToastUtils.show(R.string.toast_request_permission_success)
+                    } else {
+                        ToastUtils.show(R.string.toast_request_permission_not_all_success)
+                    }
+                }
+
+                override fun onDenied(permissions: MutableList<String>?, never: Boolean) {
+                    super.onDenied(permissions, never)
+                    if (never) {
+                        ToastUtils.show(R.string.toast_request_permission_never)
+                    } else {
+                        ToastUtils.show(R.string.toast_request_permission_fail)
+                    }
+                }
+            })
     }
 
     /*
