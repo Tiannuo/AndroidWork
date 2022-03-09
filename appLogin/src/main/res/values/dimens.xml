@@ -5,4 +5,11 @@
     <dimen name="tv_remain_margin_top">48dp</dimen>
     <dimen name="tv_remain_margin_right">48dp</dimen>
     <dimen name="et_padding">16dp</dimen>
+    <dimen name="sp_16">16sp</dimen>
+    <dimen name="ll_login_margin">24dp</dimen>
+    <dimen name="iv_login_logo_size">128dp</dimen>
+    <dimen name="margin_dp24">24dp</dimen>
+    <dimen name="margin_dp32">32dp</dimen>
+    <dimen name="margin_dp48">48dp</dimen>
+    <dimen name="margin_dp56">56dp</dimen>
 </resources>

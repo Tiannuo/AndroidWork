@@ -22,7 +22,8 @@ class BaseApp : Application() {
     }
 
     private fun initArouter() {
-       ARouter.init(this)
+        ARouter.openDebug()
+        ARouter.init(this)
     }
 
     private fun initToast() {

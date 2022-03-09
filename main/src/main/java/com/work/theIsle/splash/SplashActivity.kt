@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.alibaba.android.arouter.launcher.ARouter
 import com.hjq.permissions.OnPermissionCallback
 import com.hjq.permissions.Permission
 import com.hjq.permissions.XXPermissions
@@ -68,7 +69,15 @@ class SplashActivity : AppCompatActivity() {
             .subscribe {
                 Log.e("===it", "$it")
                 tv_remain!!.text = 3.minus(it).toString().plus("秒")
+                when(it.toInt()){
+                    2-> skipToLoginActivity()
+                }
             }
+    }
+
+    private fun skipToLoginActivity() {
+        ARouter.getInstance().build("/login/loginActivity").navigation(this)
+        finish()
     }
 
     private fun skipToMainActivity(it: Long) {
