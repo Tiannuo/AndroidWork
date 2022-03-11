@@ -76,11 +76,13 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun skipToLoginActivity() {
-        ARouter.getInstance().build("/login/loginActivity").navigation(this)
+
+        ARouter.getInstance().build("/loginTo/loginActivity").navigation(this)
         finish()
     }
 
     private fun skipToMainActivity(it: Long) {
+
     }
 
 }

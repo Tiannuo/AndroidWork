@@ -6,7 +6,13 @@ if (config.loginIsApplication) {
     apply plugin: 'com.android.library'
 }
 apply plugin: 'org.jetbrains.kotlin.android'
+apply plugin: 'kotlin-kapt'
 
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
 android {
     compileSdk config.compileSdkVersion
     buildToolsVersion config.buildToolsVersion
@@ -57,4 +63,6 @@ dependencies {
     testImplementation androidBaseLib.junit
     androidTestImplementation androidBaseLib.extJunit
     androidTestImplementation androidBaseLib.espresso
+    api 'com.alibaba:arouter-api:'+androidBaseLib.version_arouter_api
+    kapt 'com.alibaba:arouter-compiler:'+androidBaseLib.version_arouter_compiler
 }

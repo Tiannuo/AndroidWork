@@ -3,7 +3,7 @@ package com.work.login
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.work.applogin.databinding.ActivityLoginBinding
 import com.work.baselib.activity.BaseMvpModelActivity
-@Route(path = "/login/loginActivity")
+@Route(path = "/loginTo/loginActivity")
 class LoginActivity :
     BaseMvpModelActivity<LoginView, LoginPresenter, ActivityLoginBinding, LoginModel>(), LoginView {
 

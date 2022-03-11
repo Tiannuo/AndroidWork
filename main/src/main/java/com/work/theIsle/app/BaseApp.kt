@@ -23,6 +23,7 @@ class BaseApp : Application() {
 
     private fun initArouter() {
         ARouter.openDebug()
+        ARouter.openLog()
         ARouter.init(this)
     }
 
