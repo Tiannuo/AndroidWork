@@ -25,7 +25,7 @@ android {
         targetSdkVersion config.targetSdkVersion
         versionCode config.versionCode
         versionName config.versionName
-        flavorDimensions "default"
+        flavorDimensions dimensions.main
         // dex突破65535的限制
         multiDexEnabled true
         //missingDimensionStrategy "sdk", "$flavor"
@@ -86,6 +86,11 @@ android {
     productFlavors {
         //开发环境
         PFdev {
+            dimension dimensions.main
+            missingDimensionStrategy dimensions.applogin, "PFdev", "PFTest", "PFrelease"
+            missingDimensionStrategy dimensions.baselib, "PFdev", "PFTest", "PFrelease"
+            missingDimensionStrategy dimensions.httplib, "PFdev", "PFTest", "PFrelease"
+            missingDimensionStrategy dimensions.supportlib, "PFdev", "PFTest", "PFrelease"
             manifestPlaceholders = [APP_NAME         : "AndroidWork_Dev",
                                     PGYER_API_KEY    : "74ccdc5e3947229728128b6e97f07128",
                                     PGYER_FRONTJS_KEY: "74ccdc5e3947229728128b6e97f07128"
@@ -97,6 +102,11 @@ android {
 
         //测试环境
         PFTest {
+            dimension dimensions.main
+            missingDimensionStrategy dimensions.applogin, "PFdev", "PFTest", "PFrelease"
+            missingDimensionStrategy dimensions.baselib, "PFdev", "PFTest", "PFrelease"
+            missingDimensionStrategy dimensions.httplib, "PFdev", "PFTest", "PFrelease"
+            missingDimensionStrategy dimensions.supportlib, "PFdev", "PFTest", "PFrelease"
             manifestPlaceholders = [APP_NAME         : "AndroidWork_Test",
                                     PGYER_API_KEY    : "74ccdc5e3947229728128b6e97f07128",
                                     PGYER_FRONTJS_KEY: "74ccdc5e3947229728128b6e97f07128"]
@@ -107,6 +117,11 @@ android {
 
         //正式环境
         PFrelease {
+            dimension dimensions.main
+            missingDimensionStrategy dimensions.applogin, "PFdev", "PFTest", "PFrelease"
+            missingDimensionStrategy dimensions.baselib, "PFdev", "PFTest", "PFrelease"
+            missingDimensionStrategy dimensions.httplib, "PFdev", "PFTest", "PFrelease"
+            missingDimensionStrategy dimensions.supportlib, "PFdev", "PFTest", "PFrelease"
             manifestPlaceholders = [APP_NAME         : "AndroidWork_Release",
                                     PGYER_API_KEY    : "74ccdc5e3947229728128b6e97f07128",
                                     PGYER_FRONTJS_KEY: "74ccdc5e3947229728128b6e97f07128"]

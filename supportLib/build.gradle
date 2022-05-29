@@ -18,7 +18,7 @@ android {
     defaultConfig {
         config.minSdkVersion
         config.targetSdkVersion
-
+        flavorDimensions dimensions.supportlib
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
@@ -35,6 +35,29 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+    // 多渠道打包
+    productFlavors {
+        //开发环境
+        PFdev {
+            dimension dimensions.supportlib
+            buildConfigField "String", "IBASE_URL", url.devUrl
+            buildConfigField "boolean", "isDevDebug", "true"
+        }
+
+        //测试环境
+        PFTest {
+            dimension dimensions.supportlib
+            buildConfigField "String", "IBASE_URL", url.testUrl
+            buildConfigField "boolean", "isTestDebug", "false"
+        }
+
+        //正式环境
+        PFrelease {
+            dimension dimensions.supportlib
+            buildConfigField "String", "IBASE_URL",url.releaseUrl
+            buildConfigField "boolean", "isReleaseDebug", "false"
+        }
     }
 }
 dependencies {

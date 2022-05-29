@@ -23,7 +23,7 @@ android {
         targetSdkVersion config.targetSdkVersion
         versionCode config.versionCode
         versionName config.versionName
-
+        flavorDimensions dimensions.baselib
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -52,6 +52,36 @@ android {
     buildFeatures {
         viewBinding true
     }
+    // 多渠道打包
+    productFlavors {
+        //开发环境
+        PFdev {
+            dimension dimensions.baselib
+            missingDimensionStrategy dimensions.httplib, "PFdev", "PFTest", "PFrelease"
+            missingDimensionStrategy dimensions.supportlib, "PFdev", "PFTest", "PFrelease"
+            buildConfigField "String", "IBASE_URL", url.devUrl
+            buildConfigField "boolean", "isDevDebug", "true"
+        }
+
+        //测试环境
+        PFTest {
+            dimension dimensions.baselib
+            missingDimensionStrategy dimensions.httplib, "PFdev", "PFTest", "PFrelease"
+            missingDimensionStrategy dimensions.supportlib, "PFdev", "PFTest", "PFrelease"
+            buildConfigField "String", "IBASE_URL", url.testUrl
+            buildConfigField "boolean", "isTestDebug", "false"
+        }
+
+        //正式环境
+        PFrelease {
+            dimension dimensions.baselib
+            missingDimensionStrategy dimensions.httplib, "PFdev", "PFTest", "PFrelease"
+            missingDimensionStrategy dimensions.supportlib, "PFdev", "PFTest", "PFrelease"
+            buildConfigField "String", "IBASE_URL", url.releaseUrl
+            buildConfigField "boolean", "isReleaseDebug", "false"
+        }
+    }
+
 }
 
 dependencies {
@@ -64,6 +94,6 @@ dependencies {
     implementation androidBaseLib.constraintlayout
     implementation project(path: ':supportLib')
     implementation project(path: ':httplib')
-    api 'com.alibaba:arouter-api:'+androidBaseLib.version_arouter_api
-    kapt 'com.alibaba:arouter-compiler:'+androidBaseLib.version_arouter_compiler
+    api 'com.alibaba:arouter-api:' + androidBaseLib.version_arouter_api
+    kapt 'com.alibaba:arouter-compiler:' + androidBaseLib.version_arouter_compiler
 }
