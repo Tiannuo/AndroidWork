@@ -1,5 +1,10 @@
+import java.util.regex.Matcher
+import java.util.regex.Pattern
+
 def config = rootProject.ext.android
 def androidBaseLib = rootProject.ext.androidBaseLib
+//def flavor = getCurrentFlavor()
+def url = rootProject.ext.url
 if (config.httpIsApplication) {
     apply plugin: 'com.android.application'
 } else {
@@ -17,7 +22,9 @@ android {
         targetSdkVersion config.targetSdkVersion
         versionCode config.versionCode
         versionName config.versionName
+        flavorDimensions "default"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        // missingDimensionStrategy "sdk", "$flavor"
     }
 
     buildTypes {
@@ -42,7 +49,67 @@ android {
             }
         }
     }
+    // 多渠道打包
+   /* productFlavors {
+        //开发环境
+        PFdev {
+            buildConfigField "String", "IBASE_URL", url.devUrl
+            buildConfigField "boolean", "isDevDebug", "true"
+        }
+
+        //测试环境
+        PFTest {
+            buildConfigField "String", "IBASE_URL", url.testUrl
+            buildConfigField "boolean", "isTestDebug", "false"
+        }
+
+        //正式环境
+        PFrelease {
+            buildConfigField "String", "IBASE_URL", url.releaseUrl
+            buildConfigField "boolean", "isReleaseDebug", "false"
+        }
+    }*/
+
+    //使用missingDimensionStrategy指定lib module中的两个flavor，"sdk"为lib module中定义的dimension
+    //不然，app module将无法sync成功和找到lib module中的类
+
+/*    android.libraryVariants.all { v ->
+        //当flavor被切换时（如在Build Variants中切换）
+        //重新读取当前被切换的variant并保存到配置文件
+        def currName = getCurrentFlavor()
+//        println("------111------$currName")
+        File conf = new File("curr-flavor.config")
+        if (!conf.exists()) {
+            conf.createNewFile()
+        }
+        conf.withWriter('UTF-8') { writer ->
+            writer.write("flavor=$currName")
+            writer.flush()
+            writer.close()
+        }
+    }*/
+
 }
+
+/*def getCurrentFlavor() {
+    Gradle gradle = getGradle()
+    //过滤出本module的当前flavor，正则表达式的[httplib]需要根据自己的进行修改
+    Pattern pattern = Pattern.compile(":httplib:(assemble|generate)(\\w+)(Release|Debug)")
+    String find = ""
+
+    def tsks = gradle.getStartParameter().getTaskRequests()
+    tsks.forEach { tsk ->
+        tsk.args.forEach { tskName ->
+            Matcher matcher = pattern.matcher(tskName.toString())
+            if (matcher.find()) {
+                //正则表达式中匹配到的第三组:(\\w+)部分
+                find = matcher.group(2)
+                return find
+            }
+        }
+    }
+    return find
+}*/
 
 dependencies {
     implementation androidBaseLib.ktx

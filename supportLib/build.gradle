@@ -74,4 +74,5 @@ dependencies {
     api("androidx.navigation:navigation-fragment-ktx:$androidBaseLib.version_nav")
     api("androidx.navigation:navigation-ui-ktx:$androidBaseLib.version_nav")
 
+    api "com.android.support:multidex:$androidBaseLib.version_multidex"
 }

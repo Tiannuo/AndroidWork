@@ -2,6 +2,7 @@ package com.work.theIsle.app
 
 import android.app.Application
 import android.content.Context
+import androidx.multidex.MultiDex
 import com.alibaba.android.arouter.launcher.ARouter
 import com.hjq.toast.ToastUtils
 import com.pgyer.pgyersdk.PgyerSDKManager
@@ -19,6 +20,11 @@ class BaseApp : Application() {
         initPgyerSDK()
         initToast()
         initArouter()
+        initMultiDex()
+    }
+
+    private fun initMultiDex() {
+        MultiDex.install(this);
     }
 
     private fun initArouter() {

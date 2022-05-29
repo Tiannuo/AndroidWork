@@ -1,5 +1,7 @@
 def config = rootProject.ext.android
 def androidBaseLib = rootProject.ext.androidBaseLib
+def url = rootProject.ext.url
+//def flavor = getCurrentFlavor()
 if (config.appIsApplication) {
     apply plugin: 'com.android.application'
 } else {
@@ -23,14 +25,42 @@ android {
         targetSdkVersion config.targetSdkVersion
         versionCode config.versionCode
         versionName config.versionName
-
+        flavorDimensions "default"
+        // dex突破65535的限制
+        multiDexEnabled true
+        //missingDimensionStrategy "sdk", "$flavor"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        release {
+            keyAlias 'androidWork'
+            keyPassword '123456'
+            storeFile file('../ww.jks')
+            storePassword '123456'
+        }
+    }
     buildTypes {
         release {
+            //是否混淆
             minifyEnabled false
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            //是否移除无用资源
+            zipAlignEnabled true
+        }
+        debug  {
+            //是否混淆
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            //是否移除无用资源
+            zipAlignEnabled true
+        }
+        applicationVariants.all { variant ->
+            variant.outputs.all {
+                outputFileName = "androidWork_${defaultConfig.versionName}_${variant.buildType.name }.apk"
+            }
         }
     }
     compileOptions {
@@ -52,7 +82,63 @@ android {
             }
         }
     }
+    // 多渠道打包
+    productFlavors {
+        //开发环境
+        PFdev {
+            manifestPlaceholders = [APP_NAME         : "AndroidWork_Dev",
+                                    PGYER_API_KEY    : "74ccdc5e3947229728128b6e97f07128",
+                                    PGYER_FRONTJS_KEY: "74ccdc5e3947229728128b6e97f07128"
+            ]
+            buildConfigField "String", "IBASE_URL", url.devUrl
+            buildConfigField "boolean", "isDevDebug", "true"
+            applicationId "com.work.theIsle"
+        }
+
+        //测试环境
+        PFTest {
+            manifestPlaceholders = [APP_NAME         : "AndroidWork_Test",
+                                    PGYER_API_KEY    : "74ccdc5e3947229728128b6e97f07128",
+                                    PGYER_FRONTJS_KEY: "74ccdc5e3947229728128b6e97f07128"]
+            buildConfigField "String", "IBASE_URL", url.testUrl
+            buildConfigField "boolean", "isTestDebug", "false"
+            applicationId "com.work.theIsle"
+        }
+
+        //正式环境
+        PFrelease {
+            manifestPlaceholders = [APP_NAME         : "AndroidWork_Release",
+                                    PGYER_API_KEY    : "74ccdc5e3947229728128b6e97f07128",
+                                    PGYER_FRONTJS_KEY: "74ccdc5e3947229728128b6e97f07128"]
+            buildConfigField "String", "IBASE_URL",url.releaseUrl
+            buildConfigField "boolean", "isReleaseDebug", "false"
+            applicationId "com.work.theIsle"
+        }
+
+    }
 }
+
+
+/**
+ * 读取配置文件的内容
+ * @return
+ */
+/*def getCurrentFlavor() {
+    def flavorProperties = new Properties()
+
+    String rtn = "httplib"
+    def conf = new File("curr-flavor.config")//自定义的配置文件
+    if (conf.exists()) {
+        conf.withReader('UTF-8') { reader ->
+            flavorProperties.load(reader)
+        }
+    }
+    rtn = flavorProperties.getProperty('flavor')
+    if (rtn != null && rtn.length() > 1)
+        rtn = "${Character.toLowerCase(rtn.charAt(0))}${rtn.substring(1)}"
+    else rtn = "httplib"
+    return rtn
+}*/
 
 dependencies {
     implementation 'androidx.core:core-ktx:1.7.0'
@@ -71,6 +157,6 @@ dependencies {
         implementation project(path: ':appLogin')
     }
     implementation project(path: ':supportLib')
-    api 'com.alibaba:arouter-api:'+androidBaseLib.version_arouter_api
-    kapt 'com.alibaba:arouter-compiler:'+androidBaseLib.version_arouter_compiler
+    api 'com.alibaba:arouter-api:' + androidBaseLib.version_arouter_api
+    kapt 'com.alibaba:arouter-compiler:' + androidBaseLib.version_arouter_compiler
 }

@@ -9,6 +9,7 @@ import com.hjq.permissions.OnPermissionCallback
 import com.hjq.permissions.Permission
 import com.hjq.permissions.XXPermissions
 import com.hjq.toast.ToastUtils
+
 import com.work.theIsle.R
 import com.work.theIsle.databinding.ActivitySplashBinding
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -76,7 +77,6 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun skipToLoginActivity() {
-
         ARouter.getInstance().build("/loginTo/loginActivity").navigation(this)
         finish()
     }

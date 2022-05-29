@@ -20,7 +20,7 @@ object HttpUtils {
     private var mClient: OkHttpClient? = null
 
     fun <T> createApi(clazz: Class<T>): T = Retrofit.Builder()
-        .baseUrl(BASE_URL)
+        //.baseUrl(IBASE_URL)
         .client(createClient())
         .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
         .addConverterFactory(GsonConverterFactory.create())

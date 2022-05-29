@@ -33,7 +33,12 @@ ext {
             version_arouter_compiler   : '1.5.2',
             version_glide              : '4.13.0',
             version_room               : '2.4.2',
-            version_nav                : '2.4.2'
-
+            version_nav                : '2.4.2',
+            version_multidex           : '1.0.3',
+    ]
+    url = [
+            devUrl  : '"https://api.uomg.com/api/"',
+            testUrl  : '"https://api.uomg.com/api/"',
+            releaseUrl  : '"https://api.uomg.com/api/"',
     ]
 }
