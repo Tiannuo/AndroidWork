@@ -4,28 +4,27 @@
     package="com.work.theIsle">
 
     <application
+        android:name=".app.BaseApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_isle_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_isle_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.TheIsle"
-        android:name=".app.BaseApp"
-        android:requestLegacyExternalStorage="true"
-        tools:replace="android:icon"
-        >
+        tools:replace="android:icon">
         <activity
             android:name=".splash.SplashActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/FullScreenTheme"
-            >
+            android:theme="@style/FullScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="PGYER_API_KEY"
             android:value="74ccdc5e3947229728128b6e97f07128"></meta-data>

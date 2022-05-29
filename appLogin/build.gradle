@@ -44,7 +44,7 @@ android {
 
     sourceSets {
         main {
-            if (config.appIsApplication) {
+            if (config.loginIsApplication) {
                 manifest.srcFile 'src/main/AndroidManifest.xml'
             } else {
                 manifest.srcFile 'src/main/AndroidManifest/AndroidManifest.xml'

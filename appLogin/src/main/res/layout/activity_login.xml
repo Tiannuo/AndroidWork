@@ -1,76 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/bg_morning_img">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+
+    <TextView
+        android:id="@+id/tv_show_data"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center"
+        android:textSize="@dimen/sp_18"
+        android:textColor="@color/white"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical"
-        android:paddingLeft="@dimen/ll_login_margin"
-        android:paddingRight="@dimen/ll_login_margin"
-        android:layout_marginTop="@dimen/margin_dp56"
-        >
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
 
-        <ImageView
-            android:layout_width="@dimen/iv_login_logo_size"
-            android:layout_height="@dimen/iv_login_logo_size"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="@dimen/activity_horizontal_margin"
-            android:src="@mipmap/ic_isle_launcher" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColorHint="@color/color_login_hint"
-            android:theme="@style/EditScreenTextInputLayoutStyle">
-
-            <EditText
-                android:id="@+id/login_tv_account"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:digits="1234567890qwertyuiopasdfghjklzxcvbnm"
-                android:drawableEnd="@mipmap/ic_et_account"
-                android:drawablePadding="@dimen/et_padding"
-                android:hint="@string/str_et_account_hint"
-                android:inputType="text"
-                android:maxLines="1"
-                android:textColor="@color/white"
-                android:textSize="@dimen/sp_16" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColorHint="@color/color_login_hint"
-            android:theme="@style/EditScreenTextInputLayoutStyle">
-
-            <EditText
-                android:id="@+id/login_tv_password"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:digits="1234567890qwertyuiopasdfghjklzxcvbnm"
-                android:drawableEnd="@mipmap/ic_et_password"
-                android:drawablePadding="@dimen/et_padding"
-                android:hint="@string/str_et_password_hint"
-                android:inputType="textPassword"
-                android:maxLines="1"
-                android:textColor="@color/white"
-                android:textSize="@dimen/sp_16" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <Button
-            android:id="@+id/btn_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/str_btn_login"
-            android:textColor="@color/white"
-            android:background="@drawable/bg_btn_login"
-            android:layout_marginTop="@dimen/margin_dp24"
-            />
-    </LinearLayout>
-
-
-</FrameLayout>
+    <Button
+        android:id="@+id/btn_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/design_default_color_primary"
+        android:text="@string/str_btn_test"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_show_data" />
+</androidx.constraintlayout.widget.ConstraintLayout>
