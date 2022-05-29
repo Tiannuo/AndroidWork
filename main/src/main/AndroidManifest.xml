@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_isle_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.TheIsle"
-        tools:replace="android:icon">
+        tools:replace="android:icon"
+        android:networkSecurityConfig="@xml/network_security_config"
+        tools:targetApi="n">
         <activity
             android:name=".splash.SplashActivity"
             android:exported="true"
