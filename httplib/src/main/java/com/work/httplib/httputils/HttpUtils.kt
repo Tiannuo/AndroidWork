@@ -27,6 +27,7 @@ object HttpUtils {
         .build().create(clazz)
 
 
+    @Synchronized
     private fun createClient(): OkHttpClient? {
         if (mClient == null) {
             mClient = OkHttpClient.Builder()
