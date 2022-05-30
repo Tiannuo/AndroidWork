@@ -7,10 +7,10 @@ import com.work.applogin.databinding.ActivityLoginBinding
 import com.work.baselib.mvp.view.BaseView
 import com.work.login.bean.QingHuaBean
 
-interface LoginView : BaseView<QingHuaBean> {
+interface LoginView : BaseView<ActivityLoginBinding, QingHuaBean> {
 
-    override fun setData(binding: ViewBinding?, data: QingHuaBean?) {
-        (binding as ActivityLoginBinding).tvShowData.text = data?.content
+    override fun setData(binding: ActivityLoginBinding?, data: QingHuaBean?) {
+        binding?.tvShowData?.text = data?.content
     }
 
     override fun setError(err: String) {

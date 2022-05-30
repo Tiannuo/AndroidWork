@@ -1,8 +1,11 @@
 package com.work.baselib.mvp.presenter
-import com.work.baselib.mvp.view.BaseView
-open class BasePresenter<V: BaseView<M>,M> {
 
-    private var mBaseView: V?=null
+import androidx.viewbinding.ViewBinding
+import com.work.baselib.mvp.view.BaseView
+
+open class BasePresenter<V : BaseView<B, M>, B : ViewBinding, M> {
+
+    private var mBaseView: V? = null
 
     fun bindView(mBaseView: V) {
         this.mBaseView = mBaseView

@@ -11,7 +11,7 @@ import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class LoginPresenter : BasePresenter<LoginView, QingHuaBean>() {
+class LoginPresenter : BasePresenter<LoginView, ActivityLoginBinding, QingHuaBean>() {
     /*
     * 测试网络数据请求
     * */
@@ -22,7 +22,7 @@ class LoginPresenter : BasePresenter<LoginView, QingHuaBean>() {
         GlobalScope.launch {
             qingHuaBean = api.loadQing("json")
             //qingHuaBean.let { getBaseView().setData(it) }
-            getBaseView().setData(binding,qingHuaBean ?: QingHuaBean(0, ""))
+            getBaseView().setData(binding, qingHuaBean ?: QingHuaBean(0, ""))
         }
 
     }
