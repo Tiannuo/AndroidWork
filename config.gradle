@@ -35,10 +35,11 @@ ext {
             version_room               : '2.4.2',
             version_nav                : '2.4.2',
             version_multidex           : '1.0.3',
+            version_kotlinx_coroutines : '1.6.2',
     ]
     url = [
-            devUrl  : '"https://api.uomg.com/api/"',
-            testUrl  : '"https://api.uomg.com/api/"',
-            releaseUrl  : '"https://api.uomg.com/api/"',
+            devUrl    : '"https://api.uomg.com/api/"',
+            testUrl   : '"https://api.uomg.com/api/"',
+            releaseUrl: '"https://api.uomg.com/api/"',
     ]
 }

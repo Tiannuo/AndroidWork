@@ -96,6 +96,9 @@ dependencies {
     // Kotlin nav
     api("androidx.navigation:navigation-fragment-ktx:$androidBaseLib.version_nav")
     api("androidx.navigation:navigation-ui-ktx:$androidBaseLib.version_nav")
-
+    // 65535 问题
     api "com.android.support:multidex:$androidBaseLib.version_multidex"
+    //kotlin 协程 （协同线程操作）
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$androidBaseLib.version_kotlinx_coroutines")
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-android:$androidBaseLib.version_kotlinx_coroutines")
 }
