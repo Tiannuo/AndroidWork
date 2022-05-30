@@ -1,6 +1,7 @@
 package com.work.login
 
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.alibaba.android.arouter.launcher.ARouter
 import com.work.applogin.databinding.ActivityLoginBinding
 import com.work.baselib.activity.BaseMvpModelActivity
 import com.work.login.bean.QingHuaBean
@@ -15,19 +16,12 @@ class LoginActivity :
     override fun createPresenter() = LoginPresenter()
 
     override fun init() {
-        getBinding()!!.btnTest.also { it.setOnClickListener { getPresenter()!!.getTest() } }
+        getBinding()!!.btnTest.also { it.setOnClickListener { getPresenter()!!.getTest(getBinding()) } }
+        getBinding()!!.btnCoroutine.also { it.setOnClickListener { getPresenter()!!.gotoCoroutine(this) } }
     }
 
     override fun initData() {
 
     }
 
-    override fun setData(data: QingHuaBean?) {
-        super.setData(data)
-        getBinding()?.tvShowData?.text = data?.content
-    }
-
-    override fun setError(err: String) {
-        super.setError(err)
-    }
 }

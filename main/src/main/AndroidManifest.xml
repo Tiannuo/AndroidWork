@@ -18,7 +18,6 @@
         <activity
             android:name=".splash.SplashActivity"
             android:exported="true"
-            android:label="${APP_NAME}"
             android:screenOrientation="portrait"
             android:theme="@style/FullScreenTheme">
             <intent-filter>
@@ -26,6 +25,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".coroutine.CoroutineActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullScreenTheme" />
 
         <meta-data
             android:name="PGYER_API_KEY"
