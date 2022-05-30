@@ -1,6 +1,8 @@
 package com.work.httplib.httputils
 
 import com.orhanobut.logger.Logger
+import com.work.httplib.BuildConfig
+import com.work.httplib.BuildConfig.IBASE_URL
 import com.work.httplib.constans.Constants.BASE_URL
 import com.work.httplib.interceptor.AddCookiesInterceptor
 import com.work.httplib.listener.ResponseListener
@@ -20,7 +22,7 @@ object HttpUtils {
     private var mClient: OkHttpClient? = null
 
     fun <T> createApi(clazz: Class<T>): T = Retrofit.Builder()
-        //.baseUrl(IBASE_URL)
+        .baseUrl(IBASE_URL)
         .client(createClient())
         .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
         .addConverterFactory(GsonConverterFactory.create())
@@ -40,7 +42,9 @@ object HttpUtils {
 
     private fun createInterceptor(): Interceptor {
         HttpLoggingInterceptor.Logger { msg ->
-            Logger.json(msg)
+            if (BuildConfig.DEBUG){
+                Logger.json(msg)
+            }
         }
         return HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
     }

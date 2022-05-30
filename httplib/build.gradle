@@ -45,7 +45,7 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            buildConfigField "boolean", "LOG_DEBUG", "true"
+            buildConfigField "boolean", "LOG_DEBUG", "false"
             buildConfigField "String", "IBASE_URL", url.testUrl
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -54,12 +54,6 @@ android {
             buildConfigField "boolean", "LOG_DEBUG", "true"
             buildConfigField "String", "IBASE_URL", url.testUrl
         }
-        /*     dev {
-                 minifyEnabled false
-                 buildConfigField "boolean", "LOG_DEBUG", "true"
-                 buildConfigField "String", "IBASE_URL", url.devurl
-             }*/
-
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
