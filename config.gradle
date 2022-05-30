@@ -36,6 +36,7 @@ ext {
             version_nav                : '2.4.2',
             version_multidex           : '1.0.3',
             version_kotlinx_coroutines : '1.6.2',
+            version_junit : '4.13.2',
     ]
     url = [
             devUrl    : '"https://api.uomg.com/api/"',

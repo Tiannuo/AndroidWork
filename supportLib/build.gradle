@@ -101,4 +101,6 @@ dependencies {
     //kotlin 协程 （协同线程操作）
     api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$androidBaseLib.version_kotlinx_coroutines")
     api("org.jetbrains.kotlinx:kotlinx-coroutines-android:$androidBaseLib.version_kotlinx_coroutines")
+    // junit
+    api "junit:junit:$androidBaseLib.version_junit"
 }

@@ -8,6 +8,7 @@ import com.work.httplib.httputils.HttpUtils
 import com.work.login.api.UserApi
 import com.work.login.bean.QingHuaBean
 import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -18,11 +19,12 @@ class LoginPresenter : BasePresenter<LoginView, ActivityLoginBinding, QingHuaBea
     @OptIn(DelicateCoroutinesApi::class)
     fun getTest(binding: ActivityLoginBinding?) {
         val api: UserApi = HttpUtils.createApi(UserApi::class.java)
-        var qingHuaBean: QingHuaBean?
-        GlobalScope.launch {
+        var qingHuaBean: QingHuaBean? = null
+        // 不入参默认是子线程
+        GlobalScope.launch(Dispatchers.Main) {
             qingHuaBean = api.loadQing("json")
             //qingHuaBean.let { getBaseView().setData(it) }
-            getBaseView().setData(binding, qingHuaBean ?: QingHuaBean(0, ""))
+            getBaseView().setData(binding, qingHuaBean ?: QingHuaBean(0, "哈哈哈"))
         }
 
     }

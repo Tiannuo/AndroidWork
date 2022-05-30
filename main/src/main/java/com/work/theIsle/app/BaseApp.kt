@@ -5,6 +5,8 @@ import android.content.Context
 import androidx.multidex.MultiDex
 import com.alibaba.android.arouter.launcher.ARouter
 import com.hjq.toast.ToastUtils
+import com.orhanobut.logger.AndroidLogAdapter
+import com.orhanobut.logger.Logger
 import com.pgyer.pgyersdk.PgyerSDKManager
 
 
@@ -21,6 +23,11 @@ class BaseApp : Application() {
         initToast()
         initArouter()
         initMultiDex()
+        initLogger()
+    }
+
+    private fun initLogger() {
+        Logger.addLogAdapter(AndroidLogAdapter())
     }
 
     private fun initMultiDex() {

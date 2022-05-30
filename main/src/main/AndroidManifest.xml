@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.work.theIsle">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:name=".app.BaseApp"
         android:allowBackup="true"
@@ -28,8 +29,10 @@
 
         <activity
             android:name=".coroutine.CoroutineActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/FullScreenTheme" />
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".coroutine.CoroutineActivity3"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="PGYER_API_KEY"

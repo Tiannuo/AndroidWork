@@ -18,6 +18,6 @@ interface LoginView : BaseView<ActivityLoginBinding, QingHuaBean> {
     }
 
     fun gotoCoroutine(context: Context) {
-        ARouter.getInstance().build("/coroutineTo/CoroutineActivity").navigation(context)
+        ARouter.getInstance().build("/coroutineTo/CoroutineActivity3").navigation(context)
     }
 }

@@ -29,6 +29,9 @@ android {
         // dex突破65535的限制
         multiDexEnabled true
         //missingDimensionStrategy "sdk", "$flavor"
+        dataBinding {
+            enabled = true
+        }
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -49,7 +52,7 @@ android {
             //是否移除无用资源
             zipAlignEnabled true
         }
-        debug  {
+        debug {
             //是否混淆
             minifyEnabled false
             signingConfig signingConfigs.release
@@ -59,7 +62,7 @@ android {
         }
         applicationVariants.all { variant ->
             variant.outputs.all {
-                outputFileName = "androidWork_${defaultConfig.versionName}_${variant.buildType.name }.apk"
+                outputFileName = "androidWork_${defaultConfig.versionName}_${variant.buildType.name}.apk"
             }
         }
     }
@@ -125,7 +128,7 @@ android {
             manifestPlaceholders = [APP_NAME         : "AndroidWork_Release",
                                     PGYER_API_KEY    : "74ccdc5e3947229728128b6e97f07128",
                                     PGYER_FRONTJS_KEY: "74ccdc5e3947229728128b6e97f07128"]
-            buildConfigField "String", "IBASE_URL",url.releaseUrl
+            buildConfigField "String", "IBASE_URL", url.releaseUrl
             buildConfigField "boolean", "isReleaseDebug", "false"
             applicationId "com.work.theIsle"
         }
