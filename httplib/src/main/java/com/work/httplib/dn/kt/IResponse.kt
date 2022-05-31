@@ -1,12 +1,14 @@
 package com.work.httplib.dn.kt
 
 /**
- * 具体的返回的类型数据不知道：
- * 通过接口的形式来转换兼容
- * @param <T>
-</T> */
+ * @Author Administrator
+ * @Date 2022/5/31-22:11
+ * @Email wangweitikou1994@gmail.com
+ * @Des
+ */
 interface IResponse<T> {
     val content: T
-    val msg: String?
-    val code: String?
+    val msg: String
+    val code: String
+    val isSuccess: Boolean
 }

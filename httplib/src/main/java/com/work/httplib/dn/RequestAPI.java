@@ -4,7 +4,7 @@ import androidx.lifecycle.LifecycleOwner;
 
 import com.work.httplib.dn.kt.ApiException;
 import com.work.httplib.dn.kt.ICallback;
-import com.work.httplib.dn.kt.IResponse;
+import com.work.httplib.dn.kt.BaseResponse;
 
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.disposables.Disposable;
@@ -12,7 +12,7 @@ import io.reactivex.rxjava3.disposables.Disposable;
 
 public class RequestAPI {
 
-    public static <T> void request(Observable<? extends IResponse<T>> o,
+    public static <T> void request(Observable<? extends BaseResponse<T>> o,
                                    LifecycleOwner lifecycleOwner,
                                    ICallback<T> callback) {
         Disposable d = o.compose(ResponseTransformer.obtain(lifecycleOwner))

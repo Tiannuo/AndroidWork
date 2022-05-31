@@ -1,7 +1,6 @@
 package com.work.login.api
 
 import com.work.httplib.dn.kt.BaseResponse
-import com.work.httplib.dn.kt.IResponse
 import io.reactivex.rxjava3.core.Observable
 import retrofit2.http.GET
 
@@ -14,5 +13,5 @@ import retrofit2.http.GET
  */
 interface UserObsApi {
     @GET("rand.qinghua")
-    fun loadQing(): Observable<IResponse<String>>
+    fun loadQing(): Observable<BaseResponse<String>>
 }

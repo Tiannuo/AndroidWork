@@ -13,7 +13,7 @@ import io.reactivex.rxjava3.core.Observable
 object KTRequestApi {
     fun <T> request(
         owner: LifecycleOwner,
-        obs: Observable<IResponse<T>>,
+        obs: Observable<BaseResponse<T>>,
         callback: ICallback<T>
     ) {
         obs.compose(KTResponseTransformer.obtain(owner))

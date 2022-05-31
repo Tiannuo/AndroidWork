@@ -1,17 +1,18 @@
 package com.work.httplib.dn.kt
 
-/**
+import android.text.TextUtils
 
- * @Author Administrator
- * @Date 2022/5/31-21:57
- * @Email wangweitikou1994@gmail.com
- * @Des
- */
-class BaseResponse<T> : IResponse<T> {
-    override val content: T
-        get() = TODO("Not yet implemented")
-    override val msg: String?
-        get() = TODO("Not yet implemented")
-    override val code: String?
-        get() = TODO("Not yet implemented")
+/**
+ * 具体的返回的类型数据不知道：
+ * 通过接口的形式来转换兼容
+ * @param <T>
+</T> */
+open class BaseResponse<T>(
+    override val content: T,
+    override val msg: String,
+    override val code: String
+) : IResponse<T> {
+
+    override val isSuccess: Boolean
+        get() = TextUtils.equals("1", code)
 }

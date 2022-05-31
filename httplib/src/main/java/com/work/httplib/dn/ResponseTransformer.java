@@ -8,7 +8,7 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.OnLifecycleEvent;
 
 import com.work.httplib.dn.kt.ApiException;
-import com.work.httplib.dn.kt.IResponse;
+import com.work.httplib.dn.kt.BaseResponse;
 import com.work.supportlib.ReflectUtils;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
@@ -27,7 +27,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
  * 2. 对RxJava生命周期管理，防止内存泄漏
  * 3. 对响应数据统一处理，获取到真正想用的data，进行业务处理
  */
-public class ResponseTransformer<T> implements ObservableTransformer<IResponse<T>, T>, LifecycleObserver {
+public class ResponseTransformer<T> implements ObservableTransformer<BaseResponse<T>, T>, LifecycleObserver {
 
     final CompositeDisposable compositeDisposable = new CompositeDisposable();
 
@@ -40,13 +40,13 @@ public class ResponseTransformer<T> implements ObservableTransformer<IResponse<T
 
     @NonNull
     @Override
-    public ObservableSource<T> apply(@NonNull Observable<IResponse<T>> upstream) {
+    public ObservableSource<T> apply(@NonNull Observable<BaseResponse<T>> upstream) {
         return upstream.doOnSubscribe(compositeDisposable::add).onErrorResumeNext(throwable -> {
             // 出现异常统一处理 (非业务性的异常)
             return Observable.error(ApiException.handleException(throwable));
-        }).flatMap((Function<IResponse<T>, ObservableSource<T>>) response -> {
+        }).flatMap((Function<BaseResponse<T>, ObservableSource<T>>) response -> {
             // 对响应数据统一处理
-            if (TextUtils.equals("1",response.getCode())) {
+            if (response.isSuccess()) {
                 if (response.getContent()!= null) {
                     return Observable.just(response.getContent());
                 } else {
