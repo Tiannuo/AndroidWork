@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.work.baselib.arouter.RouterPath.PATH_UOMGDATA
-import com.work.httplib.dn.kt.ApiException
-import com.work.httplib.dn.kt.ICallback
+import com.work.httplib.dn.kt.KTApiException
+import com.work.httplib.dn.kt.KTICallback
 import com.work.httplib.dn.kt.KTRequestApi
 import com.work.httplib.httputils.HttpUtils
 import com.work.login.api.UserObsApi
@@ -29,12 +29,12 @@ class UomgDataActivity : AppCompatActivity() {
             KTRequestApi.request(
                 this,
                 HttpUtils.createApi(UserObsApi::class.java).loadQing(),
-                object : ICallback<String> {
+                object : KTICallback<String> {
                     override fun onSuccess(data: String) {
                         binding.tvShow.text = data
                     }
 
-                    override fun onFailure(e: ApiException) {
+                    override fun onFailure(e: KTApiException) {
                         binding.tvShow.text = e.errorMsg
                     }
                 })

@@ -7,11 +7,11 @@ import android.text.TextUtils
  * 通过接口的形式来转换兼容
  * @param <T>
 </T> */
-open class BaseResponse<T>(
+open class KTBaseResponse<T>(
     override val content: T,
     override val msg: String,
     override val code: String
-) : IResponse<T> {
+) : KTIResponse<T> {
 
     override val isSuccess: Boolean
         get() = TextUtils.equals("1", code)

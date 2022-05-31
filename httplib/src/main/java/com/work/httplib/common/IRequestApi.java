@@ -12,7 +12,7 @@ import io.reactivex.rxjava3.functions.Consumer;
  * @Des
  */
 public class IRequestApi {
-    public static <T> void request(Observable<? extends IResponse<T>> obs
+    public static <T> void request(Observable<? extends IResponse2<T>> obs
             , LifecycleOwner owner
             , Callback<T> callback) {
         obs.compose(ResponseTransformerImp.get(owner))

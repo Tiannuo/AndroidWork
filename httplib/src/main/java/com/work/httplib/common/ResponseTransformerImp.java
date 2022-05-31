@@ -15,9 +15,6 @@ import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.ObservableSource;
 import io.reactivex.rxjava3.core.ObservableTransformer;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
-import io.reactivex.rxjava3.disposables.Disposable;
-import io.reactivex.rxjava3.functions.Consumer;
-import io.reactivex.rxjava3.functions.Function;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 /**
@@ -26,7 +23,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
  * @Email wangweitikou1994@gmail.com
  * @Des
  */
-public class ResponseTransformerImp<T> implements ObservableTransformer<IResponse<T>, T>, LifecycleObserver {
+public class ResponseTransformerImp<T> implements ObservableTransformer<IResponse2<T>, T>, LifecycleObserver {
     final CompositeDisposable compositeDisposable = new CompositeDisposable();
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
@@ -37,7 +34,7 @@ public class ResponseTransformerImp<T> implements ObservableTransformer<IRespons
     }
 
     @Override
-    public @NonNull ObservableSource<T> apply(@NonNull Observable<IResponse<T>> upstream) {
+    public @NonNull ObservableSource<T> apply(@NonNull Observable<IResponse2<T>> upstream) {
         return upstream.doOnSubscribe(compositeDisposable::add).onErrorResumeNext(throwable -> {
             // 代码报错处理
             return Observable.error(handleException(throwable));

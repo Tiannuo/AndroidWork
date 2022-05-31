@@ -1,14 +1,12 @@
 package com.work.httplib.dn;
 
-import android.text.TextUtils;
-
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.OnLifecycleEvent;
 
-import com.work.httplib.dn.kt.ApiException;
-import com.work.httplib.dn.kt.BaseResponse;
+import com.work.httplib.dn.kt.KTApiException;
+import com.work.httplib.dn.kt.KTBaseResponse;
 import com.work.supportlib.ReflectUtils;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
@@ -27,7 +25,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
  * 2. 对RxJava生命周期管理，防止内存泄漏
  * 3. 对响应数据统一处理，获取到真正想用的data，进行业务处理
  */
-public class ResponseTransformer<T> implements ObservableTransformer<BaseResponse<T>, T>, LifecycleObserver {
+public class ResponseTransformer<T> implements ObservableTransformer<KTBaseResponse<T>, T>, LifecycleObserver {
 
     final CompositeDisposable compositeDisposable = new CompositeDisposable();
 
@@ -40,11 +38,11 @@ public class ResponseTransformer<T> implements ObservableTransformer<BaseRespons
 
     @NonNull
     @Override
-    public ObservableSource<T> apply(@NonNull Observable<BaseResponse<T>> upstream) {
+    public ObservableSource<T> apply(@NonNull Observable<KTBaseResponse<T>> upstream) {
         return upstream.doOnSubscribe(compositeDisposable::add).onErrorResumeNext(throwable -> {
             // 出现异常统一处理 (非业务性的异常)
-            return Observable.error(ApiException.handleException(throwable));
-        }).flatMap((Function<BaseResponse<T>, ObservableSource<T>>) response -> {
+            return Observable.error(KTApiException.handleException(throwable));
+        }).flatMap((Function<KTBaseResponse<T>, ObservableSource<T>>) response -> {
             // 对响应数据统一处理
             if (response.isSuccess()) {
                 if (response.getContent()!= null) {
@@ -57,7 +55,7 @@ public class ResponseTransformer<T> implements ObservableTransformer<BaseRespons
                     return Observable.just(object);
                 }
             }
-            return Observable.error(new ApiException(response.getCode(), response.getMsg()));
+            return Observable.error(new KTApiException(response.getCode(), response.getMsg()));
         }).subscribeOn(Schedulers.io())//指定事件产生的线程(请求的线程)
                 .observeOn(AndroidSchedulers.mainThread());// 指定事件处理的线程 (响应的线程)
     }

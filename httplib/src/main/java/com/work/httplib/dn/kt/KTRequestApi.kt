@@ -13,15 +13,15 @@ import io.reactivex.rxjava3.core.Observable
 object KTRequestApi {
     fun <T> request(
         owner: LifecycleOwner,
-        obs: Observable<BaseResponse<T>>,
-        callback: ICallback<T>
+        obs: Observable<KTBaseResponse<T>>,
+        callback: KTICallback<T>
     ) {
         obs.compose(KTResponseTransformer.obtain(owner))
             .subscribe({
                 callback.onSuccess(it)
             }
             ) {
-                callback.onFailure(ApiException.handleException(it))
+                callback.onFailure(KTApiException.handleException(it))
             }
     }
 

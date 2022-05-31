@@ -22,7 +22,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
  * @Email wangweitikou1994@gmail.com
  * @Des
  */
-class KTResponseTransformer<T : Any> : ObservableTransformer<BaseResponse<T>, T>, LifecycleObserver {
+class KTResponseTransformer<T : Any> : ObservableTransformer<KTBaseResponse<T>, T>, LifecycleObserver {
 
     private val compositeDisposable = CompositeDisposable()
 
@@ -33,17 +33,17 @@ class KTResponseTransformer<T : Any> : ObservableTransformer<BaseResponse<T>, T>
         }
     }
 
-    override fun apply(upstream: Observable<BaseResponse<T>>): ObservableSource<T>? {
+    override fun apply(upstream: Observable<KTBaseResponse<T>>): ObservableSource<T>? {
         return upstream.doOnSubscribe(compositeDisposable::add)
             .onErrorResumeNext {
                 Observable.error(ExceptionEngine.handleException(it))
             }
-            .flatMap(Function<BaseResponse<T>, ObservableSource<T>> { response ->
+            .flatMap(Function<KTBaseResponse<T>, ObservableSource<T>> { response ->
                 // 对响应数据统一处理
                 if (TextUtils.equals("1", response.code)) {
                     return@Function Observable.just(response.content)
                 }
-                Observable.error(ApiException(response.code, response.msg))
+                Observable.error(KTApiException(response.code, response.msg))
             })
             .subscribeOn(Schedulers.io())//指定事件产生的线程(请求的线程)
             .observeOn(AndroidSchedulers.mainThread());// 指定事件处理的线程 (响应的线程)

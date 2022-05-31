@@ -7,7 +7,7 @@ package com.work.httplib.common
  * @Email wangweitikou1994@gmail.com
  * @Des 响应数据
  */
-interface IResponse<T> {
+interface IResponse2<T> {
     fun getData(): T
     fun getCode(): String
     fun getMsg(): String
