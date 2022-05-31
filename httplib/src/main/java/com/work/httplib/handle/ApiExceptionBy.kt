@@ -9,7 +9,7 @@ import java.lang.annotation.RetentionPolicy
  * Created by zhaojian on 2018/2/5.
  * http消息异常
  */
-class ApiException(
+class ApiExceptionBy(
     @field:Type @get:Type
     @param:Type val type: Int,
     val requestError: HttpErrorDetail,

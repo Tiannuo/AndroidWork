@@ -13,6 +13,6 @@ import com.work.login.bean.QingHuaBean
  */
 class UserDataRepository {
     suspend fun getUserData(): QingHuaBean{
-        return HttpUtils.createApi(UserApi::class.java).loadQing("json")
+        return HttpUtils.createApi(UserApi::class.java).loadQing()
     }
 }

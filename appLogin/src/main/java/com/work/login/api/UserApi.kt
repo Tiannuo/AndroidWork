@@ -6,5 +6,5 @@ import retrofit2.http.Query
 
 interface UserApi {
     @GET("rand.qinghua")
-    suspend fun loadQing(@Query("format") format: String): QingHuaBean
+    suspend fun loadQing(): QingHuaBean
 }

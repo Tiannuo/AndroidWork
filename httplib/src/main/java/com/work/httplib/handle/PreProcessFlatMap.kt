@@ -27,8 +27,8 @@ class PreProcessFlatMap<T> : Function<BaseResultBean<T?>, ObservableSource<T>> {
                 // 有网络错误
                 //saveLog(result);
                 if (-1 == result.code && null != result.errorDetail) {
-                    val apiException = ApiException(
-                        ApiException.TYPE_HTTP,
+                    val apiException = ApiExceptionBy(
+                        ApiExceptionBy.TYPE_HTTP,
                         result.errorDetail!!,
                         result.code,
                         result
@@ -43,18 +43,18 @@ class PreProcessFlatMap<T> : Function<BaseResultBean<T?>, ObservableSource<T>> {
                     //Logger.d("code:" + result.code + " - msg:" + errorMsg);
                     val e = HttpErrorDetail(HttpErrorDetail.SERVER_DATA_CODE_NOT_0, errorMsg)
                     val apiException =
-                        ApiException(ApiException.TYPE_SERVER_DATA, e, result.code, result)
+                        ApiExceptionBy(ApiExceptionBy.TYPE_SERVER_DATA, e, result.code, result)
                     subscriber.onError(apiException)
                     subscriber.onComplete()
                 }
             }
         }.observeOn(AndroidSchedulers.mainThread()).onErrorResumeNext { throwable ->
             Observable.create(ObservableOnSubscribe { subscriber ->
-                if (throwable is ApiException) {
+                if (throwable is ApiExceptionBy) {
                     val ex = throwable
                     val error = ex.requestError
                     when (ex.type) {
-                        ApiException.TYPE_HTTP -> if (HttpErrorDetail.HTTP_ERROR_410 == error.errorCode) {
+                        ApiExceptionBy.TYPE_HTTP -> if (HttpErrorDetail.HTTP_ERROR_410 == error.errorCode) {
                             //ToastAlone.showLong(R.string.ll_public_force_exit);
                             /*new Handler().postDelayed(new Runnable() {
                                                             @Override
@@ -69,7 +69,7 @@ class PreProcessFlatMap<T> : Function<BaseResultBean<T?>, ObservableSource<T>> {
                             subscriber.onComplete()
                             return@ObservableOnSubscribe
                         }
-                        ApiException.TYPE_SERVER_DATA -> {}
+                        ApiExceptionBy.TYPE_SERVER_DATA -> {}
                         else -> {}
                     }
                 }

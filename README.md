@@ -132,3 +132,4 @@ TheIsle 恐龙岛的APP
 6. Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
 7. 多渠道打包，子module 多渠道
    思路 [https://blog.csdn.net/z470567554/article/details/103896625](https://blog.csdn.net/z470567554/article/details/103896625)
+8. modulesBase:libBase 可以为添加双层结构的在new module的时候输入的module名字

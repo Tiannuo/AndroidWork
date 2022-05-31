@@ -2,6 +2,7 @@ package com.work.supportlib
 
 import java.lang.Exception
 import java.lang.reflect.Field
+import java.lang.reflect.ParameterizedType
 
 object ReflectUtils {
     fun getDeclaredField(`object`: Any, fieldName: String?): Field? {
@@ -18,5 +19,13 @@ object ReflectUtils {
             clazz = clazz.superclass
         }
         return null
+    }
+
+    fun analysisClassInfo(obj: Any): Class<*> {
+        val genType = obj.javaClass.genericSuperclass
+        val pType = genType as ParameterizedType
+        val params = pType.actualTypeArguments
+        val type0 = params[0]
+        return type0 as Class<*>
     }
 }

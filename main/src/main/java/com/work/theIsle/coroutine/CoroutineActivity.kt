@@ -44,7 +44,7 @@ class CoroutineActivity : AppCompatActivity() {
 
     fun showTestResult(view: View) {
         mainScope.launch {
-            val userData = HttpUtils.createApi(UserApi::class.java).loadQing("json")
+            val userData = HttpUtils.createApi(UserApi::class.java).loadQing()
             Logger.d(userData.content)
         }
     }

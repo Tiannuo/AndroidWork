@@ -3,6 +3,7 @@ package com.work.httplib.httputils
 import com.orhanobut.logger.Logger
 import com.work.httplib.BuildConfig
 import com.work.httplib.BuildConfig.IBASE_URL
+import com.work.httplib.interceptor.CommonQueryParamsInterceptor
 import com.work.httplib.listener.ResponseListener
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
@@ -35,6 +36,7 @@ object HttpUtils {
             mClient = OkHttpClient.Builder()
                 //打印HTTP 请求信息
                 .addInterceptor(createInterceptor())
+                .addInterceptor(CommonQueryParamsInterceptor())
                 //增加特殊的Cookies
                 //.addInterceptor(AddCookiesInterceptor())
                 //增加公共基础参数
