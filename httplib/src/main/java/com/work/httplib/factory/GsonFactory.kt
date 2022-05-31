@@ -58,8 +58,8 @@ object GsonFactory {
             field.isAccessible = true
             val factories = field[gson] as List<TypeAdapterFactory>
             val pro = ReflectUtils.getDeclaredField(factories, "list")
-            pro.isAccessible = true
-            val modifyerList = pro[factories] as MutableList<TypeAdapterFactory>
+            pro?.isAccessible = true
+            val modifyerList = pro?.get(factories) as MutableList<TypeAdapterFactory>
             modifyerList.removeAt(1)
         } catch (e: NoSuchFieldException) {
             e.printStackTrace()
