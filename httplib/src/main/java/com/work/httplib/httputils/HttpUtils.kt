@@ -3,8 +3,6 @@ package com.work.httplib.httputils
 import com.orhanobut.logger.Logger
 import com.work.httplib.BuildConfig
 import com.work.httplib.BuildConfig.IBASE_URL
-import com.work.httplib.constans.Constants.BASE_URL
-import com.work.httplib.interceptor.AddCookiesInterceptor
 import com.work.httplib.listener.ResponseListener
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
@@ -24,6 +22,8 @@ object HttpUtils {
     fun <T> createApi(clazz: Class<T>): T = Retrofit.Builder()
         .baseUrl(IBASE_URL)
         .client(createClient())
+        //对Gson数据预处理,需要配合具体的业务进行完善
+        //.addConverterFactory(CustomConverterFactory.create(GsonFactory.createCustomGson()))
         .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
         .addConverterFactory(GsonConverterFactory.create())
         .build().create(clazz)
@@ -33,8 +33,14 @@ object HttpUtils {
     private fun createClient(): OkHttpClient? {
         if (mClient == null) {
             mClient = OkHttpClient.Builder()
+                //打印HTTP 请求信息
                 .addInterceptor(createInterceptor())
-                .addInterceptor(AddCookiesInterceptor())
+                //增加特殊的Cookies
+                //.addInterceptor(AddCookiesInterceptor())
+                //增加公共基础参数
+                //.addInterceptor(UserInfoInterceptor.instance)
+                //特殊业务设置超时拦截
+                //.addInterceptor(DynamicTimeoutInterceptor())
                 .build()
         }
         return mClient
@@ -42,7 +48,7 @@ object HttpUtils {
 
     private fun createInterceptor(): Interceptor {
         HttpLoggingInterceptor.Logger { msg ->
-            if (BuildConfig.DEBUG){
+            if (BuildConfig.DEBUG) {
                 Logger.json(msg)
             }
         }
