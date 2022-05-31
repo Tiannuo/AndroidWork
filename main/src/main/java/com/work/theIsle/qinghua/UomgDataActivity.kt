@@ -3,6 +3,7 @@ package com.work.theIsle.qinghua
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.work.baselib.activity.BaseActivity
 import com.work.baselib.arouter.RouterPath.PATH_UOMGDATA
 import com.work.httplib.dn.kt.KTApiException
 import com.work.httplib.dn.kt.KTICallback
@@ -19,7 +20,7 @@ import com.work.theIsle.databinding.ActivityUomgBinding
  * @Des https://api.uomg.com/doc-rand.qinghua.html uomg 相关接口测试
  */
 @Route(path = PATH_UOMGDATA)
-class UomgDataActivity : AppCompatActivity() {
+class UomgDataActivity : BaseActivity() {
     private lateinit var binding: ActivityUomgBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,5 +40,13 @@ class UomgDataActivity : AppCompatActivity() {
                     }
                 })
         }
+    }
+
+    override fun initView() {
+
+    }
+
+    override fun initData() {
+
     }
 }

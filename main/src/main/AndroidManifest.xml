@@ -33,7 +33,8 @@
         <activity
             android:name=".coroutine.CoroutineActivity3"
             android:screenOrientation="portrait" />
-        <activity android:name=".qinghua.UomgDataActivity" />
+        <activity android:name=".qinghua.UomgDataActivity"
+            />
 
         <meta-data
             android:name="PGYER_API_KEY"

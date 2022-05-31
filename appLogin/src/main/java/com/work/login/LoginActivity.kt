@@ -17,7 +17,7 @@ class LoginActivity :
 
     override fun createPresenter() = LoginPresenter()
 
-    override fun init() {
+    override fun initView() {
         getBinding()!!.btnTest.also { it.setOnClickListener { getPresenter()!!.getTest(getBinding()) } }
         getBinding()!!.btnCoroutine.also {
             it.setOnClickListener {

@@ -6,12 +6,13 @@ import com.work.baselib.mvp.presenter.BasePresenter
 import com.work.baselib.mvp.view.BaseView
 import androidx.viewbinding.ViewBinding
 
-abstract class BaseMvpModelActivity<V : BaseView<B,M>, P : BasePresenter<V,B, M>, B : ViewBinding, M> :
-    AppCompatActivity(), BaseView<B,M> {
+abstract class BaseMvpModelActivity<V : BaseView<B, M>, P : BasePresenter<V, B, M>, B : ViewBinding, M> :
+    BaseActivity(), BaseView<B, M> {
     private var mPresenter: P? = null
     private var mBinding: B? = null
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+
+    override fun initBaseMvpModel() {
+        super.initBaseMvpModel()
         if (mPresenter == null) {
             mPresenter = createPresenter()
         }
@@ -20,14 +21,12 @@ abstract class BaseMvpModelActivity<V : BaseView<B,M>, P : BasePresenter<V,B, M>
             setContentView(getBinding()!!.root)
         }
         mPresenter!!.bindView(this as V)
-        init()
-        initData()
     }
 
     abstract fun createBinding(): B?
     protected abstract fun createPresenter(): P
-    protected abstract fun init()
-    protected abstract fun initData()
+    abstract override fun initView()
+    abstract override fun initData()
     fun getPresenter() = mPresenter
 
     fun getBinding() = mBinding
