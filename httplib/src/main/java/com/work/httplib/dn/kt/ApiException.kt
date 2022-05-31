@@ -11,7 +11,7 @@ import java.net.UnknownHostException
 /**
  * 通用请求异常封装类
  */
-class ApiException(var code: String, var errorMsg: String) : Exception() {
+class ApiException(var code: String? = "-1", var errorMsg: String? = "null") : Exception() {
     override fun toString(): String {
         return "ApiException{" +
                 "code='" + code + '\'' +

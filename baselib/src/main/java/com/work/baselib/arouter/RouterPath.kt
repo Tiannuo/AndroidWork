@@ -10,5 +10,7 @@ package com.work.baselib.arouter
 object RouterPath {
     const val PATH_LOGIN = "/loginTo/loginActivity"
     const val PATH_COROUTINE = "/coroutineTo/CoroutineActivity"
+    const val PATH_COROUTINE2 = "/coroutineTo/CoroutineActivity2"
     const val PATH_COROUTINE3 = "/coroutineTo/CoroutineActivity3"
+    const val PATH_UOMGDATA = "/qinghuaTo/UomgDataActivity"
 }

@@ -1,5 +1,7 @@
 package com.work.httplib.dn;
 
+import android.text.TextUtils;
+
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
@@ -44,9 +46,9 @@ public class ResponseTransformer<T> implements ObservableTransformer<IResponse<T
             return Observable.error(ApiException.handleException(throwable));
         }).flatMap((Function<IResponse<T>, ObservableSource<T>>) response -> {
             // 对响应数据统一处理
-            if (response.isSuccess()) {
-                if (response.getData() != null) {
-                    return Observable.just(response.getData());
+            if (TextUtils.equals("1",response.getCode())) {
+                if (response.getContent()!= null) {
+                    return Observable.just(response.getContent());
                 } else {
                     // 业务请求可能成功了，但是data是NULL
                     // 通过反射手动创建data，这个data一般是没有实际用途

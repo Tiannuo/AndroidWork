@@ -22,7 +22,7 @@ class LoginPresenter : BasePresenter<LoginView, ActivityLoginBinding, QingHuaBea
         var qingHuaBean: QingHuaBean? = null
         // 不入参默认是子线程
         GlobalScope.launch(Dispatchers.Main) {
-            qingHuaBean = api.loadQing("json")
+            qingHuaBean = api.loadQing()
             //qingHuaBean.let { getBaseView().setData(it) }
             getBaseView().setData(binding, qingHuaBean ?: QingHuaBean(0, "哈哈哈"))
         }

@@ -5,4 +5,5 @@
     <string name="str_btn_login">登录</string>
     <string name="str_btn_test">测试</string>
     <string name="str_btn_coroutine">协程</string>
+    <string name="str_btn_umog">UMOG</string>
 </resources>

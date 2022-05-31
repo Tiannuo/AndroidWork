@@ -9,6 +9,7 @@ import com.hjq.permissions.OnPermissionCallback
 import com.hjq.permissions.Permission
 import com.hjq.permissions.XXPermissions
 import com.hjq.toast.ToastUtils
+import com.work.baselib.arouter.RouterPath.PATH_LOGIN
 
 import com.work.theIsle.R
 import com.work.theIsle.databinding.ActivitySplashBinding
@@ -77,7 +78,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun skipToLoginActivity() {
-        ARouter.getInstance().build("/loginTo/loginActivity").navigation(this)
+        ARouter.getInstance().build(PATH_LOGIN).navigation(this)
         finish()
     }
 

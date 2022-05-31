@@ -12,4 +12,5 @@
     <string name="toast_request_permission_not_all_success">获取部分权限成功，但部分权限未正常授予!</string>
     <string name="toast_request_permission_never">被永久拒绝授权，请手动授予权限!</string>
     <string name="toast_request_permission_fail">获取权限失败!</string>
+    <string name="str_qinghua">土味情话</string>
 </resources>
