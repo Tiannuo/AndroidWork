@@ -1,33 +1,51 @@
 def config = rootProject.ext.android
 def androidBaseLib = rootProject.ext.androidBaseLib
-if (config.loginIsApplication) {
-    apply plugin: 'com.android.application'
-} else {
-    apply plugin: 'com.android.library'
-}
-apply plugin: 'org.jetbrains.kotlin.android'
-apply plugin: 'kotlin-kapt'
+def url = rootProject.ext.url
 
-kapt {
-    arguments {
-        arg("AROUTER_MODULE_NAME", project.getName())
-    }
-}
+apply plugin: 'com.android.library'
+apply plugin: 'org.jetbrains.kotlin.android'
 android {
     compileSdk config.compileSdkVersion
-    buildToolsVersion config.buildToolsVersion
+
     defaultConfig {
+        if (config.httpIsApplication) {
+            applicationId "com.work.httplib"
+        }
         minSdkVersion config.minSdkVersion
         targetSdkVersion config.targetSdkVersion
-        flavorDimensions dimensions.applogin
+        versionCode config.versionCode
+        versionName config.versionName
+        flavorDimensions dimensions.httplib
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
+        // missingDimensionStrategy "sdk", "$flavor"
     }
 
+    /*
+         //更改AndroidManifest.xml中预先定义好占位符信息
+            //manifestPlaceholders = [app_icon: "@drawable/icon"]
+            // 不显示Log
+            buildConfigField "boolean", "LEO_DEBUG", "false"
+            //是否zip对齐
+            zipAlignEnabled true
+            // 缩减resource文件
+            shrinkResources true
+            //Proguard
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //签名
+            signingConfig signingConfigs.release
+    * */
     buildTypes {
         release {
             minifyEnabled false
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            buildConfigField "String", "IBASE_URL", url.testUrl
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            buildConfigField "String", "IBASE_URL", url.testUrl
         }
     }
     compileOptions {
@@ -37,18 +55,14 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-
-    buildFeatures {
-        viewBinding true
-    }
-
     sourceSets {
         main {
-            if (config.loginIsApplication) {
-                manifest.srcFile 'src/main/AndroidManifest.xml'
-            } else {
-                manifest.srcFile 'src/main/AndroidManifest/AndroidManifest.xml'
-            }
+            manifest.srcFile 'src/main/AndroidManifest.xml'
+            /*    if (config.appIsApplication) {
+                    manifest.srcFile 'src/main/AndroidManifest.xml'
+                } else {
+                    manifest.srcFile 'src/main/AndroidManifest/AndroidManifest.xml'
+                }*/
         }
     }
 
@@ -56,9 +70,7 @@ android {
     productFlavors {
         //开发环境
         PFdev {
-            dimension dimensions.applogin
-            missingDimensionStrategy dimensions.baselib, "PFdev", "PFTest", "PFrelease"
-            missingDimensionStrategy dimensions.httplib, "PFdev", "PFTest", "PFrelease"
+            dimension dimensions.httplib
             missingDimensionStrategy dimensions.supportlib, "PFdev", "PFTest", "PFrelease"
             buildConfigField "String", "IBASE_URL", url.devUrl
             buildConfigField "boolean", "isDevDebug", "true"
@@ -66,9 +78,7 @@ android {
 
         //测试环境
         PFTest {
-            dimension dimensions.applogin
-            missingDimensionStrategy dimensions.baselib, "PFdev", "PFTest", "PFrelease"
-            missingDimensionStrategy dimensions.httplib, "PFdev", "PFTest", "PFrelease"
+            dimension dimensions.httplib
             missingDimensionStrategy dimensions.supportlib, "PFdev", "PFTest", "PFrelease"
             buildConfigField "String", "IBASE_URL", url.testUrl
             buildConfigField "boolean", "isTestDebug", "false"
@@ -76,9 +86,7 @@ android {
 
         //正式环境
         PFrelease {
-            dimension dimensions.applogin
-            missingDimensionStrategy dimensions.baselib, "PFdev", "PFTest", "PFrelease"
-            missingDimensionStrategy dimensions.httplib, "PFdev", "PFTest", "PFrelease"
+            dimension dimensions.httplib
             missingDimensionStrategy dimensions.supportlib, "PFdev", "PFTest", "PFrelease"
             buildConfigField "String", "IBASE_URL", url.releaseUrl
             buildConfigField "boolean", "isReleaseDebug", "false"
@@ -90,12 +98,9 @@ dependencies {
     implementation androidBaseLib.ktx
     implementation androidBaseLib.appcompat
     implementation androidBaseLib.material
-    implementation project(path: ':supportLib')
-    implementation project(path: ':baselib')
-    implementation project(path: ':httplib')
     testImplementation androidBaseLib.junit
     androidTestImplementation androidBaseLib.extJunit
     androidTestImplementation androidBaseLib.espresso
-    api 'com.alibaba:arouter-api:' + androidBaseLib.version_arouter_api
-    kapt 'com.alibaba:arouter-compiler:' + androidBaseLib.version_arouter_compiler
+    implementation androidBaseLib.constraintlayout
+    implementation project(path: ':moduleSupport')
 }

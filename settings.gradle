@@ -18,7 +18,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "TheIsle"
 include ':main'
-include ':supportLib'
-include ':appLogin'
-include ':httplib'
-include ':baselib'
+include ':moduleSupport'
+include ':moduleLogin'
+include ':moduleHttp'
+include ':moduleBase'

@@ -7,8 +7,6 @@ ext {
                versionName       : "1.0",
                appIsApplication  : true,
                loginIsApplication: false,
-               httpIsApplication : false,
-               baseIsApplication : false
     ]
     androidBaseLib = [
             ktx                        : 'androidx.core:core-ktx:1.7.0',
@@ -36,7 +34,7 @@ ext {
             version_nav                : '2.4.2',
             version_multidex           : '1.0.3',
             version_kotlinx_coroutines : '1.6.2',
-            version_junit : '4.13.2',
+            version_junit              : '4.13.2',
     ]
     url = [
             devUrl    : '"https://api.uomg.com/api/"',

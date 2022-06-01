@@ -1,10 +1,6 @@
 def config = rootProject.ext.android
 def androidBaseLib = rootProject.ext.androidBaseLib
-if (config.baseIsApplication) {
-    apply plugin: 'com.android.application'
-} else {
-    apply plugin: 'com.android.library'
-}
+apply plugin: 'com.android.library'
 apply plugin: 'org.jetbrains.kotlin.android'
 apply plugin: 'kotlin-kapt'
 kapt {
@@ -42,11 +38,12 @@ android {
     }
     sourceSets {
         main {
-            if (config.baseIsApplication) {
-                manifest.srcFile 'src/main/AndroidManifest.xml'
-            } else {
-                manifest.srcFile 'src/main/AndroidManifest/AndroidManifest.xml'
-            }
+            manifest.srcFile 'src/main/AndroidManifest.xml'
+            /*       if (config.baseIsApplication) {
+                       manifest.srcFile 'src/main/AndroidManifest.xml'
+                   } else {
+                       manifest.srcFile 'src/main/AndroidManifest/AndroidManifest.xml'
+                   }*/
         }
     }
     buildFeatures {
@@ -81,7 +78,6 @@ android {
             buildConfigField "boolean", "isReleaseDebug", "false"
         }
     }
-
 }
 
 dependencies {
@@ -92,8 +88,8 @@ dependencies {
     androidTestImplementation androidBaseLib.extJunit
     androidTestImplementation androidBaseLib.espresso
     implementation androidBaseLib.constraintlayout
-    implementation project(path: ':supportLib')
-    implementation project(path: ':httplib')
+    implementation project(path: ':moduleSupport')
+    implementation project(path: ':moduleHttp')
     api 'com.alibaba:arouter-api:' + androidBaseLib.version_arouter_api
     kapt 'com.alibaba:arouter-compiler:' + androidBaseLib.version_arouter_compiler
 }

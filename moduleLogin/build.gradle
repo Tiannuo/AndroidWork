@@ -1,0 +1,101 @@
+def config = rootProject.ext.android
+def androidBaseLib = rootProject.ext.androidBaseLib
+if (config.loginIsApplication) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
+apply plugin: 'org.jetbrains.kotlin.android'
+apply plugin: 'kotlin-kapt'
+
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
+android {
+    compileSdk config.compileSdkVersion
+    buildToolsVersion config.buildToolsVersion
+    defaultConfig {
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
+        flavorDimensions dimensions.applogin
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    sourceSets {
+        main {
+            if (config.loginIsApplication) {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest/AndroidManifest.xml'
+            }
+        }
+    }
+
+    // 多渠道打包
+    productFlavors {
+        //开发环境
+        PFdev {
+            dimension dimensions.applogin
+            missingDimensionStrategy dimensions.baselib, "PFdev", "PFTest", "PFrelease"
+            missingDimensionStrategy dimensions.httplib, "PFdev", "PFTest", "PFrelease"
+            missingDimensionStrategy dimensions.supportlib, "PFdev", "PFTest", "PFrelease"
+            buildConfigField "String", "IBASE_URL", url.devUrl
+            buildConfigField "boolean", "isDevDebug", "true"
+        }
+
+        //测试环境
+        PFTest {
+            dimension dimensions.applogin
+            missingDimensionStrategy dimensions.baselib, "PFdev", "PFTest", "PFrelease"
+            missingDimensionStrategy dimensions.httplib, "PFdev", "PFTest", "PFrelease"
+            missingDimensionStrategy dimensions.supportlib, "PFdev", "PFTest", "PFrelease"
+            buildConfigField "String", "IBASE_URL", url.testUrl
+            buildConfigField "boolean", "isTestDebug", "false"
+        }
+
+        //正式环境
+        PFrelease {
+            dimension dimensions.applogin
+            missingDimensionStrategy dimensions.baselib, "PFdev", "PFTest", "PFrelease"
+            missingDimensionStrategy dimensions.httplib, "PFdev", "PFTest", "PFrelease"
+            missingDimensionStrategy dimensions.supportlib, "PFdev", "PFTest", "PFrelease"
+            buildConfigField "String", "IBASE_URL", url.releaseUrl
+            buildConfigField "boolean", "isReleaseDebug", "false"
+        }
+    }
+}
+
+dependencies {
+    implementation androidBaseLib.ktx
+    implementation androidBaseLib.appcompat
+    implementation androidBaseLib.material
+    implementation project(path: ':moduleSupport')
+    implementation project(path: ':moduleBase')
+    implementation project(path: ':moduleHttp')
+    testImplementation androidBaseLib.junit
+    androidTestImplementation androidBaseLib.extJunit
+    androidTestImplementation androidBaseLib.espresso
+    api 'com.alibaba:arouter-api:' + androidBaseLib.version_arouter_api
+    kapt 'com.alibaba:arouter-compiler:' + androidBaseLib.version_arouter_compiler
+}

@@ -166,15 +166,15 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
-    implementation project(path: ':baselib')
-    implementation project(path: ':httplib')
+    implementation project(path: ':moduleBase')
+    implementation project(path: ':moduleHttp')
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation project(path: ':moduleSupport')
     if (config.appIsApplication) {
-        implementation project(path: ':appLogin')
+        implementation project(path: ':moduleLogin')
     }
-    implementation project(path: ':supportLib')
     api 'com.alibaba:arouter-api:' + androidBaseLib.version_arouter_api
     kapt 'com.alibaba:arouter-compiler:' + androidBaseLib.version_arouter_compiler
 }
