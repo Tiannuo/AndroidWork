@@ -2,7 +2,7 @@
 
 #### 介绍
 
-TheIsle 恐龙岛的APP
+AndroidWork
 
 #### 软件架构
 
