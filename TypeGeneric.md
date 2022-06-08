@@ -44,7 +44,7 @@ AndroidWork:主要对泛型进行解释说明 需要准备一些基础类如下�
 1. 泛型 泛型是一种不需要确定具体数据类型的定义，编译会自动对泛型进行转换，可以方便我们在编程的时候减少很多重复代码，同时增加安全性（区别于Object，object是超级父类）
 2. = Class 下定义时以及初始化时说明，=左边为<font color= red> 下定义时 </font>，=右边为 <font color= red> 实例化时 </font>
    ，下一行之后都是<font color= red> 初始化后 </font>
-3. 上界通配符
+3. 上界通配符(Java: <? extends T> 和 Kotlin：<out T> 协变 相似)
     * Java: <? extends T> （<font color= red> 实例化时 </font>泛型中的类型只能是T以及子类，同时可以存输入参数值;<font color= red>
       初始化后 </font> 只能取输出返回值，不可以再存输入参数值）
       > <font color= red> 下定义时 </font>的泛型 ？,在<font color= red> 实例化时 </font>泛型只能是当前类T及其子类，在<font color= red> 初始化后 </font>只能输出返回值，不能在实<font color= red> 初始化后 </font>存放数据，存放数据需要放在<font color= red> 实例化时 </font> 即是 <font color= red> Class(){{存放数据}} </font>，代码如下
@@ -102,8 +102,9 @@ AndroidWork:主要对泛型进行解释说明 需要准备一些基础类如下�
       > 此时Food及其子类全都可以在<font color= red> 实例化时 </font>存放，不会出现报错信息  
       总结：<font color= red> 实例化时 </font> 的泛型受限于<font color= red> 下定义时 </font>的泛型，<font color= red> 实例化时 </font> 存放数据类型受限于<font color= red> 实例化时 </font>泛型
 
-    * Kotlin 中的out:T 协变 可输出返回值fun get():T，不可以输入参数fun set(t:T)）
-4. 下界通配符
+    * Kotlin 中的out:T 协变 可输出返回值fun get():T，不可以输入参数fun set(t:T)  
+   
+4. 下界通配符(Java:<? super T> 和Kotlin: <in T> 逆变 相似)
     * Java:<? super T> (<font color= red> 实例化时 </font>泛型中的类型只能是T及其父类，<font color= red>
       实例化时 </font><font color= red> 初始化后 </font>两个过程均可以存取实例)
    > <font color= red> 下定义时 </font>的泛型？ 在<font color= red> 实例化时 </font> 和<font color= red> 初始化后 </font> 添加对象类型限制是不同的，<font color= red> 初始化后 </font>添加对象只能是<font color= red> 下定义时 </font>T及其子类，<font color= red> 实例化时 </font> 添加对象时的类型只能是<font color= red> 实例化时 </font> 类型及其子类的我们可以将两个看作都有各自的作用域代码如下  
@@ -133,6 +134,10 @@ AndroidWork:主要对泛型进行解释说明 需要准备一些基础类如下�
         Apple apple = (Apple) fruits.get(0);
         Object object = fruits.get(0);
    ````
+
+   * Kotlin 中的in:T 逆变 不可输出返回值fun get():T，可输入参数fun set(t:T)
+
+
 
 #### 参考文献
 

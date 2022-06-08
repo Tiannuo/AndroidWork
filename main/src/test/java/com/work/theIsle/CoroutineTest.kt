@@ -79,7 +79,7 @@ class CoroutineTest {
         val time = measureTimeMillis {
             val one = async { doOne() }
             val two = async { doTwo() }
-            println("The Result:${one.await()+two.await()}")
+            println("The Result:${one.await() + two.await()}")
         }
         println("Completed in $time ms")
     }
@@ -104,5 +104,22 @@ class CoroutineTest {
         delay(1000)
         //job.cancel()
 
+    }
+
+    @Test
+    fun `test start mode delay`() = runBlocking {
+        val scope = CoroutineScope(Dispatchers.Default)
+        val job1 = scope.launch {
+            delay(100)
+            println("job1")
+        }
+
+        job1.join()
+        val job2 = scope.launch {
+            delay(200)
+            println("job2")
+        }
+
+        delay(100)
     }
 }
