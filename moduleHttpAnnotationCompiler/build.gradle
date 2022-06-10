@@ -1,9 +1,24 @@
 plugins {
     id 'java-library'
     id 'org.jetbrains.kotlin.jvm'
+    id("kotlin-android-extensions")
+    id 'kotlin-kapt'
 }
+
+def javaBaseConfigLib = rootProject.ext.javaBaseLib
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_7
     targetCompatibility = JavaVersion.VERSION_1_7
+}
+
+dependencies {
+    implementation "com.squareup:javapoet:$javaBaseConfigLib.version_javapoet"
+    //kotlin
+    implementation("com.google.auto.service:auto-service-annotations:$javaBaseConfigLib.version_auto_service")
+    kapt "com.google.auto.service:auto-service:$javaBaseConfigLib.version_auto_service"
+    //没有增加 id 'kotlin-kapt' 则需要使用annotationProcessor ,具体见ARouter的实现
+    //annotationProcessor "com.google.auto.service:auto-service:$javaBaseConfigLib.version_auto_service"
+    //implementation "com.google.auto.service:auto-service-annotations:$javaBaseConfigLib.version_auto_service"
+
 }
