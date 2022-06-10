@@ -37,7 +37,7 @@ class TypeTest1 {
         }
     }
 
-    fun baseTest() {
+/*    fun baseTest() {
         val foods: List<Food> =
         // 初始化再存放数据时会报错
         // foods.add(new Fruit());  报错
@@ -66,12 +66,12 @@ class TypeTest1 {
         // foods.add(new Meat());   报错
         val obj: Any = foods[0] //默认返回的是Object实例
         val fruit = foods[0] as Fruit //当需要指定类型的时候需要进行强转，但是强转就可能会带来类型转换异常的错误（get(1)是Apple）
-    }
+    }*/
 
     /**
      * = 左边是下定义，右边是申明实例化
      */
-    fun test() {
+/*    fun test() {
         // 上界通配符 extends  泛型中类只能是当前类及其子类
         // 只能输出返回取值，不能在实例化后再存放，初始话需要放在申明实例化的时候Class{{}}
         // 如下定义的时候使用？extends Fruit ,上限是Fruit ，但是申明实例化的时候使用其子类Apple，则此时只能存放Apple（实例化泛型及其子类对象）
@@ -110,5 +110,5 @@ class TypeTest1 {
         //efoods.add(new Fruit());
         //https://blog.csdn.net/qq_33561055/article/details/87289812
         //https://zhuanlan.zhihu.com/p/249187830
-    }
+    }*/
 }
