@@ -8,11 +8,13 @@ import android.text.TextUtils
  * @param <T>
 </T> */
 open class KTBaseResponse<T>(
-    override val content: T,
+    override val content: T?,
     override val msg: String,
     override val code: String
 ) : KTIResponse<T> {
+    constructor(code: String,msg: String) : this(null,msg,code)
 
     override val isSuccess: Boolean
         get() = TextUtils.equals("1", code)
 }
+

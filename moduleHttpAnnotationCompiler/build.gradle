@@ -8,8 +8,8 @@ plugins {
 def javaBaseConfigLib = rootProject.ext.javaBaseLib
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_7
-    targetCompatibility = JavaVersion.VERSION_1_7
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 dependencies {
@@ -20,5 +20,6 @@ dependencies {
     //没有增加 id 'kotlin-kapt' 则需要使用annotationProcessor ,具体见ARouter的实现
     //annotationProcessor "com.google.auto.service:auto-service:$javaBaseConfigLib.version_auto_service"
     //implementation "com.google.auto.service:auto-service-annotations:$javaBaseConfigLib.version_auto_service"
-
+    implementation project(path: ':moduleHttpAnnotation')
+    implementation "com.squareup.retrofit2:retrofit:$androidBaseLib.version_retrofit"
 }

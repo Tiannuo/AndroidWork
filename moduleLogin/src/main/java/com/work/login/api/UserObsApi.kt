@@ -3,6 +3,7 @@ package com.work.login.api
 import com.work.httplib.dn.kt.KTBaseResponse
 import io.reactivex.rxjava3.core.Observable
 import retrofit2.http.GET
+import retrofit2.http.POST
 
 /**
 
@@ -12,6 +13,6 @@ import retrofit2.http.GET
  * @Des
  */
 interface UserObsApi {
-    @GET("rand.qinghua")
+    @POST("rand.qinghua")
     fun loadQing(): Observable<KTBaseResponse<String>>
 }
