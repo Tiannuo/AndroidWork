@@ -34,6 +34,10 @@
             android:name=".coroutine.CoroutineActivity3"
             android:screenOrientation="portrait" />
         <activity android:name=".qinghua.UomgDataActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".coroutine.FlowActivity"
+            android:screenOrientation="portrait"
             />
 
         <meta-data

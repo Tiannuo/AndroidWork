@@ -107,3 +107,7 @@ gradle
 gradlew
 gradlew.bat
 
+/main/PFDev/
+/main/PFTest/
+/main/PFRelease/
+

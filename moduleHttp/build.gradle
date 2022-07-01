@@ -13,8 +13,6 @@ android {
         }
         minSdkVersion config.minSdkVersion
         targetSdkVersion config.targetSdkVersion
-        versionCode config.versionCode
-        versionName config.versionName
         flavorDimensions dimensions.httplib
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         // missingDimensionStrategy "sdk", "$flavor"
@@ -71,7 +69,7 @@ android {
         //开发环境
         PFdev {
             dimension dimensions.httplib
-            missingDimensionStrategy dimensions.supportlib, "PFdev", "PFTest", "PFrelease"
+            missingDimensionStrategy dimensions.supportlib, "PFdev", "PFTest", "PFRelease"
             buildConfigField "String", "IBASE_URL", url.devUrl
             buildConfigField "boolean", "isDevDebug", "true"
         }
@@ -79,15 +77,15 @@ android {
         //测试环境
         PFTest {
             dimension dimensions.httplib
-            missingDimensionStrategy dimensions.supportlib, "PFdev", "PFTest", "PFrelease"
+            missingDimensionStrategy dimensions.supportlib, "PFdev", "PFTest", "PFRelease"
             buildConfigField "String", "IBASE_URL", url.testUrl
             buildConfigField "boolean", "isTestDebug", "false"
         }
 
         //正式环境
-        PFrelease {
+        PFRelease {
             dimension dimensions.httplib
-            missingDimensionStrategy dimensions.supportlib, "PFdev", "PFTest", "PFrelease"
+            missingDimensionStrategy dimensions.supportlib, "PFdev", "PFTest", "PFRelease"
             buildConfigField "String", "IBASE_URL", url.releaseUrl
             buildConfigField "boolean", "isReleaseDebug", "false"
         }

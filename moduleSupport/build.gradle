@@ -39,7 +39,7 @@ android {
     // 多渠道打包
     productFlavors {
         //开发环境
-        PFdev {
+        PFDev {
             dimension dimensions.supportlib
             buildConfigField "String", "IBASE_URL", url.devUrl
             buildConfigField "boolean", "isDevDebug", "true"
@@ -53,7 +53,7 @@ android {
         }
 
         //正式环境
-        PFrelease {
+        PFRelease {
             dimension dimensions.supportlib
             buildConfigField "String", "IBASE_URL",url.releaseUrl
             buildConfigField "boolean", "isReleaseDebug", "false"

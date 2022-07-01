@@ -1,10 +1,14 @@
 package com.work.theIsle.viewmodel
 
+import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.alibaba.android.arouter.launcher.ARouter
 import com.orhanobut.logger.Logger
+import com.work.baselib.arouter.RouterPath
 import com.work.login.bean.QingHuaBean
+import com.work.theIsle.coroutine.CoroutineActivity3
 import com.work.theIsle.repository.UserDataRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -24,5 +28,9 @@ class CoroutineViewModel : ViewModel() {
         viewModelScope.launch() {
             userDataLiveData.value = userDataRepository.getUserData()
         }
+    }
+
+    fun gotoFlowActivity(context: Context) {
+        ARouter.getInstance().build(RouterPath.PATH_FLOWACTIVITY).navigation(context)
     }
 }

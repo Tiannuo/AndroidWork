@@ -17,8 +17,6 @@ android {
         }
         minSdkVersion config.minSdkVersion
         targetSdkVersion config.targetSdkVersion
-        versionCode config.versionCode
-        versionName config.versionName
         flavorDimensions dimensions.baselib
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -52,10 +50,10 @@ android {
     // 多渠道打包
     productFlavors {
         //开发环境
-        PFdev {
+        PFDev {
             dimension dimensions.baselib
-            missingDimensionStrategy dimensions.httplib, "PFdev", "PFTest", "PFrelease"
-            missingDimensionStrategy dimensions.supportlib, "PFdev", "PFTest", "PFrelease"
+            missingDimensionStrategy dimensions.httplib, "PFDev", "PFTest", "PFRelease"
+            missingDimensionStrategy dimensions.supportlib, "PFDev", "PFTest", "PFRelease"
             buildConfigField "String", "IBASE_URL", url.devUrl
             buildConfigField "boolean", "isDevDebug", "true"
         }
@@ -63,17 +61,17 @@ android {
         //测试环境
         PFTest {
             dimension dimensions.baselib
-            missingDimensionStrategy dimensions.httplib, "PFdev", "PFTest", "PFrelease"
-            missingDimensionStrategy dimensions.supportlib, "PFdev", "PFTest", "PFrelease"
+            missingDimensionStrategy dimensions.httplib, "PFDev", "PFTest", "PFRelease"
+            missingDimensionStrategy dimensions.supportlib, "PFDev", "PFTest", "PFRelease"
             buildConfigField "String", "IBASE_URL", url.testUrl
             buildConfigField "boolean", "isTestDebug", "false"
         }
 
         //正式环境
-        PFrelease {
+        PFRelease {
             dimension dimensions.baselib
-            missingDimensionStrategy dimensions.httplib, "PFdev", "PFTest", "PFrelease"
-            missingDimensionStrategy dimensions.supportlib, "PFdev", "PFTest", "PFrelease"
+            missingDimensionStrategy dimensions.httplib, "PFDev", "PFTest", "PFRelease"
+            missingDimensionStrategy dimensions.supportlib, "PFDev", "PFTest", "PFRelease"
             buildConfigField "String", "IBASE_URL", url.releaseUrl
             buildConfigField "boolean", "isReleaseDebug", "false"
         }
