@@ -17,8 +17,6 @@ android {
         }
         minSdkVersion config.minSdkVersion
         targetSdkVersion config.targetSdkVersion
-        versionCode config.versionCode
-        versionName config.versionName
         flavorDimensions dimensions.baselib
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

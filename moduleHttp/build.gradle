@@ -13,8 +13,6 @@ android {
         }
         minSdkVersion config.minSdkVersion
         targetSdkVersion config.targetSdkVersion
-        versionCode config.versionCode
-        versionName config.versionName
         flavorDimensions dimensions.httplib
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         // missingDimensionStrategy "sdk", "$flavor"
