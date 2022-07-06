@@ -14,4 +14,7 @@ object RouterPath {
     const val PATH_COROUTINE3 = "/coroutineTo/CoroutineActivity3"
     const val PATH_UOMGDATA = "/qinghuaTo/UomgDataActivity"
     const val PATH_FLOWACTIVITY = "/coroutineTo/FlowActivity"
+    const val PATH_CONTEXTACTIVITY = "/coroutineTo/ContextActivity"
+    const val PATH_SCOPEACTIVITY = "/coroutineTo/ScopeActivity"
+    const val PATH_VIEWMODELACTIVITY = "/coroutineTo/CoroutineViewModelActivity"
 }

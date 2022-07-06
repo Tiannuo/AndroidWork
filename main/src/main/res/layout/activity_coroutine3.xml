@@ -19,14 +19,15 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="@{viewModel.userDataLiveData.content}"
+            android:textColor="@color/black"
             android:textSize="@dimen/sp_18"
             app:layout_constraintBottom_toTopOf="@+id/btn_coroutine"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="123"
-            android:textColor="@color/black"
-            />
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="123" />
 
         <Button
             android:id="@+id/btn_coroutine"
@@ -46,6 +47,33 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/btn_coroutine"
             tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/btn_context"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Context"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_coroutine"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/btn_scope"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scope"
+            app:layout_constraintBottom_toTopOf="@+id/btn_context"
+            app:layout_constraintStart_toStartOf="@+id/btn_context" />
+
+        <Button
+            android:id="@+id/btn_livedata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LiveData"
+            app:layout_constraintBottom_toTopOf="@+id/btn_coroutine"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,4 +13,5 @@
     <string name="toast_request_permission_never">被永久拒绝授权，请手动授予权限!</string>
     <string name="toast_request_permission_fail">获取权限失败!</string>
     <string name="str_qinghua">土味情话</string>
+    <string name="str_qinghuaTitle">土味情话:\n</string>
 </resources>

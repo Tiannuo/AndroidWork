@@ -33,4 +33,16 @@ class CoroutineViewModel : ViewModel() {
     fun gotoFlowActivity(context: Context) {
         ARouter.getInstance().build(RouterPath.PATH_FLOWACTIVITY).navigation(context)
     }
+
+    fun gotoContextActivity(context: Context) {
+        ARouter.getInstance().build(RouterPath.PATH_CONTEXTACTIVITY).navigation(context)
+    }
+
+    fun gotoScopeActivity(context: Context) {
+        ARouter.getInstance().build(RouterPath.PATH_SCOPEACTIVITY).navigation(context)
+    }
+
+    fun gotoViewModelLiveData(context: Context) {
+        ARouter.getInstance().build(RouterPath.PATH_VIEWMODELACTIVITY).navigation(context)
+    }
 }

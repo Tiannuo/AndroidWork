@@ -4,6 +4,7 @@
     package="com.work.theIsle">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".app.BaseApp"
         android:allowBackup="true"
@@ -23,34 +24,45 @@
             android:theme="@style/FullScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".coroutine.CoroutineActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".coroutine.CoroutineActivity3"
             android:screenOrientation="portrait" />
-        <activity android:name=".qinghua.UomgDataActivity"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".coroutine.FlowActivity"
-            android:screenOrientation="portrait"
-            />
+        <activity
+            android:name=".qinghua.UomgDataActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".coroutine.FlowActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".coroutine.CoroutineContextActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".coroutine.scope.CoroutineScopeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".coroutine.scope.CoroutineScopeByActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".coroutine.CoroutineViewModelActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="PGYER_API_KEY"
-            android:value="${PGYER_API_KEY}"></meta-data>
+            android:value="${PGYER_API_KEY}" />
         <meta-data
             android:name="PGYER_FRONTJS_KEY"
-            android:value="${PGYER_FRONTJS_KEY}"></meta-data>
-
-        <!--添加新版本检测-->
+            android:value="${PGYER_FRONTJS_KEY}" /> <!-- 添加新版本检测 -->
         <meta-data
             android:name="PGYER_FEATURE_CHECK_UNPDATE"
-            android:value="true"></meta-data>
+            android:value="true" />
     </application>
 
 </manifest>

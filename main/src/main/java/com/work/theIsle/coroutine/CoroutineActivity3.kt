@@ -35,6 +35,15 @@ class CoroutineActivity3 : BaseActivity() {
         binding.btnFlow.setOnClickListener {
             coroutineViewModel.gotoFlowActivity(this@CoroutineActivity3)
         }
+        binding.btnContext.setOnClickListener {
+            coroutineViewModel.gotoContextActivity(this)
+        }
+        binding.btnScope.setOnClickListener {
+            coroutineViewModel.gotoScopeActivity(this)
+        }
+        binding.btnLivedata.setOnClickListener {
+            coroutineViewModel.gotoViewModelLiveData(this)
+        }
     }
 
     override fun initData() {
