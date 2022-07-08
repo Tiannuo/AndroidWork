@@ -45,4 +45,8 @@ class CoroutineViewModel : ViewModel() {
     fun gotoViewModelLiveData(context: Context) {
         ARouter.getInstance().build(RouterPath.PATH_VIEWMODELACTIVITY).navigation(context)
     }
+
+    fun gotoExceptionHandler(context: Context) {
+        ARouter.getInstance().build(RouterPath.PATH_EXCEOTIONHANDLERACTIVITY).navigation(context)
+    }
 }

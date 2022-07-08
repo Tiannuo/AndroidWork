@@ -44,6 +44,10 @@ class CoroutineActivity3 : BaseActivity() {
         binding.btnLivedata.setOnClickListener {
             coroutineViewModel.gotoViewModelLiveData(this)
         }
+
+        binding.btnException.setOnClickListener {
+            coroutineViewModel.gotoExceptionHandler(this)
+        }
     }
 
     override fun initData() {

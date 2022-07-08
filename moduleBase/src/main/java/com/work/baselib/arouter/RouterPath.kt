@@ -17,4 +17,5 @@ object RouterPath {
     const val PATH_CONTEXTACTIVITY = "/coroutineTo/ContextActivity"
     const val PATH_SCOPEACTIVITY = "/coroutineTo/ScopeActivity"
     const val PATH_VIEWMODELACTIVITY = "/coroutineTo/CoroutineViewModelActivity"
+    const val PATH_EXCEOTIONHANDLERACTIVITY = "/coroutineTo/CoroutineExceptionHandlerActivity"
 }

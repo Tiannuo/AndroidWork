@@ -17,6 +17,10 @@ object LoggerUtils {
         baseLogger(LoggerType.I,message.toString(),args)
     }
 
+    fun e(message: String, vararg args: Any) {
+        baseLogger(LoggerType.E,message,args)
+    }
+
     private fun baseLogger(type:LoggerType, message: String, vararg args: Any){
         if (BuildConfig.DEBUG){
             when(type){
