@@ -8,14 +8,19 @@ import com.hjq.toast.ToastUtils
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
 import com.pgyer.pgyersdk.PgyerSDKManager
+import com.work.theIsle.dagger.*
 
 
 class BaseApp : Application() {
-    override fun onCreate() {
-        super.onCreate()
-        //Logger.addLogAdapter(AndroidLogAdapter())
-        //74ccdc5e3947229728128b6e97f07128
-    }
+    //DaggerSingletonComponent 持有的 module中的被Singleton修饰的对象数据全局共享，相当于于一个静态量
+    private var daggerSingleComponent: DaggerSingletonComponent =
+        DaggerDaggerSingletonComponent.builder()
+            .httpDataModule(HttpDataModule())
+            .presenterComponent(DaggerPresenterComponent.create())
+            .resourcesComponent(DaggerResourcesComponent.create())
+            .build()
+
+    fun getDaggerSingleComponent() = daggerSingleComponent
 
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
@@ -24,6 +29,7 @@ class BaseApp : Application() {
         initArouter()
         initMultiDex()
         initLogger()
+
     }
 
     private fun initLogger() {

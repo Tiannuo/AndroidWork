@@ -36,10 +36,12 @@ ext {
             version_multidex           : '1.0.3',
             version_kotlinx_coroutines : '1.6.2',
             version_junit              : '4.13.2',
+            version_dagger             : '2.42',
+
     ]
 
     javaBaseLib = [
-            version_javapoet      : '1.13.0',
+            version_javapoet    : '1.13.0',
             version_auto_service: '1.0.1',
     ]
 

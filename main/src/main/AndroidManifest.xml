@@ -38,7 +38,7 @@
             android:name=".qinghua.UomgDataActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".coroutine.FlowActivity"
+            android:name=".coroutine.flow.FlowActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".coroutine.CoroutineContextActivity"
@@ -58,6 +58,14 @@
             android:name=".coroutine.CoroutineExceptionHandlerActivity"
             android:exported="false"
             android:screenOrientation="portrait"/>
+        <activity android:name=".dagger.DaggerActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".dagger.DaggerActivity2"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            />
 
         <meta-data
             android:name="PGYER_API_KEY"

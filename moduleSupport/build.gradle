@@ -103,4 +103,10 @@ dependencies {
     api("org.jetbrains.kotlinx:kotlinx-coroutines-android:$androidBaseLib.version_kotlinx_coroutines")
     // junit
     api "junit:junit:$androidBaseLib.version_junit"
+    //dagger
+    api "com.google.dagger:dagger:$androidBaseLib.version_dagger"
+    kapt "com.google.dagger:dagger-compiler:$androidBaseLib.version_dagger"
+    api "com.google.dagger:dagger-android:$androidBaseLib.version_dagger"
+    api "com.google.dagger:dagger-android-support:$androidBaseLib.version_dagger" // if you use the support libraries
+    kapt "com.google.dagger:dagger-android-processor:$androidBaseLib.version_dagger"
 }

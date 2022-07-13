@@ -4,6 +4,7 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.work.applogin.databinding.ActivityLoginBinding
 import com.work.baselib.activity.BaseMvpModelActivity
+import com.work.baselib.arouter.RouterPath.PATH_DAGGERACTIVITY
 import com.work.baselib.arouter.RouterPath.PATH_LOGIN
 import com.work.baselib.arouter.RouterPath.PATH_UOMGDATA
 import com.work.login.bean.QingHuaBean
@@ -28,6 +29,9 @@ class LoginActivity :
         }
         getBinding()!!.btnUomg.setOnClickListener {
             ARouter.getInstance().build(PATH_UOMGDATA).navigation(this)
+        }
+        getBinding()!!.btnDagger.setOnClickListener {
+            ARouter.getInstance().build(PATH_DAGGERACTIVITY).navigation(this)
         }
     }
 
