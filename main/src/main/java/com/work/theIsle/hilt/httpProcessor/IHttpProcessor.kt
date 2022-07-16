@@ -7,5 +7,5 @@ package com.work.theIsle.hilt.httpProcessor
  * @Description
  */
 interface IHttpProcessor {
-    fun post(url: String, params: Map<String, Any>, callback: ICallback)
+    fun post(url: String, params: Map<String, Any>, callback: ICallback?)
 }

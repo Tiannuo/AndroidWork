@@ -8,13 +8,21 @@ import com.hjq.toast.ToastUtils
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
 import com.pgyer.pgyersdk.PgyerSDKManager
+import com.work.theIsle.annotation.BindXutils
 import com.work.theIsle.dagger.*
 import com.work.theIsle.hilt.httpProcessor.HttpHelper
+import com.work.theIsle.hilt.httpProcessor.IHttpProcessor
 import com.work.theIsle.hilt.httpProcessor.OkhttpProcessor
 import dagger.hilt.android.HiltAndroidApp
+import javax.inject.Inject
 
 @HiltAndroidApp
 class BaseApp : Application() {
+
+    @BindXutils
+    @Inject
+    lateinit var baseHttp: IHttpProcessor
+
     //DaggerSingletonComponent 持有的 module中的被Singleton修饰的对象数据全局共享，相当于于一个静态量
     private var daggerSingleComponent: DaggerSingletonComponent =
         DaggerDaggerSingletonComponent.builder()
