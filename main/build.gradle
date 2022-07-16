@@ -9,9 +9,14 @@ if (config.appIsApplication) {
 }
 apply plugin: 'org.jetbrains.kotlin.android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
 kapt {
     arguments {
         arg("AROUTER_MODULE_NAME", project.getName())
+    }
+    javacOptions {
+        //关闭@InstallIn检查
+        option("-Adagger.hilt.disableModulesHaveInstallInCheck=true")
     }
 }
 android {
@@ -177,5 +182,7 @@ dependencies {
     }
     api 'com.alibaba:arouter-api:' + androidBaseLib.version_arouter_api
     kapt 'com.alibaba:arouter-compiler:' + androidBaseLib.version_arouter_compiler
-    kapt "com.google.dagger:dagger-compiler:2.42"
+    kapt "com.google.dagger:dagger-compiler:$androidBaseLib.version_dagger"
+    api "com.google.dagger:hilt-android:$androidBaseLib.version_hilt"
+    kapt "com.google.dagger:hilt-android-compiler:$androidBaseLib.version_hilt"
 }

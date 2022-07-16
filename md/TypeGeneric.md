@@ -3,7 +3,7 @@
 #### 一：介绍
 
 AndroidWork:主要对泛型进行解释说明 需要准备一些基础类如下有 Food Meat Fruit Apple Banana 如图说明他们关系
-![](.TypeGeneric_images/type.png)
+![](../.TypeGeneric_images/type.png)
 
 ````
     public abstract class Food {

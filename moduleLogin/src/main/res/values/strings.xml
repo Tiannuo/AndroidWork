@@ -7,4 +7,5 @@
     <string name="str_btn_coroutine">协程</string>
     <string name="str_btn_umog">UMOG</string>
     <string name="str_btn_Dagger">Dagger</string>
+    <string name="str_btn_hilt">Hilt</string>
 </resources>

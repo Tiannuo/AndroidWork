@@ -19,4 +19,5 @@ object RouterPath {
     const val PATH_VIEWMODELACTIVITY = "/coroutineTo/CoroutineViewModelActivity"
     const val PATH_EXCEOTIONHANDLERACTIVITY = "/coroutineTo/CoroutineExceptionHandlerActivity"
     const val PATH_DAGGERACTIVITY = "/daggerTo/DaggerActivity"
+    const val PATH_HILTACTIVITY = "/HiltTo/HiltActivity"
 }

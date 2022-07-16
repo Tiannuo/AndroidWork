@@ -109,4 +109,7 @@ dependencies {
     api "com.google.dagger:dagger-android:$androidBaseLib.version_dagger"
     api "com.google.dagger:dagger-android-support:$androidBaseLib.version_dagger" // if you use the support libraries
     kapt "com.google.dagger:dagger-android-processor:$androidBaseLib.version_dagger"
+    //hilt
+    api "com.google.dagger:hilt-android:$androidBaseLib.version_hilt"
+    kapt "com.google.dagger:hilt-android-compiler:$androidBaseLib.version_hilt"
 }

@@ -1,8 +1,8 @@
-## Dagger2资料
+## Dagger2资料说明
 
 ### 一：开源地址
 
-1：[GitHub](https://github.com/google/dagger)
+1：[dagger](https://github.com/google/dagger)
 
 ### 二：集成说明（基于Kotlin）
 

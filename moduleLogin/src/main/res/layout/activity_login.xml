@@ -72,4 +72,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_show_data" />
+
+    <Button
+        android:id="@+id/btn_hilt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str_btn_hilt"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_show_data"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_dagger" />
 </androidx.constraintlayout.widget.ConstraintLayout>

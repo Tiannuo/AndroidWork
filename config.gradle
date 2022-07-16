@@ -37,6 +37,7 @@ ext {
             version_kotlinx_coroutines : '1.6.2',
             version_junit              : '4.13.2',
             version_dagger             : '2.42',
+            version_hilt               : '2.42',
 
     ]
 

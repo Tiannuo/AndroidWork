@@ -53,16 +53,20 @@
             android:name=".coroutine.CoroutineViewModelActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".coroutine.CoroutineExceptionHandlerActivity"
             android:exported="false"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".dagger.DaggerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".dagger.DaggerActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".dagger.DaggerActivity2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".dagger.DaggerActivity2"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".hilt.HiltActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             />
