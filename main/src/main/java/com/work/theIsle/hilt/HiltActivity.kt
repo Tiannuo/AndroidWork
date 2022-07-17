@@ -1,6 +1,7 @@
 package com.work.theIsle.hilt
 
 import android.widget.Button
+import androidx.lifecycle.LifecycleObserver
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.work.baselib.arouter.RouterPath.PATH_HILTACTIVITY
 import com.work.supportlib.LoggerUtils
@@ -17,7 +18,7 @@ import javax.inject.Named
 
 @AndroidEntryPoint
 @Route(path = PATH_HILTACTIVITY)
-class HiltActivity : BaseAppActivity() {
+class HiltActivity : BaseAppActivity(),LifecycleObserver {
 
     @Inject
     lateinit var hiltObject: HiltObject
@@ -106,5 +107,6 @@ class HiltActivity : BaseAppActivity() {
     }
 
     override fun initData() {
+        lifecycle.addObserver(this)
     }
 }

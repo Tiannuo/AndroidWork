@@ -2,7 +2,9 @@ package com.work.login
 
 import android.content.Context
 import androidx.viewbinding.ViewBinding
+import com.alibaba.android.arouter.launcher.ARouter
 import com.work.applogin.databinding.ActivityLoginBinding
+import com.work.baselib.arouter.RouterPath
 import com.work.baselib.mvp.presenter.BasePresenter
 import com.work.httplib.httputils.HttpUtils
 import com.work.login.api.UserApi
@@ -34,5 +36,9 @@ class LoginPresenter : BasePresenter<LoginView, ActivityLoginBinding, QingHuaBea
     * */
     fun gotoCoroutine(context: Context) {
         getBaseView().gotoCoroutine(context)
+    }
+
+    fun gotoJetpack(loginActivity: LoginActivity) {
+        ARouter.getInstance().build(RouterPath.PATH_JETPACKACTIVITY).navigation()
     }
 }

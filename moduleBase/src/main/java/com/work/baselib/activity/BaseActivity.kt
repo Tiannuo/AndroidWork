@@ -9,8 +9,10 @@ import com.work.baselib.R
 * 仅仅是设置一个基础BASE
 * */
 abstract class BaseActivity : AppCompatActivity() {
+    private var savedInstanceState: Bundle? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        this.savedInstanceState = savedInstanceState
         initStatus()
         initBaseMvpModel()
         initView()
@@ -30,4 +32,6 @@ abstract class BaseActivity : AppCompatActivity() {
     private fun initStatus() {
         supportActionBar?.title = localClassName
     }
+
+    public fun getSavedInstanceState() = savedInstanceState
 }

@@ -8,4 +8,5 @@
     <string name="str_btn_umog">UMOG</string>
     <string name="str_btn_Dagger">Dagger</string>
     <string name="str_btn_hilt">Hilt</string>
+    <string name="str_btn_jetpack">Jetpack</string>
 </resources>

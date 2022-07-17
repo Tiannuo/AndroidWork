@@ -38,6 +38,10 @@ class LoginActivity :
         getBinding()!!.btnHilt.setOnClickListener {
             ARouter.getInstance().build(PATH_HILTACTIVITY).navigation()
         }
+
+        getBinding()!!.btnJetpack.setOnClickListener {
+            getPresenter()!!.gotoJetpack(this)
+        }
     }
 
     override fun initData() {

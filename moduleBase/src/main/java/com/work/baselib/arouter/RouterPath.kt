@@ -20,4 +20,5 @@ object RouterPath {
     const val PATH_EXCEOTIONHANDLERACTIVITY = "/coroutineTo/CoroutineExceptionHandlerActivity"
     const val PATH_DAGGERACTIVITY = "/daggerTo/DaggerActivity"
     const val PATH_HILTACTIVITY = "/HiltTo/HiltActivity"
+    const val PATH_JETPACKACTIVITY = "/jetpackTo/jetpackActivity"
 }

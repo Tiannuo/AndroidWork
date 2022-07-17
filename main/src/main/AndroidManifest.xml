@@ -17,6 +17,7 @@
         android:theme="@style/Theme.TheIsle"
         tools:replace="android:icon,android:label"
         tools:targetApi="n">
+
         <activity
             android:name=".splash.SplashActivity"
             android:exported="true"
@@ -68,8 +69,12 @@
         <activity
             android:name=".hilt.HiltActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".jetpack.JetpackActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
 
         <meta-data
             android:name="PGYER_API_KEY"
