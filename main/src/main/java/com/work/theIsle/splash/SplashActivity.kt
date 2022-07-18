@@ -40,6 +40,8 @@ class SplashActivity : AppCompatActivity() {
             .permission(Permission.MANAGE_EXTERNAL_STORAGE)
            // .permission(Permission.REQUEST_INSTALL_PACKAGES)
             .permission(Permission.READ_PHONE_STATE)
+            .permission(Permission.ACCESS_FINE_LOCATION)
+            .permission(Permission.ACCESS_COARSE_LOCATION)
             .request(object : OnPermissionCallback {
                 override fun onGranted(permissions: MutableList<String>?, all: Boolean) {
                     if (all) {

@@ -9,4 +9,7 @@
     <string name="str_btn_Dagger">Dagger</string>
     <string name="str_btn_hilt">Hilt</string>
     <string name="str_btn_jetpack">Jetpack</string>
+    <string name="str_btn_location">Location</string>
+    <string name="str_btn_location_start">开始</string>
+    <string name="str_btn_location_stop">结束</string>
 </resources>

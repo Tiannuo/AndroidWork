@@ -21,4 +21,5 @@ object RouterPath {
     const val PATH_DAGGERACTIVITY = "/daggerTo/DaggerActivity"
     const val PATH_HILTACTIVITY = "/HiltTo/HiltActivity"
     const val PATH_JETPACKACTIVITY = "/jetpackTo/jetpackActivity"
+    const val PATH_lOCATIONUPDATEACTIVITY = "/locationTo/locationUpdateActivity"
 }
