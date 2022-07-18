@@ -2,6 +2,7 @@ package com.work.theIsle.app
 
 import android.app.Application
 import android.content.Context
+import androidx.lifecycle.ProcessLifecycleOwner
 import androidx.multidex.MultiDex
 import com.alibaba.android.arouter.launcher.ARouter
 import com.hjq.toast.ToastUtils
@@ -13,6 +14,7 @@ import com.work.theIsle.dagger.*
 import com.work.theIsle.hilt.httpProcessor.HttpHelper
 import com.work.theIsle.hilt.httpProcessor.IHttpProcessor
 import com.work.theIsle.hilt.httpProcessor.OkhttpProcessor
+import com.work.theIsle.jetpack.observer.ApplicationObserver
 import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 
@@ -41,7 +43,11 @@ class BaseApp : Application() {
         initMultiDex()
         initLogger()
         initIHttpProcessor()
+    }
 
+    override fun onCreate() {
+        super.onCreate()
+        ProcessLifecycleOwner.get().lifecycle.addObserver(ApplicationObserver())
     }
 
     private fun initIHttpProcessor() {
