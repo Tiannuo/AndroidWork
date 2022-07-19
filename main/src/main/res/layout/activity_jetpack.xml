@@ -5,12 +5,15 @@
 
     <data>
 
+        <variable
+            name="event"
+            type="com.work.theIsle.jetpack.lis.JetpackListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".jetpack.JetpackActivity">
+        tools:context=".jetpack.activity.JetpackActivity">
 
         <com.work.theIsle.jetpack.ui.MyChronometer
             android:id="@+id/chronometer"
@@ -25,11 +28,32 @@
         <Button
             android:id="@+id/btn_location"
             style="@style/baseButton"
+            android:onClick="@{(v) -> event.gotoLocationUpdates(v,2)}"
             android:text="@string/str_btn_location"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/chronometer"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/btn_viewModel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{event::gotoViewModel}"
+            android:text="@string/str_btn_view_model"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_location"
+            app:layout_constraintEnd_toStartOf="@+id/btn_location"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btn_livedata"
+            style="@style/baseButton"
+            android:onClick="@{() -> event.gotoLiveData(1)}"
+            android:text="@string/str_btn_livedata"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_location"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_location"
             tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

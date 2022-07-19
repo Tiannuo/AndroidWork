@@ -73,15 +73,21 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".jetpack.JetpackActivity"
+            android:name=".jetpack.activity.JetpackActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".jetpack.activity.LocationUpdateActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".jetpack.activity.ViewModelActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".jetpack.LocationUpdateActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            />
+            android:name=".jetpack.activity.LiveDataActivity"
+            android:exported="false" />
 
         <service android:name=".jetpack.service.MyLocationService" />
 
