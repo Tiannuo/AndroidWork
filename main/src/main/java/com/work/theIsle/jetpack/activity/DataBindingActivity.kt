@@ -22,6 +22,9 @@ class DataBindingActivity : BaseActivity() {
     override fun initData() {
         idol = Idol("Android", "Jetpack")
         binding.idol = idol
+        binding.netWorkImage =
+            "https://c-ssl.duitang.com/uploads/blog/202107/09/20210709142454_dc8dc.jpeg"
+        binding.localImage = R.mipmap.ic_launcher
     }
 
     override fun onResume() {

@@ -82,4 +82,8 @@ xmlns:tools="http://schemas.android.com/tools">
 8：二级布局  
 include 标签 ，一级布局传值需要使用app:"@{  }"属性
 
+9：@BindingAdapter  其主要作用是进一步在自定义的方法中完善布局文件中的代码需求
+
+@BindingAdapter("image")必须使用注解在静态方法上，同时kotlin中使用需要@JvmStatic用于伴生对象的静态函数生成
+
 
