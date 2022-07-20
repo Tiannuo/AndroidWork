@@ -31,5 +31,15 @@ vm = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(applicati
 
 4：AndroidViewModel 自带Context，这样可以减少内存泄露
 5：LiveData 在ViewModel中数据发生变化通知界面更新，就是数据的动态绑定操作，  
-通过在ViewModel中定义MutableLiveData，然后使用MutableLiveData.observe(LifecycleOwner owner,Observer<? super T> observer)通过observe绑定被观察者（当前Activity，绑定生命周期）和观察者（更新数据逻辑）
+通过在ViewModel中定义MutableLiveData，然后使用MutableLiveData.observe(LifecycleOwner owner,Observer<? super T> observer)通过observe绑定被观察者（当前Activity，绑定生命周期）和观察者（更新数据逻辑）  
+注意：多控件或者等等在使用同一个LiveData时，数据的持久化，共享化需要保证observe 方法中的owner是同一个，否则不会数据同步。   
+6：LiveData 优势  
+
+&nbsp;&nbsp;&nbsp;a:确保ViewModel数据状态  
+&nbsp;&nbsp;&nbsp;b:不会发生内存泄露 
+&nbsp;&nbsp;&nbsp;c:不会因为Activity异常而崩溃
+&nbsp;&nbsp;&nbsp;d:不需要手动处理生命周期  
+&nbsp;&nbsp;&nbsp;e:数据保持最新状态  
+&nbsp;&nbsp;&nbsp;f:可以在不同的Fragment之间共享资源，通讯方式改变
+
 

@@ -23,5 +23,6 @@ object RouterPath {
     const val PATH_JETPACKACTIVITY = "/jetpackTo/jetpackActivity"
     const val PATH_lOCATIONUPDATEACTIVITY = "/locationTo/locationUpdateActivity"
     const val PATH_JETPACKVIEWMODELACTIVITY = "/jetpackTo/ViewModelActivity"
-    const val PATH_LIVEDATAVIEWMODELACTIVITY = "/jetpackTo/LiveDataActivity"
+    const val PATH_LIVEDATAACTIVITY = "/jetpackTo/LiveDataActivity"
+    const val PATH_LIVEDATAVIEWMODELACTIVITY = "/jetpackTo/LiveDataViewModelActivity"
 }

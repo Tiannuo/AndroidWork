@@ -25,8 +25,11 @@ class JetpackListener {
 
     public fun gotoLiveData(index: Int = 0) {
         LoggerUtils.i("JetpackListener gotoLiveData index@${index}")
-        ARouter.getInstance().build(RouterPath.PATH_LIVEDATAVIEWMODELACTIVITY).navigation()
+        ARouter.getInstance().build(RouterPath.PATH_LIVEDATAACTIVITY).navigation()
     }
 
-
+    public fun gotoLiveDataVM(v: View) {
+        LoggerUtils.i("JetpackListener gotoLiveDataVM")
+        ARouter.getInstance().build(RouterPath.PATH_LIVEDATAVIEWMODELACTIVITY).navigation()
+    }
 }

@@ -14,4 +14,6 @@
     <string name="toast_request_permission_fail">获取权限失败!</string>
     <string name="str_qinghua">土味情话</string>
     <string name="str_qinghuaTitle">土味情话:\n</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

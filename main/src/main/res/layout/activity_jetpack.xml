@@ -56,5 +56,15 @@
             app:layout_constraintStart_toEndOf="@+id/btn_location"
             tools:ignore="MissingConstraints" />
 
+        <Button
+            android:id="@+id/btn_livedata_viewModel"
+            style="@style/baseButton"
+            android:onClick="@{event::gotoLiveDataVM}"
+            android:text="@string/str_btn_livedata_viewModel"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/btn_viewModel"
+            app:layout_constraintStart_toStartOf="@+id/btn_viewModel"
+            app:layout_constraintTop_toBottomOf="@+id/btn_viewModel" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

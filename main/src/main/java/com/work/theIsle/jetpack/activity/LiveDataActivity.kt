@@ -3,7 +3,8 @@ package com.work.theIsle.jetpack.activity
 import androidx.lifecycle.ViewModelProvider
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.work.baselib.activity.BaseActivity
-import com.work.baselib.arouter.RouterPath.PATH_LIVEDATAVIEWMODELACTIVITY
+import com.work.baselib.arouter.RouterPath.PATH_LIVEDATAACTIVITY
+
 import com.work.supportlib.LoggerUtils
 import com.work.theIsle.databinding.ActivityLiveDataBinding
 import com.work.theIsle.jetpack.vm.LiveDataViewModel
@@ -15,7 +16,7 @@ import java.util.*
  * @Email 1320917731@qq.com & wangweitikou1994@gmail.com
  * @Description liveData实现数据动态绑定
  */
-@Route(path = PATH_LIVEDATAVIEWMODELACTIVITY)
+@Route(path = PATH_LIVEDATAACTIVITY)
 class LiveDataActivity : BaseActivity() {
     private lateinit var vm: LiveDataViewModel
     private var timer: Timer? = Timer()
