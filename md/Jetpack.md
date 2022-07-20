@@ -40,6 +40,43 @@ vm = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(applicati
 &nbsp;&nbsp;&nbsp;c:不会因为Activity异常而崩溃
 &nbsp;&nbsp;&nbsp;d:不需要手动处理生命周期  
 &nbsp;&nbsp;&nbsp;e:数据保持最新状态  
-&nbsp;&nbsp;&nbsp;f:可以在不同的Fragment之间共享资源，通讯方式改变
+&nbsp;&nbsp;&nbsp;f:可以在不同的Fragment之间共享资源，通讯方式改变  
+
+7：DataBinding 布局文件参与页面渲染赋值，降低耦合度   DataBindingUtil.setContentView  
+&nbsp;&nbsp;&nbsp;ViewBinding 布局加载器 ActivityJetpackBinding.inflate(layoutInflater)    setContentView(binding.root)
+    
+&nbsp;&nbsp;&nbsp;a:配置说明在build.gradle 中配置  
+
+DataBinding 默认单向绑定，修改绑定的idol的数值，对应的布局控件数据也会发生改变；布局控件数据发生改变,idol的数值却不会发生改变
+```
+android {
+     defaultConfig {
+           // 旧版本
+          dataBinding {
+            enabled = true
+         }
+     }
+     //viewBinding 一般是对布局控件的绑定，最新版本是dataBinding true
+     buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+}
+```
+8：布局标签说明
+
+```
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable  // 一般是内容的提供元数据对象
+            name="idol"
+            type="com.work.theIsle.jetpack.bean.Idol" />
+            
+        <import/> // 一般api操作类对象
+    </data>
+```
 
 

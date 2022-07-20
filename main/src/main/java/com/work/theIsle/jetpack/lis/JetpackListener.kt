@@ -32,4 +32,9 @@ class JetpackListener {
         LoggerUtils.i("JetpackListener gotoLiveDataVM")
         ARouter.getInstance().build(RouterPath.PATH_LIVEDATAVIEWMODELACTIVITY).navigation()
     }
+
+    public fun gotoDataBinding(v: View) {
+        LoggerUtils.i("JetpackListener gotoDataBinding")
+        ARouter.getInstance().build(RouterPath.PATH_DATABINDINGACTIVITY).navigation()
+    }
 }

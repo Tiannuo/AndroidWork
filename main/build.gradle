@@ -34,9 +34,9 @@ android {
         // dex突破65535的限制
         multiDexEnabled true
         //missingDimensionStrategy "sdk", "$flavor"
-        dataBinding {
+     /*   dataBinding {
             enabled = true
-        }
+        }*/
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -80,6 +80,7 @@ android {
     }
     buildFeatures {
         viewBinding true
+        dataBinding true
     }
     sourceSets {
         main {

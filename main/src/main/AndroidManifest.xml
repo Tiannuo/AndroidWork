@@ -87,9 +87,12 @@
         <activity
             android:name=".jetpack.activity.LiveDataActivity"
             android:exported="false" />
-
         <activity
             android:name=".jetpack.activity.LiveDataViewModelActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".jetpack.activity.DataBindingActivity"
             android:exported="false" />
 
         <service android:name=".jetpack.service.MyLocationService" />
