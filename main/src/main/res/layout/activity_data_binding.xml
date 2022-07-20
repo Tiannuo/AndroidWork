@@ -16,6 +16,17 @@
         <variable
             name="localImage"
             type="int" />
+
+        <variable
+            name="userObservable"
+            type="com.work.theIsle.jetpack.observable.UserObservable" />
+        <variable
+            name="userObservableFiled"
+            type="com.work.theIsle.jetpack.observable.UserObservableFiled" />
+
+        <variable
+            name="userObservableForJava"
+            type="com.work.theIsle.jetpack.observable.UserObservableForJava" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,13 +39,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_launcher"
-            app:image="@{netWorkImage}"
             app:defaultImage="@{localImage}"
+            app:image="@{netWorkImage}"
             app:layout_constraintBottom_toTopOf="@+id/guideline7"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ImageContrastCheck" />
+            tools:ignore="ImageContrastCheck"
+
+            />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline7"
@@ -53,6 +66,27 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline7" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@={userObservable.userName}"
+            app:layout_constraintBottom_toTopOf="@+id/include_info"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@={userObservableForJava.userName}"
+            app:layout_constraintBottom_toTopOf="@+id/guideline7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName" />
 
         <!--       <androidx.constraintlayout.widget.Guideline
                    android:id="@+id/guideline8"

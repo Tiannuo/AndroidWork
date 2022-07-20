@@ -82,8 +82,44 @@ xmlns:tools="http://schemas.android.com/tools">
 8：二级布局  
 include 标签 ，一级布局传值需要使用app:"@{  }"属性
 
-9：@BindingAdapter  其主要作用是进一步在自定义的方法中完善布局文件中的代码需求
+9：  @BindingAdapter  其主要作用是进一步在自定义的方法中完善布局文件中的代码需求
 
 @BindingAdapter("image")必须使用注解在静态方法上，同时kotlin中使用需要@JvmStatic用于伴生对象的静态函数生成
 
+9：   动态绑定，双向绑定数据的两种方式  
 
+&nbsp;&nbsp;&nbsp;第一种方式: @get:Bindable 数据双向绑定 ，外包装类需要继承BaseObservable，然后观察的数据 @get:Bindable 增加此注解，同时set方法中notifyPropertyChanged(BR.userName) 需要手动通知数据更新
+```
+class UserObservable : BaseObservable() {
+    private val user: User = User("Jack")
+
+    @get:Bindable
+    var userName: String?
+        get() = user.name
+        set(userName) {
+            if (!TextUtils.isEmpty(userName) && !TextUtils.equals(userName, user.name)) {
+                user.name = userName!!
+                LoggerUtils.i(userName)
+                notifyPropertyChanged(BR.userName)
+            }
+        }
+
+}
+```
+&nbsp;&nbsp;&nbsp;第二种方式（简洁）:  类似于LiveData 包装一下需要使用的对象，然后重写userName的get()和set(name) 方法userObservableFiled.get() 重新赋值
+```
+class UserObservableFiled {
+private val userObservableFiled: ObservableField<User> = ObservableField()
+
+    init {
+        userObservableFiled.set(User("Rose"))
+    }
+
+    var userName: String?
+        get() = userObservableFiled.get()!!.name
+        set(name) {
+            userObservableFiled.get()!!.name = name!!
+            LoggerUtils.i("UserObservableFiled $name")
+        }
+}
+```

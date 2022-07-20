@@ -18,7 +18,7 @@ class ImageViewBindingAdapter {
         //defaultImage
         @BindingAdapter(value = ["image", "defaultImage"], requireAll = false)
         @JvmStatic
-        fun setImage(iv: ImageView, url: String, localRes: Int) {
+        fun setImage(iv: ImageView, url: String?, localRes: Int?) {
             if (!TextUtils.isEmpty(url)) {
                 Glide.with(iv).load(url).into(iv)
             } else if (localRes != 0) {

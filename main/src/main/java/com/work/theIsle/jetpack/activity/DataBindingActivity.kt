@@ -9,6 +9,9 @@ import com.work.supportlib.LoggerUtils
 import com.work.theIsle.R
 import com.work.theIsle.databinding.ActivityDataBindingBinding
 import com.work.theIsle.jetpack.bean.Idol
+import com.work.theIsle.jetpack.observable.UserObservable
+import com.work.theIsle.jetpack.observable.UserObservableFiled
+import com.work.theIsle.jetpack.observable.UserObservableForJava
 
 
 @Route(path = PATH_DATABINDINGACTIVITY)
@@ -25,6 +28,9 @@ class DataBindingActivity : BaseActivity() {
         binding.netWorkImage =
             "https://c-ssl.duitang.com/uploads/blog/202107/09/20210709142454_dc8dc.jpeg"
         binding.localImage = R.mipmap.ic_launcher
+        binding.userObservable = UserObservable()
+        binding.userObservableFiled = UserObservableFiled()
+        binding.userObservableForJava = UserObservableForJava()
     }
 
     override fun onResume() {
