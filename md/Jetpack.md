@@ -79,4 +79,7 @@ xmlns:tools="http://schemas.android.com/tools">
     </data>
 ```
 
+8：二级布局  
+include 标签 ，一级布局传值需要使用app:"@{  }"属性
+
 

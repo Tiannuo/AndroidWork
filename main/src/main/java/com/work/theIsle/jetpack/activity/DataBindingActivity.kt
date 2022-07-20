@@ -29,7 +29,8 @@ class DataBindingActivity : BaseActivity() {
         //dataBinding 默认单向绑定，修改idol的数值，对应的布局控件数据也会发生改变
         idol.name = "onResume"
         //布局控件数据发生改变,idol的数值却不会发生改变
-        binding.tvDec.text = "onResume"
+        // binding.tvDec.text = "onResume"
+        //binding.includeInfo.tvName
         LoggerUtils.i(binding.idol!!.des) //Jetpack
     }
 
