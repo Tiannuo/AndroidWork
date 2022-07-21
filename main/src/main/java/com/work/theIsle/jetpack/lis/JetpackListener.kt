@@ -37,4 +37,9 @@ class JetpackListener {
         LoggerUtils.i("JetpackListener gotoDataBinding")
         ARouter.getInstance().build(RouterPath.PATH_DATABINDINGACTIVITY).navigation()
     }
+
+    public fun gotoRecyclerView(v: View) {
+        LoggerUtils.i("JetpackListener gotoRecyclerView")
+        ARouter.getInstance().build(RouterPath.PATH_RecyclerViewACTIVITY).navigation()
+    }
 }

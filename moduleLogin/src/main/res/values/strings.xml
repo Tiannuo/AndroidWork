@@ -16,6 +16,7 @@
     <string name="str_btn_livedata">LiveData</string>
     <string name="str_btn_livedata_viewModel">LiveDataVM</string>
     <string name="str_btn_livedata_dataBinding">dataBinding</string>
+    <string name="str_btn_rv">RecyclerView</string>
     <string name="str_btn_clock_start">开始</string>
     <string name="str_btn_clock_stop">结束</string>
     <string name="str_btn_clock_pause">暂停</string>
