@@ -16,6 +16,8 @@
         <variable
             name="scoreModel"
             type="com.work.theIsle.jetpack.vm.DBVMLDVM" />
+
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -44,7 +46,7 @@
             android:layout_height="0dp"
             android:gravity="center"
             android:paddingTop="@dimen/tv_remain_margin_top"
-            android:text="@{scoreModel.ATeamSore.toString()}"
+            android:text="@{String.valueOf(scoreModel.scoreData.ATeamScore)}"
             android:textColor="@color/teal_200"
             android:textSize="@dimen/sp_64"
             app:layout_constraintBottom_toTopOf="@+id/guideline10"
@@ -59,7 +61,7 @@
             android:layout_height="0dp"
             android:gravity="center"
             android:paddingTop="@dimen/tv_remain_margin_top"
-            android:text="@{scoreModel.BTeamSore.toString()}"
+            android:text="@{String.valueOf(scoreModel.scoreData.BTeamScore)}"
             android:textColor="@color/purple_200"
             android:textSize="@dimen/sp_64"
             app:layout_constraintBottom_toTopOf="@+id/guideline10"

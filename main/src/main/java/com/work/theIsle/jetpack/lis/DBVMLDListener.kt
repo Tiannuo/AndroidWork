@@ -1,7 +1,9 @@
 package com.work.theIsle.jetpack.lis
 
 import android.view.View
+import androidx.lifecycle.MutableLiveData
 import com.work.supportlib.LoggerUtils
+import com.work.theIsle.jetpack.bean.ScoreBean
 import com.work.theIsle.jetpack.vm.DBVMLDVM
 
 /**
@@ -21,10 +23,14 @@ class DBVMLDListener {
     fun addScore(v: View, vm: DBVMLDVM, teamtype: TEAMTYPE, score: Int) {
         vm.saveLastTeamScore()
         if (teamtype == TEAMTYPE.A) {
-            vm.getATeamSore().value = vm.getATeamSore().value?.plus(score)
+            vm.getScoreData().value?.setATeamScore(vm.getScoreData().value?.getATeamScore()!!.plus(score))
+            //vm.getATeamSore().value = vm.getATeamSore().value?.plus(score)
         } else {
-            vm.getBTeamSore().value = vm.getBTeamSore().value?.plus(score)
+            vm.getScoreData().value?.setBTeamScore(vm.getScoreData().value?.getBTeamScore()!!.plus(score))
+            //vm.getBTeamSore().value = vm.getBTeamSore().value?.plus(score)
         }
+        val scoreBean = ScoreBean(vm.getScoreData().value?.getATeamScore(),vm.getScoreData().value?.getBTeamScore())
+        vm.getScoreData().value  = scoreBean
     }
 
     /**
@@ -33,8 +39,9 @@ class DBVMLDListener {
      */
     fun back(v: View, vm: DBVMLDVM) {
         LoggerUtils.i("back aLastTeamSore = ${vm.aLastTeamSore} bLastTeamSore = ${vm.bLastTeamSore}")
-        vm.getATeamSore().value = vm.aLastTeamSore
-        vm.getBTeamSore().value = vm.bLastTeamSore
+  /*      vm.getATeamSore().value = vm.aLastTeamSore
+        vm.getBTeamSore().value = vm.bLastTeamSore*/
+        vm.getScoreData().value = ScoreBean(vm.aLastTeamSore,vm.bLastTeamSore)
     }
 
     /**
@@ -43,8 +50,11 @@ class DBVMLDListener {
      * @param vm DBVMLDVM
      */
     fun reSet(v: View, vm: DBVMLDVM) {
-        vm.getATeamSore().value = 0
+        /*
+               vm.getATeamSore().value = 0
         vm.getBTeamSore().value = 0
+        * */
+        vm.getScoreData().value = ScoreBean(0,0)
     }
 
     enum class TEAMTYPE {

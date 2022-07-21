@@ -2,6 +2,7 @@ package com.work.theIsle.jetpack.vm
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.work.theIsle.jetpack.bean.ScoreBean
 
 /**
  * @Author TIKOU
@@ -10,11 +11,12 @@ import androidx.lifecycle.ViewModel
  * @Description
  */
 class DBVMLDVM : ViewModel() {
-    private var aTeamSore: MutableLiveData<Int>? = null
-    private var bTeamSore: MutableLiveData<Int>? = null
+    /*    private var aTeamSore: MutableLiveData<Int>? = null
+        private var bTeamSore: MutableLiveData<Int>? = null*/
+    private var scoreData: MutableLiveData<ScoreBean>
     var aLastTeamSore: Int? = 0
     var bLastTeamSore: Int? = 0
-    fun getATeamSore(): MutableLiveData<Int> {
+/*     fun getATeamSore(): MutableLiveData<Int> {
         if (aTeamSore == null) {
             aTeamSore = MutableLiveData()
             aTeamSore!!.value = 0
@@ -22,7 +24,7 @@ class DBVMLDVM : ViewModel() {
         return aTeamSore!!
     }
 
-    fun setATeamSore(aaa: MutableLiveData<Int>?) {
+   fun setATeamSore(aaa: MutableLiveData<Int>?) {
         this.aTeamSore = aaa
     }
 
@@ -36,10 +38,26 @@ class DBVMLDVM : ViewModel() {
 
     fun setBTeamSore(bbb: MutableLiveData<Int>?) {
         this.bTeamSore = bbb
+    }*/
+
+    init {
+        scoreData = MutableLiveData()
+        scoreData.value = ScoreBean(0, 0)
+    }
+
+    fun getScoreData(): MutableLiveData<ScoreBean> {
+
+        return scoreData
+    }
+
+    fun setScoreData(scoreData: MutableLiveData<ScoreBean>) {
+        this.scoreData = scoreData
     }
 
     fun saveLastTeamScore() {
-        aLastTeamSore = aTeamSore?.value
-        bLastTeamSore = bTeamSore?.value
+        /*    aLastTeamSore = aTeamSore?.value
+            bLastTeamSore = bTeamSore?.value*/
+        aLastTeamSore = scoreData.value?.getATeamScore()
+        bLastTeamSore = scoreData.value?.getBTeamScore()
     }
 }
