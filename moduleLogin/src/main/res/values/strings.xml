@@ -20,4 +20,8 @@
     <string name="str_btn_clock_start">开始</string>
     <string name="str_btn_clock_stop">结束</string>
     <string name="str_btn_clock_pause">暂停</string>
+    <string name="str_btn_back">撤销</string>
+    <string name="str_btn_reset">重置</string>
+    <string name="str_btn_DBVMLD">DBVMLD</string>
+
 </resources>

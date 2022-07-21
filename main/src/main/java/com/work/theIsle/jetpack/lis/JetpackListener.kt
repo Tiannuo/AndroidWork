@@ -9,7 +9,7 @@ import com.work.supportlib.LoggerUtils
  * @Author TIKOU
  * @Date 2022/7/19-15:02
  * @Email 1320917731@qq.com & wangweitikou1994@gmail.com
- * @Description
+ * @Description Jetpack 跳转的所有控件监听
  */
 class JetpackListener {
 
@@ -41,5 +41,10 @@ class JetpackListener {
     public fun gotoRecyclerView(v: View) {
         LoggerUtils.i("JetpackListener gotoRecyclerView")
         ARouter.getInstance().build(RouterPath.PATH_RecyclerViewACTIVITY).navigation()
+    }
+
+    public fun gotoDBVMLD(v: View) {
+        LoggerUtils.i("JetpackListener DBVMLD")
+        ARouter.getInstance().build(RouterPath.PATH_DBVMLDACTIVITY).navigation()
     }
 }

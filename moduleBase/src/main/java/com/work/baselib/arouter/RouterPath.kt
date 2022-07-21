@@ -27,4 +27,5 @@ object RouterPath {
     const val PATH_LIVEDATAVIEWMODELACTIVITY = "/jetpackTo/LiveDataViewModelActivity"
     const val PATH_DATABINDINGACTIVITY = "/jetpackTo/DataBindingActivity"
     const val PATH_RecyclerViewACTIVITY = "/jetpackTo/RecyclerViewActivity"
+    const val PATH_DBVMLDACTIVITY = "/jetpackTo/DBVMLDActivity"
 }

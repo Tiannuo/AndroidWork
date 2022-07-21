@@ -7,6 +7,9 @@
     <dimen name="et_padding">16dp</dimen>
     <dimen name="sp_16">16sp</dimen>
     <dimen name="sp_18">18sp</dimen>
+    <dimen name="sp_32">32sp</dimen>
+    <dimen name="sp_48">48sp</dimen>
+    <dimen name="sp_64">64sp</dimen>
     <dimen name="ll_login_margin">24dp</dimen>
     <dimen name="iv_login_logo_size">128dp</dimen>
     <dimen name="margin_dp24">24dp</dimen>

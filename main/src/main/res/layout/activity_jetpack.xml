@@ -13,6 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingTop="@dimen/activity_horizontal_margin"
         tools:context=".jetpack.activity.JetpackActivity">
 
         <com.work.theIsle.jetpack.ui.MyChronometer
@@ -87,6 +88,22 @@
             app:layout_constraintEnd_toEndOf="@+id/btn_livedata"
             app:layout_constraintStart_toEndOf="@+id/btn_dataBinding"
             app:layout_constraintTop_toTopOf="@+id/btn_dataBinding" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.45" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{event::gotoDBVMLD}"
+            android:text="@string/str_btn_DBVMLD"
+            app:layout_constraintStart_toStartOf="@+id/btn_viewModel"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
