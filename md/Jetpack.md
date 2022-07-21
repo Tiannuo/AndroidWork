@@ -123,4 +123,11 @@ private val userObservableFiled: ObservableField<User> = ObservableField()
         }
 }
 ```
-11： DataBindingUtil.inflate 在RecyclerView.ViewHolder中使用 在ViewHolder中使用定义Binding属性用于和itemLayout互动赋值
+11： DataBindingUtil.inflate 在RecyclerView.ViewHolder中使用 在ViewHolder中使用定义Binding属性用于和itemLayout互动赋值  
+12： MutableLiveData 泛型中的对象的成员属性改变，并不会ui更新，需要对其.value方法重新赋值才可以进行数据的更新  
+```
+     //必须要有此步操作对.value重新赋值，亦可以写成  vm.getScoreData().value =  vm.getScoreData().value
+        vm.getScoreData().value = scoreBean
+```
+
+

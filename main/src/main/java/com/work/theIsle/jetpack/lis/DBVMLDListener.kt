@@ -22,15 +22,22 @@ class DBVMLDListener {
      */
     fun addScore(v: View, vm: DBVMLDVM, teamtype: TEAMTYPE, score: Int) {
         vm.saveLastTeamScore()
+        var scoreBean: ScoreBean? = vm.getScoreData().value
         if (teamtype == TEAMTYPE.A) {
-            vm.getScoreData().value?.setATeamScore(vm.getScoreData().value?.getATeamScore()!!.plus(score))
+            scoreBean?.setATeamScore(
+                vm.getScoreData().value?.getATeamScore()!!.plus(score)
+            )
+
             //vm.getATeamSore().value = vm.getATeamSore().value?.plus(score)
         } else {
-            vm.getScoreData().value?.setBTeamScore(vm.getScoreData().value?.getBTeamScore()!!.plus(score))
+            scoreBean?.setBTeamScore(
+                vm.getScoreData().value?.getBTeamScore()!!.plus(score)
+            )
             //vm.getBTeamSore().value = vm.getBTeamSore().value?.plus(score)
         }
-        val scoreBean = ScoreBean(vm.getScoreData().value?.getATeamScore(),vm.getScoreData().value?.getBTeamScore())
-        vm.getScoreData().value  = scoreBean
+        //val scoreBean = ScoreBean(vm.getScoreData().value?.getATeamScore(),vm.getScoreData().value?.getBTeamScore())
+        //必须要有此步操作对.value重新赋值，亦可以写成  vm.getScoreData().value =  vm.getScoreData().value
+        vm.getScoreData().value = scoreBean
     }
 
     /**
@@ -39,9 +46,9 @@ class DBVMLDListener {
      */
     fun back(v: View, vm: DBVMLDVM) {
         LoggerUtils.i("back aLastTeamSore = ${vm.aLastTeamSore} bLastTeamSore = ${vm.bLastTeamSore}")
-  /*      vm.getATeamSore().value = vm.aLastTeamSore
-        vm.getBTeamSore().value = vm.bLastTeamSore*/
-        vm.getScoreData().value = ScoreBean(vm.aLastTeamSore,vm.bLastTeamSore)
+        /*      vm.getATeamSore().value = vm.aLastTeamSore
+              vm.getBTeamSore().value = vm.bLastTeamSore*/
+        vm.getScoreData().value = ScoreBean(vm.aLastTeamSore, vm.bLastTeamSore)
     }
 
     /**
@@ -54,7 +61,7 @@ class DBVMLDListener {
                vm.getATeamSore().value = 0
         vm.getBTeamSore().value = 0
         * */
-        vm.getScoreData().value = ScoreBean(0,0)
+        vm.getScoreData().value = ScoreBean(0, 0)
     }
 
     enum class TEAMTYPE {
