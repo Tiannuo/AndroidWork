@@ -19,6 +19,7 @@ abstract class BaseMvpModelActivity<V : BaseView<B, M>, P : BasePresenter<V, B, 
             setContentView(getBinding()!!.root)
         }
         mPresenter!!.bindView(this as V)
+        mPresenter!!.initView(this,mBinding)
     }
 
     abstract fun createBinding(): B?

@@ -1,5 +1,6 @@
 package com.work.login
 
+import android.app.Activity
 import android.content.Context
 import com.alibaba.android.arouter.launcher.ARouter
 import com.work.applogin.databinding.ActivityLoginBinding
@@ -21,7 +22,7 @@ class LoginPresenter : BasePresenter<LoginView, ActivityLoginBinding, QingHuaBea
     @OptIn(DelicateCoroutinesApi::class)
     fun getTest(binding: ActivityLoginBinding?) {
         val api: UserApi = HttpUtils.createApi(UserApi::class.java)
-        var qingHuaBean: QingHuaBean? = null
+        var qingHuaBean: QingHuaBean?
         // 不入参默认是子线程
         GlobalScope.launch(Dispatchers.Main) {
             qingHuaBean = api.loadQing()
@@ -34,19 +35,19 @@ class LoginPresenter : BasePresenter<LoginView, ActivityLoginBinding, QingHuaBea
     /*
     * 跳转到协程
     * */
-    fun gotoCoroutine(context: Context) {
+    private fun gotoCoroutine(context: Context) {
         getBaseView().gotoCoroutine(context)
     }
 
-    fun gotoJetpack(loginActivity: LoginActivity) {
+    private fun gotoJetpack() {
         ARouter.getInstance().build(RouterPath.PATH_JETPACKACTIVITY).navigation()
     }
 
     /**
      * 跳转到Kotlin
-     * @param loginActivity LoginActivity
+     * @param
      */
-    fun gotoKotlin(loginActivity: LoginActivity) {
+    private fun gotoKotlin() {
         ARouter.getInstance().build(RouterPath.PATH_KOTLINACTIVITY)
             .withObject("key", KotlinUserBean("kotlin"))
             .navigation()
@@ -54,11 +55,35 @@ class LoginPresenter : BasePresenter<LoginView, ActivityLoginBinding, QingHuaBea
 
     /**
      * 初始化view的部分相关信息
-     * @param binding ActivityLoginBinding?
+     * @param mBinding ActivityLoginBinding?
      */
-    fun initView(activity: LoginActivity, binding: ActivityLoginBinding?) {
-        binding!!.btnKotlin.setOnClickListener {
-            gotoKotlin(activity)
+    override fun initView(activity: Activity, mBinding: ActivityLoginBinding?) {
+
+        mBinding!!.btnTest.also { it.setOnClickListener { getTest(mBinding) } }
+        mBinding.btnCoroutine.also {
+            it.setOnClickListener {
+                gotoCoroutine(
+                    activity
+                )
+            }
+        }
+        mBinding.btnUomg.setOnClickListener {
+            ARouter.getInstance().build(RouterPath.PATH_UOMGDATA).navigation(activity)
+        }
+        mBinding.btnDagger.setOnClickListener {
+            ARouter.getInstance().build(RouterPath.PATH_DAGGERACTIVITY).navigation(activity)
+        }
+
+        mBinding.btnHilt.setOnClickListener {
+            ARouter.getInstance().build(RouterPath.PATH_HILTACTIVITY).navigation()
+        }
+
+        mBinding.btnJetpack.setOnClickListener {
+            gotoJetpack()
+        }
+
+        mBinding.btnKotlin.setOnClickListener {
+            gotoKotlin()
         }
     }
 }

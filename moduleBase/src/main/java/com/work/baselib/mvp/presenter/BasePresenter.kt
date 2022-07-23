@@ -1,9 +1,10 @@
 package com.work.baselib.mvp.presenter
 
+import android.app.Activity
 import androidx.viewbinding.ViewBinding
 import com.work.baselib.mvp.view.BaseView
 
-open class BasePresenter<V : BaseView<B, M>, B : ViewBinding, M> {
+abstract class BasePresenter<V : BaseView<B, M>, B : ViewBinding, M> {
 
     private var mBaseView: V? = null
 
@@ -16,4 +17,11 @@ open class BasePresenter<V : BaseView<B, M>, B : ViewBinding, M> {
     }
 
     fun getBaseView() = mBaseView as V
+
+    /**
+     * Presenter 中初始化activity 初始化view层的代码
+     * @param activity Activity
+     * @param mBinding B?
+     */
+    abstract fun initView(activity: Activity, mBinding: B?)
 }
