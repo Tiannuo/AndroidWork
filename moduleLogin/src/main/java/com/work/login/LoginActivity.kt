@@ -42,6 +42,8 @@ class LoginActivity :
         getBinding()!!.btnJetpack.setOnClickListener {
             getPresenter()!!.gotoJetpack(this)
         }
+
+        getPresenter()!!.initView(this,getBinding())
     }
 
     override fun initData() {

@@ -96,9 +96,12 @@
         <activity
             android:name=".jetpack.activity.RecyclerViewActivity"
             android:exported="false" />
-
         <activity
             android:name=".jetpack.activity.DBVMLDActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".kotlin.KotlinActivity"
             android:exported="false" />
 
         <service android:name=".jetpack.service.MyLocationService" />

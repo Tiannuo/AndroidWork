@@ -1,10 +1,8 @@
 package com.work.baselib.activity
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import androidx.viewbinding.ViewBinding
 import com.work.baselib.mvp.presenter.BasePresenter
 import com.work.baselib.mvp.view.BaseView
-import androidx.viewbinding.ViewBinding
 
 abstract class BaseMvpModelActivity<V : BaseView<B, M>, P : BasePresenter<V, B, M>, B : ViewBinding, M> :
     BaseActivity(), BaseView<B, M> {

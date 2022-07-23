@@ -1,13 +1,13 @@
 package com.work.login
 
 import android.content.Context
-import androidx.viewbinding.ViewBinding
 import com.alibaba.android.arouter.launcher.ARouter
 import com.work.applogin.databinding.ActivityLoginBinding
 import com.work.baselib.arouter.RouterPath
 import com.work.baselib.mvp.presenter.BasePresenter
 import com.work.httplib.httputils.HttpUtils
 import com.work.login.api.UserApi
+import com.work.login.bean.KotlinUserBean
 import com.work.login.bean.QingHuaBean
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
@@ -40,5 +40,25 @@ class LoginPresenter : BasePresenter<LoginView, ActivityLoginBinding, QingHuaBea
 
     fun gotoJetpack(loginActivity: LoginActivity) {
         ARouter.getInstance().build(RouterPath.PATH_JETPACKACTIVITY).navigation()
+    }
+
+    /**
+     * 跳转到Kotlin
+     * @param loginActivity LoginActivity
+     */
+    fun gotoKotlin(loginActivity: LoginActivity) {
+        ARouter.getInstance().build(RouterPath.PATH_KOTLINACTIVITY)
+            .withObject("key", KotlinUserBean("kotlin"))
+            .navigation()
+    }
+
+    /**
+     * 初始化view的部分相关信息
+     * @param binding ActivityLoginBinding?
+     */
+    fun initView(activity: LoginActivity, binding: ActivityLoginBinding?) {
+        binding!!.btnKotlin.setOnClickListener {
+            gotoKotlin(activity)
+        }
     }
 }
