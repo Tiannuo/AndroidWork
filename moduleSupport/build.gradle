@@ -87,7 +87,7 @@ dependencies {
     kapt "com.alibaba:arouter-compiler:$androidBaseLib.version_arouter_compiler"
     // 图片加载Glide
     api "com.github.bumptech.glide:glide:$androidBaseLib.version_glide"
-    annotationProcessor "com.github.bumptech.glide:compiler:$androidBaseLib.version_glide"
+    kapt "com.github.bumptech.glide:compiler:$androidBaseLib.version_glide"
     //Room 数据库
     api "androidx.room:room-runtime:$androidBaseLib.version_room"
     kapt "androidx.room:room-compiler:$androidBaseLib.version_room"

@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".app.BaseApp"
@@ -99,9 +100,10 @@
         <activity
             android:name=".jetpack.activity.DBVMLDActivity"
             android:exported="false" />
-
         <activity
             android:name=".kotlin.KotlinActivity"
+            android:exported="false" />
+        <activity android:name=".openSourceFramework.glide.GlideActivity"
             android:exported="false" />
 
         <service android:name=".jetpack.service.MyLocationService" />
@@ -115,6 +117,7 @@
         <meta-data
             android:name="PGYER_FEATURE_CHECK_UNPDATE"
             android:value="true" />
+
     </application>
 
 </manifest>

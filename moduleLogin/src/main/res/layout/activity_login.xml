@@ -16,8 +16,10 @@
         android:textSize="@dimen/sp_18"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -99,4 +101,13 @@
         app:layout_constraintBottom_toBottomOf="@+id/btn_hilt"
         app:layout_constraintEnd_toEndOf="@+id/btn_jetpack"
         app:layout_constraintTop_toTopOf="@+id/btn_hilt" />
+
+    <Button
+        android:id="@+id/btn_glide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str_btn_glide"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_dagger"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_dagger" />
 </androidx.constraintlayout.widget.ConstraintLayout>

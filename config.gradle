@@ -30,7 +30,7 @@ ext {
             version_toastUtils               : '10.3',
             version_arouter_api              : '1.5.2',
             version_arouter_compiler         : '1.5.2',
-            version_glide                    : '4.13.0',
+            version_glide                    : '4.13.2',
             version_room                     : '2.4.2',
             version_nav                      : '2.4.2',
             version_multidex                 : '1.0.3',

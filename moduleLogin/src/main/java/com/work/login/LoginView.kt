@@ -20,13 +20,16 @@ interface LoginView : BaseView<ActivityLoginBinding, QingHuaBean> {
 
     fun initView(binding: ActivityLoginBinding, loginPresenter: LoginPresenter) {
 
-        binding.btnTest.also { it.setOnClickListener {
+        binding.btnTest.also {
+            it.setOnClickListener {
 
-            loginPresenter.getTest(binding)
-        } }
+                loginPresenter.getTest(binding)
+            }
+        }
         binding.btnCoroutine.also {
             it.setOnClickListener {
-                ARouter.getInstance().build("/coroutineTo/CoroutineActivity3").navigation(this@LoginView as Activity)
+                ARouter.getInstance().build("/coroutineTo/CoroutineActivity3")
+                    .navigation(this@LoginView as Activity)
             }
         }
         binding.btnUomg.setOnClickListener {
@@ -47,6 +50,11 @@ interface LoginView : BaseView<ActivityLoginBinding, QingHuaBean> {
         binding.btnKotlin.setOnClickListener {
             ARouter.getInstance().build(RouterPath.PATH_KOTLINACTIVITY)
                 .withObject("key", KotlinUserBean("kotlin"))
+                .navigation()
+        }
+
+        binding.btnGlide.setOnClickListener {
+            ARouter.getInstance().build(RouterPath.PATH_GLIDEACTIVITY)
                 .navigation()
         }
     }
