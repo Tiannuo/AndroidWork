@@ -87,16 +87,9 @@ android {
 }
 
 dependencies {
-    implementation androidBaseLib.ktx
-    implementation androidBaseLib.appcompat
-    implementation androidBaseLib.material
     implementation project(path: ':moduleSupport')
     implementation project(path: ':moduleBase')
     implementation project(path: ':moduleHttp')
-    testImplementation androidBaseLib.junit
-    androidTestImplementation androidBaseLib.extJunit
-    androidTestImplementation androidBaseLib.espresso
-    api 'com.alibaba:arouter-api:' + androidBaseLib.version_arouter_api
     kapt 'com.alibaba:arouter-compiler:' + androidBaseLib.version_arouter_compiler
-    kapt "com.google.dagger:dagger-compiler:2.42"
+    kapt "com.google.dagger:dagger-compiler:$androidBaseLib.version_dagger"
 }

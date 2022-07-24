@@ -61,12 +61,13 @@ android {
     }
 }
 dependencies {
-    implementation androidBaseLib.ktx
-    implementation androidBaseLib.appcompat
-    implementation androidBaseLib.material
-    testImplementation androidBaseLib.junit
-    androidTestImplementation androidBaseLib.extJunit
-    androidTestImplementation androidBaseLib.espresso
+    api androidBaseLib.ktx
+    api androidBaseLib.appcompat
+    api androidBaseLib.material
+    testApi androidBaseLib.junit
+    androidTestApi androidBaseLib.extJunit
+    androidTestApi androidBaseLib.espresso
+    api "androidx.annotation:annotation:$androidBaseLib.version_annotation"
     // https://github.com/orhanobut/logger
     api "com.orhanobut:logger:$androidBaseLib.version_logger"
     //https://github.com/ReactiveX/RxJava
@@ -115,4 +116,10 @@ dependencies {
     kapt "com.google.dagger:hilt-android-compiler:$androidBaseLib.version_hilt"
     //https://github.com/CymChad/BaseRecyclerViewAdapterHelper
     api "com.github.CymChad:BaseRecyclerViewAdapterHelper:$androidBaseLib.version_recyclerViewAdapterHelper"
+
+    api "androidx.lifecycle:lifecycle-livedata-ktx:$androidBaseLib.version_lifecycle"
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:$androidBaseLib.version_lifecycle"
+    api "androidx.constraintlayout:constraintlayout:$androidBaseLib.version_constraintlayout"
+    api "androidx.legacy:legacy-support-v4:$androidBaseLib.version_legacy_support"
+
 }

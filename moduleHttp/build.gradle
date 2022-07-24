@@ -93,14 +93,7 @@ android {
 }
 
 dependencies {
-    implementation androidBaseLib.ktx
-    implementation androidBaseLib.appcompat
-    implementation androidBaseLib.material
     implementation project(path: ':moduleHttpAnnotation')
     implementation project(path: ':moduleHttpAnnotationCompiler')
-    testImplementation androidBaseLib.junit
-    androidTestImplementation androidBaseLib.extJunit
-    androidTestImplementation androidBaseLib.espresso
-    implementation androidBaseLib.constraintlayout
     implementation project(path: ':moduleSupport')
 }
