@@ -41,7 +41,9 @@ class GlideViewModel : ViewModel() {
     }
 
     public fun notifyImgData() {
-        getGlideBeanMutableLiveData().value!!.imgUrl = Constant.IMG_URL
-        getGlideBeanMutableLiveData().value = getGlideBeanMutableLiveData().value
+        getGlideBeanMutableLiveData().apply {
+            this.value!!.imgUrl = Constant.IMG_URL
+            this.value = this.value
+        }
     }
 }
