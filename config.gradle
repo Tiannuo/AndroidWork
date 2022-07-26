@@ -46,6 +46,9 @@ ext {
             version_activity_ktx             : '1.5.0',
             version_fragment_ktx             : '1.5.0',
             version_swiperefreshlayout       : '1.1.0',
+            version_immersionbar             : '3.2.2',
+            version_bannerviewpager          : 'latestVersion',
+            version_BGAbanner                : 'latestVersion',
     ]
 
     javaBaseLib = [

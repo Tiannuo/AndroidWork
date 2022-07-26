@@ -19,7 +19,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TheIsle"
         tools:replace="android:icon,android:label"
-        tools:targetApi="n">
+        tools:targetApi="n"
+        android:resizeableActivity="true"
+        android:maxAspectRatio="2.4"
+        >
+
+        <!--https://github.com/gyf-dev/ImmersionBar-->
 
         <activity
             android:name=".splash.SplashActivity"
@@ -122,6 +127,21 @@
         <meta-data
             android:name="PGYER_FEATURE_CHECK_UNPDATE"
             android:value="true" />
+
+        <!--https://github.com/gyf-dev/ImmersionBar-->
+        <!--适配华为（huawei）刘海屏-->
+        <meta-data
+            android:name="android.notch_support"
+            android:value="true"/>
+        <!--适配小米（xiaomi）刘海屏-->
+        <meta-data
+            android:name="notch.config"
+            android:value="portrait|landscape" />
+
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.4" />
+
     </application>
 
 </manifest>
