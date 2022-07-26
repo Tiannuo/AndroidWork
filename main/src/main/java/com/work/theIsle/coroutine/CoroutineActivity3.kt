@@ -44,9 +44,11 @@ class CoroutineActivity3 : BaseActivity() {
         binding.btnLivedata.setOnClickListener {
             coroutineViewModel.gotoViewModelLiveData(this)
         }
-
         binding.btnException.setOnClickListener {
             coroutineViewModel.gotoExceptionHandler(this)
+        }
+        binding.btnFlowPractice.setOnClickListener {
+            coroutineViewModel.gotoFlowPractice(this)
         }
     }
 

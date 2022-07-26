@@ -84,6 +84,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/btn_livedata" />
 
+        <Button
+            android:id="@+id/btn_flow_practice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FlowPractice"
+            app:layout_constraintBottom_toTopOf="@+id/btn_scope"
+            app:layout_constraintEnd_toEndOf="@+id/btn_livedata"
+            app:layout_constraintStart_toStartOf="@+id/btn_livedata" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -49,4 +49,8 @@ class CoroutineViewModel : ViewModel() {
     fun gotoExceptionHandler(context: Context) {
         ARouter.getInstance().build(RouterPath.PATH_EXCEOTIONHANDLERACTIVITY).navigation(context)
     }
+
+    fun gotoFlowPractice(context: Context) {
+        ARouter.getInstance().build(RouterPath.PATH_FLOWPRACTICEACTIVITY).navigation(context)
+    }
 }

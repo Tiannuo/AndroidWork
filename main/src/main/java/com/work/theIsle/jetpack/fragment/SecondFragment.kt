@@ -30,7 +30,7 @@ class SecondFragment : Fragment() {
         if (root == null) {
             root = inflater.inflate(R.layout.fragment_second, container, false)
             seekBar = root!!.findViewById(R.id.sb_second)
-            vm = ViewModelProvider(activity!!).get(SeekBarViewModel::class.java)
+            vm = ViewModelProvider(activity!!)[SeekBarViewModel::class.java]
             //vm = ViewModelProvider(activity!!,ViewModelProvider.AndroidViewModelFactory(activity!!.application)).get(SeekBarViewModel::class.java)
             vm.getProgress().observe(viewLifecycleOwner) {
                 seekBar.progress = it

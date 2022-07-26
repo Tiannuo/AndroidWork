@@ -103,7 +103,12 @@
         <activity
             android:name=".kotlin.KotlinActivity"
             android:exported="false" />
-        <activity android:name=".openSourceFramework.glide.GlideActivity"
+        <activity
+            android:name=".openSourceFramework.glide.GlideActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".coroutine.flow.FlowPracticeActivity"
             android:exported="false" />
 
         <service android:name=".jetpack.service.MyLocationService" />
@@ -117,7 +122,6 @@
         <meta-data
             android:name="PGYER_FEATURE_CHECK_UNPDATE"
             android:value="true" />
-
     </application>
 
 </manifest>

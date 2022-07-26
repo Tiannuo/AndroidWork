@@ -8,6 +8,6 @@ package com.work.theIsle.kotlin
  */
 class KotlinTest {
     fun test() {
-        mapOf("jack" to 18)
+        mapOf("jack" to 18,"jack" to 18)
     }
 }

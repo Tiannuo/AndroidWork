@@ -22,7 +22,7 @@ class FirstFragment : Fragment() {
         if (root == null) {
             root = inflater.inflate(R.layout.fragment_first, container, false)
             seekBar = root!!.findViewById(R.id.sb_first)
-            vm = ViewModelProvider(activity!!).get(SeekBarViewModel::class.java)
+            vm = ViewModelProvider(activity!!)[SeekBarViewModel::class.java]
             //vm = ViewModelProvider(activity!!,ViewModelProvider.AndroidViewModelFactory(activity!!.application)).get(SeekBarViewModel::class.java)
             vm.getProgress().observe(viewLifecycleOwner) {
                 seekBar.progress = it

@@ -30,4 +30,5 @@ object RouterPath {
     const val PATH_DBVMLDACTIVITY = "/jetpackTo/DBVMLDActivity"
     const val PATH_KOTLINACTIVITY = "/jetpackTo/KotlinActivity"
     const val PATH_GLIDEACTIVITY = "/OSFTo/GlideActivity"
+    const val PATH_FLOWPRACTICEACTIVITY = "/flowTo/FlowPracticeActivity"
 }

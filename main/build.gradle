@@ -168,6 +168,9 @@ dependencies {
     implementation project(path: ':moduleBase')
     implementation project(path: ':moduleHttp')
     implementation project(path: ':moduleSupport')
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     if (config.appIsApplication) {
         implementation project(path: ':moduleLogin')
     }
