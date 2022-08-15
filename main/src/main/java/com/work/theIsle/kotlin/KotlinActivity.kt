@@ -7,6 +7,7 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.work.baselib.arouter.RouterPath.PATH_KOTLINACTIVITY
 import com.work.login.bean.KotlinUserBean
+import com.work.supportlib.LoggerUtils
 import com.work.theIsle.R
 import com.work.theIsle.app.BaseAppActivity
 import com.work.theIsle.databinding.ActivityKotlinBinding
@@ -15,7 +16,7 @@ import com.work.theIsle.kotlin.vm.KotlinViewModel
 @Route(path = PATH_KOTLINACTIVITY)
 class KotlinActivity : BaseAppActivity() {
     private lateinit var binding: ActivityKotlinBinding
-    private val userModel:KotlinViewModel by viewModels()
+    private val userModel: KotlinViewModel by viewModels()
 
     @Autowired(name = "key")
     lateinit var userBean: KotlinUserBean
@@ -26,6 +27,17 @@ class KotlinActivity : BaseAppActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_kotlin)
         binding.lifecycleOwner = this
         binding.userModel = userModel
+        binding.btnReified.setOnClickListener {
+            reifiedShow()
+        }
+    }
+
+    private fun reifiedShow() {
+        val box: MagiBox<Man> = MagiBox()
+        val subject: Man = box.randomDataOrBack { name, age ->
+            Man(name, age)
+        }
+        LoggerUtils.i("name = ${subject.name} age = ${subject.age}")
     }
 
     override fun initData() {

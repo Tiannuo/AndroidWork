@@ -1,5 +1,10 @@
 package com.work.theIsle;
 
+import androidx.collection.ArrayMap;
+
+import org.junit.Test;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -187,6 +192,18 @@ public class TypeTest {
         //efoods.add(new Fruit());
         //https://blog.csdn.net/qq_33561055/article/details/87289812
         //https://zhuanlan.zhihu.com/p/249187830
+    }
+
+    @Test
+    public void test22() {
+        System.out.println(-6 >>> 3);
+        int index = 2;
+        index = ~index;
+        ArrayMap<String, String> arrayMap = new ArrayMap<>();
+        arrayMap.put(null, "null0");
+        arrayMap.put("name", "王伟");
+        System.out.println("null= " + arrayMap.get(null));
+        System.out.println("index= " + index);
     }
 }
 

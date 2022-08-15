@@ -1,28 +1,2 @@
 <resources>
-    <string name="app_login_name">appLogin</string>
-    <string name="str_et_account_hint">账号</string>
-    <string name="str_et_password_hint">密码</string>
-    <string name="str_btn_login">登录</string>
-    <string name="str_btn_test">测试</string>
-    <string name="str_btn_coroutine">协程</string>
-    <string name="str_btn_umog">UMOG</string>
-    <string name="str_btn_Dagger">Dagger</string>
-    <string name="str_btn_hilt">Hilt</string>
-    <string name="str_btn_jetpack">Jetpack</string>
-    <string name="str_btn_location">Location</string>
-    <string name="str_btn_location_start">开始</string>
-    <string name="str_btn_location_stop">结束</string>
-    <string name="str_btn_view_model">ViewModel</string>
-    <string name="str_btn_livedata">LiveData</string>
-    <string name="str_btn_livedata_viewModel">LiveDataVM</string>
-    <string name="str_btn_livedata_dataBinding">dataBinding</string>
-    <string name="str_btn_rv">RecyclerView</string>
-    <string name="str_btn_clock_start">开始</string>
-    <string name="str_btn_clock_stop">结束</string>
-    <string name="str_btn_clock_pause">暂停</string>
-    <string name="str_btn_back">撤销</string>
-    <string name="str_btn_reset">重置</string>
-    <string name="str_btn_DBVMLD">DBVMLD</string>
-    <string name="str_btn_kotlin">Kotlin</string>
-    <string name="str_btn_glide">Glide</string>
 </resources>
