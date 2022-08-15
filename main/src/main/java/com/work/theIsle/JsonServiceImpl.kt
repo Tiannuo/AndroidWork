@@ -11,6 +11,7 @@ import java.lang.reflect.Type
  * @Date 2022/7/23-22:10
  * @Email 1320917731@qq.com & wangweitikou1994@gmail.com
  * @Description  阿里路由需要手动实现相关方法，不然传递对象会报错
+ *
  */
 @Route(path = "/service/json")
 class JsonServiceImpl: SerializationService {
