@@ -10,28 +10,35 @@ import com.orhanobut.logger.Logger
  */
 object LoggerUtils {
     fun i(message: String, vararg args: Any) {
-        baseLogger(LoggerType.I,message,args)
+        baseLogger(LoggerType.I, message, args)
+    }
+
+    fun i(message: Any?, vararg args: Any) {
+        if (message != null) {
+            baseLogger(LoggerType.I, message.toString(), args)
+        }
     }
 
     fun i(message: Int, vararg args: Any) {
-        baseLogger(LoggerType.I,message.toString(),args)
+        baseLogger(LoggerType.I, message.toString(), args)
     }
 
     fun e(message: String, vararg args: Any) {
-        baseLogger(LoggerType.E,message,args)
+        baseLogger(LoggerType.E, message, args)
     }
 
-    private fun baseLogger(type:LoggerType, message: String, vararg args: Any){
-        if (BuildConfig.DEBUG){
-            when(type){
-                LoggerType.I ->  Logger.i(message, args)
-                LoggerType.D ->  Logger.d(message, args)
-                LoggerType.E ->  Logger.e(message, args)
+    private fun baseLogger(type: LoggerType, message: String, vararg args: Any) {
+        if (BuildConfig.DEBUG) {
+            when (type) {
+                LoggerType.I -> Logger.i(message, args)
+                LoggerType.D -> Logger.d(message, args)
+                LoggerType.E -> Logger.e(message, args)
             }
         }
     }
 
-    enum class LoggerType{
-        I,D,E
+    enum class LoggerType {
+        I, D, E
     }
 }
+

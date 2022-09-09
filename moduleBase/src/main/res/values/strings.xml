@@ -27,4 +27,6 @@
     <string name="str_btn_kotlin">Kotlin</string>
     <string name="str_btn_glide">Glide</string>
     <string name="str_btn_reified">reified</string>
+    <string name="str_btn_extendFunc">extendFunc</string>
+    <string name="str_btn_demo">通用</string>
 </resources>
