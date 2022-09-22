@@ -59,6 +59,7 @@ android {
             buildConfigField "boolean", "isReleaseDebug", "false"
         }
     }
+    namespace 'com.work.supportlib'
 }
 dependencies {
     api androidBaseLib.ktx
