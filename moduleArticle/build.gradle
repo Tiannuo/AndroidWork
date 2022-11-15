@@ -18,6 +18,7 @@ android {
     defaultConfig {
         config.minSdkVersion
         config.targetSdkVersion
+        flavorDimensions dimensions.articlelib
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
@@ -35,10 +36,45 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    // 多渠道打包
+    productFlavors {
+        //开发环境
+        PFDev {
+            dimension dimensions.articlelib
+            missingDimensionStrategy dimensions.httplib, "PFDev", "PFTest", "PFRelease"
+            missingDimensionStrategy dimensions.supportlib, "PFDev", "PFTest", "PFRelease"
+            buildConfigField "String", "IBASE_URL", url.devUrl
+            buildConfigField "boolean", "isDevDebug", "true"
+        }
+
+        //测试环境
+        PFTest {
+            dimension dimensions.articlelib
+            missingDimensionStrategy dimensions.httplib, "PFDev", "PFTest", "PFRelease"
+            missingDimensionStrategy dimensions.supportlib, "PFDev", "PFTest", "PFRelease"
+            buildConfigField "String", "IBASE_URL", url.testUrl
+            buildConfigField "boolean", "isTestDebug", "false"
+        }
+
+        //正式环境
+        PFRelease {
+            dimension dimensions.articlelib
+            missingDimensionStrategy dimensions.httplib, "PFDev", "PFTest", "PFRelease"
+            missingDimensionStrategy dimensions.supportlib, "PFDev", "PFTest", "PFRelease"
+            buildConfigField "String", "IBASE_URL", url.releaseUrl
+            buildConfigField "boolean", "isReleaseDebug", "false"
+        }
+    }
 }
 
 dependencies {
     implementation project(path: ':moduleSupport')
+    implementation project(path: ':moduleHttp')
     kapt 'com.alibaba:arouter-compiler:' + androidBaseLib.version_arouter_compiler
-    kapt "com.google.dagger:dagger-compiler:2.42"
+    kapt "com.google.dagger:dagger-compiler:$androidBaseLib.version_dagger"
 }

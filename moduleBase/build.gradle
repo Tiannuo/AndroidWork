@@ -83,5 +83,5 @@ dependencies {
     implementation project(path: ':moduleSupport')
     implementation project(path: ':moduleHttp')
     kapt 'com.alibaba:arouter-compiler:' + androidBaseLib.version_arouter_compiler
-    kapt "com.google.dagger:dagger-compiler:2.42"
+    kapt "com.google.dagger:dagger-compiler:$androidBaseLib.version_dagger"
 }

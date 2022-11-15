@@ -27,4 +27,5 @@ ext.dimensions = [
         'baselib'   : "moduleBase",
         'httplib'   : "moduleHttp",
         'supportlib': "moduleSupport",
+        'articlelib': "moduleArticle",
 ]
