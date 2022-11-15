@@ -2,7 +2,6 @@ package com.work.theIsle.openSourceFramework.glide
 
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.MutableLiveData
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.work.baselib.activity.BaseActivity
 import com.work.baselib.arouter.RouterPath.PATH_GLIDEACTIVITY

@@ -1,10 +1,9 @@
-plugins {
-    id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
-}
+apply plugin: 'com.android.library'
+apply plugin: 'org.jetbrains.kotlin.android'
+apply plugin: 'kotlin-kapt'
 def config = rootProject.ext.android
 def androidBaseLib = rootProject.ext.androidBaseLib
+
 kapt {
     arguments {
         arg("AROUTER_MODULE_NAME", project.getName())
@@ -12,12 +11,11 @@ kapt {
 }
 
 android {
-    namespace 'com.example.modulearticle'
     compileSdk config.compileSdkVersion
-
+    buildToolsVersion config.buildToolsVersion
     defaultConfig {
-        config.minSdkVersion
-        config.targetSdkVersion
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
         flavorDimensions dimensions.articlelib
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -46,6 +44,7 @@ android {
         //开发环境
         PFDev {
             dimension dimensions.articlelib
+            missingDimensionStrategy dimensions.baselib, "PFDev", "PFTest", "PFRelease"
             missingDimensionStrategy dimensions.httplib, "PFDev", "PFTest", "PFRelease"
             missingDimensionStrategy dimensions.supportlib, "PFDev", "PFTest", "PFRelease"
             buildConfigField "String", "IBASE_URL", url.devUrl
@@ -55,6 +54,7 @@ android {
         //测试环境
         PFTest {
             dimension dimensions.articlelib
+            missingDimensionStrategy dimensions.baselib, "PFDev", "PFTest", "PFRelease"
             missingDimensionStrategy dimensions.httplib, "PFDev", "PFTest", "PFRelease"
             missingDimensionStrategy dimensions.supportlib, "PFDev", "PFTest", "PFRelease"
             buildConfigField "String", "IBASE_URL", url.testUrl
@@ -64,15 +64,18 @@ android {
         //正式环境
         PFRelease {
             dimension dimensions.articlelib
+            missingDimensionStrategy dimensions.baselib, "PFDev", "PFTest", "PFRelease"
             missingDimensionStrategy dimensions.httplib, "PFDev", "PFTest", "PFRelease"
             missingDimensionStrategy dimensions.supportlib, "PFDev", "PFTest", "PFRelease"
             buildConfigField "String", "IBASE_URL", url.releaseUrl
             buildConfigField "boolean", "isReleaseDebug", "false"
         }
     }
+    namespace 'com.work.article'
 }
 
 dependencies {
+    implementation project(path: ':moduleBase')
     implementation project(path: ':moduleSupport')
     implementation project(path: ':moduleHttp')
     kapt 'com.alibaba:arouter-compiler:' + androidBaseLib.version_arouter_compiler

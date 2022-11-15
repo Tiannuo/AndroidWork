@@ -97,6 +97,7 @@ android {
         PFDev {
             dimension dimensions.main
             missingDimensionStrategy dimensions.applogin, "PFDev", "PFTest", "PFRelease"
+            missingDimensionStrategy dimensions.articlelib, "PFDev", "PFTest", "PFRelease"
             missingDimensionStrategy dimensions.baselib, "PFDev", "PFTest", "PFRelease"
             missingDimensionStrategy dimensions.httplib, "PFDev", "PFTest", "PFRelease"
             missingDimensionStrategy dimensions.supportlib, "PFDev", "PFTest", "PFRelease"
@@ -114,6 +115,7 @@ android {
         PFTest {
             dimension dimensions.main
             missingDimensionStrategy dimensions.applogin, "PFDev", "PFTest", "PFRelease"
+            missingDimensionStrategy dimensions.articlelib, "PFDev", "PFTest", "PFRelease"
             missingDimensionStrategy dimensions.baselib, "PFDev", "PFTest", "PFRelease"
             missingDimensionStrategy dimensions.httplib, "PFDev", "PFTest", "PFRelease"
             missingDimensionStrategy dimensions.supportlib, "PFDev", "PFTest", "PFRelease"
@@ -130,6 +132,7 @@ android {
         PFRelease {
             dimension dimensions.main
             missingDimensionStrategy dimensions.applogin, "PFDev", "PFTest", "PFRelease"
+            missingDimensionStrategy dimensions.articlelib, "PFDev", "PFTest", "PFRelease"
             missingDimensionStrategy dimensions.baselib, "PFDev", "PFTest", "PFRelease"
             missingDimensionStrategy dimensions.httplib, "PFDev", "PFTest", "PFRelease"
             missingDimensionStrategy dimensions.supportlib, "PFDev", "PFTest", "PFRelease"
@@ -172,9 +175,6 @@ dependencies {
     implementation project(path: ':moduleBase')
     implementation project(path: ':moduleHttp')
     implementation project(path: ':moduleSupport')
-    implementation 'androidx.appcompat:appcompat:1.3.0'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     if (config.appIsApplication) {
         implementation project(path: ':moduleLogin')
     }

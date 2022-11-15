@@ -57,5 +57,10 @@ interface LoginView : BaseView<ActivityLoginBinding, QingHuaBean> {
             ARouter.getInstance().build(RouterPath.PATH_GLIDEACTIVITY)
                 .navigation()
         }
+
+        binding.btnArticle.setOnClickListener{
+            ARouter.getInstance().build(RouterPath.PATH_KOTLININDEXACTIVITY)
+                .navigation()
+        }
     }
 }
