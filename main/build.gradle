@@ -101,7 +101,6 @@ android {
             missingDimensionStrategy dimensions.baselib, "PFDev", "PFTest", "PFRelease"
             missingDimensionStrategy dimensions.httplib, "PFDev", "PFTest", "PFRelease"
             missingDimensionStrategy dimensions.supportlib, "PFDev", "PFTest", "PFRelease"
-            missingDimensionStrategy dimensions.articlelib, "PFDev", "PFTest", "PFRelease"
             manifestPlaceholders = [APP_NAME         : "AndroidWork_Dev",
                                     PGYER_API_KEY    : "74ccdc5e3947229728128b6e97f07128",
                                     PGYER_FRONTJS_KEY: "74ccdc5e3947229728128b6e97f07128"
@@ -119,7 +118,6 @@ android {
             missingDimensionStrategy dimensions.baselib, "PFDev", "PFTest", "PFRelease"
             missingDimensionStrategy dimensions.httplib, "PFDev", "PFTest", "PFRelease"
             missingDimensionStrategy dimensions.supportlib, "PFDev", "PFTest", "PFRelease"
-            missingDimensionStrategy dimensions.articlelib, "PFDev", "PFTest", "PFRelease"
             manifestPlaceholders = [APP_NAME         : "AndroidWork_Test",
                                     PGYER_API_KEY    : "74ccdc5e3947229728128b6e97f07128",
                                     PGYER_FRONTJS_KEY: "74ccdc5e3947229728128b6e97f07128"]
@@ -136,7 +134,6 @@ android {
             missingDimensionStrategy dimensions.baselib, "PFDev", "PFTest", "PFRelease"
             missingDimensionStrategy dimensions.httplib, "PFDev", "PFTest", "PFRelease"
             missingDimensionStrategy dimensions.supportlib, "PFDev", "PFTest", "PFRelease"
-            missingDimensionStrategy dimensions.articlelib, "PFDev", "PFTest", "PFRelease"
             manifestPlaceholders = [APP_NAME         : "AndroidWork_Release",
                                     PGYER_API_KEY    : "74ccdc5e3947229728128b6e97f07128",
                                     PGYER_FRONTJS_KEY: "74ccdc5e3947229728128b6e97f07128"]
@@ -175,6 +172,7 @@ dependencies {
     implementation project(path: ':moduleBase')
     implementation project(path: ':moduleHttp')
     implementation project(path: ':moduleSupport')
+    implementation project(path: ':moduleArticle')
     if (config.appIsApplication) {
         implementation project(path: ':moduleLogin')
     }

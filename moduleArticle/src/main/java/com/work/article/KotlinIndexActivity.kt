@@ -15,6 +15,7 @@ import com.work.baselib.arouter.RouterPath.PATH_KOTLININDEXACTIVITY
 @Route(path = PATH_KOTLININDEXACTIVITY)
 class KotlinIndexActivity : BaseActivity() {
     private lateinit var binding:ActivityKotlinindexBinding
+
     override fun initView() {
         binding = DataBindingUtil.setContentView(this,R.layout.activity_kotlinindex)
         binding.lifecycleOwner = this
