@@ -30,4 +30,5 @@
     <string name="str_btn_extendFunc">extendFunc</string>
     <string name="str_btn_demo">通用</string>
     <string name="str_btn_article">Article</string>
+    <string name="str_btn_cooroute">kotlin协程案例</string>
 </resources>

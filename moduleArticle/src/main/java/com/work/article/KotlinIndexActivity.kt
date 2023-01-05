@@ -1,5 +1,6 @@
 package com.work.article
 
+import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.work.article.databinding.ActivityKotlinindexBinding
@@ -14,12 +15,13 @@ import com.work.baselib.arouter.RouterPath.PATH_KOTLININDEXACTIVITY
  */
 @Route(path = PATH_KOTLININDEXACTIVITY)
 class KotlinIndexActivity : BaseActivity() {
-    private lateinit var binding:ActivityKotlinindexBinding
-
+    private lateinit var binding: ActivityKotlinindexBinding
+    private val indexVM: IndexViewModel by viewModels()
     override fun initView() {
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_kotlinindex)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_kotlinindex)
         binding.lifecycleOwner = this
-
+        binding.vm = indexVM
+        binding.event = ClickListener()
     }
 
     override fun initData() {
