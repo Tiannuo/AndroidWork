@@ -12,11 +12,11 @@ import kotlinx.coroutines.launch
  * @Description
  */
 class IndexViewModel : ViewModel() {
-    public val userLiveData = MutableLiveData<String>()
+    public val userLiveData = MutableLiveData<IndexUser>()
     private val userRepository: IndexRepository by lazy { IndexRepository() }
 
     init {
-        userLiveData.value = "index"
+        userLiveData.value = IndexUser("index")
     }
 
     fun getUser(name: String) {

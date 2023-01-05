@@ -7,7 +7,7 @@ package com.work.article
  * @Description
  */
 class IndexRepository {
-    suspend fun getString(name: String): String {
-        return "玩家姓名 = $name"
+    suspend fun getString(name: String): IndexUser {
+        return IndexUser(name)
     }
 }
