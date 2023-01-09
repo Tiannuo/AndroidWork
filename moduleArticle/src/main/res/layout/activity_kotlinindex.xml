@@ -55,5 +55,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline4"
             app:layout_constraintVertical_bias="1.0" />
+
+        <Button
+            android:id="@+id/btn_Test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:onClick="@{(v)->event.clickTest2(v)}"
+            android:text="Test"
+            app:layout_constraintEnd_toEndOf="@+id/btn_demo"
+            app:layout_constraintStart_toStartOf="@+id/btn_demo"
+            app:layout_constraintTop_toBottomOf="@+id/btn_demo"
+            tools:ignore="MissingConstraints" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

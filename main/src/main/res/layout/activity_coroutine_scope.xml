@@ -25,6 +25,36 @@
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/btn_test"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_scope"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="Scope"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_test"
+        app:layout_constraintEnd_toStartOf="@+id/btn_test"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_zyy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="作用域"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_test"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_test" />
+
+    <Button
+        android:id="@+id/btn_bhyc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="捕获异常"
+        app:layout_constraintBottom_toTopOf="@+id/btn_scope"
+        app:layout_constraintEnd_toEndOf="@+id/btn_scope"
+        app:layout_constraintStart_toStartOf="@+id/btn_scope" />
 </androidx.constraintlayout.widget.ConstraintLayout>

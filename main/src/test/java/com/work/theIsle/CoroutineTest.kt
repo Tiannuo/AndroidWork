@@ -122,4 +122,16 @@ class CoroutineTest {
 
         delay(100)
     }
+
+    @Test
+    fun `test start mode scope`() = runBlocking {
+        val scope = CoroutineScope(Dispatchers.Default)
+        val job1 = scope.launch {
+            delay(1000)
+            println("job1")
+        }
+        // 此处主线程走完直接结束了，而job1有自己的作用域，和runblocking的作用域是不同的，runblocking的作用域运行已经结束，而job1的代码还在挂起，所以挂起的job1已经不会走了
+        //需要挂起runblocking等待job1的完成 delay()函数或者join等待作业执行完成
+        //job1.join()
+    }
 }
