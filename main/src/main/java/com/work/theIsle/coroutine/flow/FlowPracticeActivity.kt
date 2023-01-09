@@ -6,10 +6,13 @@ import com.work.baselib.arouter.RouterPath.PATH_FLOWPRACTICEACTIVITY
 import com.work.theIsle.R
 import com.work.theIsle.coroutine.vm.FlowPracticeVM
 import com.work.theIsle.databinding.ActivityFlowPracticeBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.MainScope
 
 @Route(path = PATH_FLOWPRACTICEACTIVITY)
 class FlowPracticeActivity :
-    BaseDataBindingViewModelActivity<ActivityFlowPracticeBinding, FlowPracticeVM>() {
+    BaseDataBindingViewModelActivity<ActivityFlowPracticeBinding, FlowPracticeVM>(),
+    CoroutineScope by MainScope() {
 
     override fun initView() {
         getBinding().event = FlowPracticeListener()

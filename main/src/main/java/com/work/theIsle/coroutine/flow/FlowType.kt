@@ -7,5 +7,5 @@ package com.work.theIsle.coroutine.flow
  * @Description
  */
 enum class FlowType {
-    ONE, TWO, THREE
+    ONE, TWO, THREE,FOUR
 }

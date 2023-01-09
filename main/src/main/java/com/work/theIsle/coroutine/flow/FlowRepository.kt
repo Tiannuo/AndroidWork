@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.*
  * @Description Repository 负责最后的数据整合
  * Flow的三种实现方式
  */
-class FlowRepository {
+class FlowRepository(private val viewModelScope: CoroutineScope) {
     private val coroutineScope: CoroutineScope by lazy {
         CoroutineScope(Dispatchers.Main)
     }
@@ -23,9 +23,11 @@ class FlowRepository {
         }
     }
 
-    public fun getTestData(data: String, vm: FlowPracticeVM) {
+    public fun getTestData(
+        data: String,
+        vm: FlowPracticeVM,
+    ) {
         val flow = simpleFlow()
-
         coroutineScope.launch {
             flow.collect {
                 withContext(Dispatchers.IO) {
@@ -59,6 +61,15 @@ class FlowRepository {
                 LoggerUtils.e("it = $it")
                 delay(1000)
                 vm.getMutableLiveData().value = "$data$it/9"
+            }
+        }
+    }
+
+    fun getTestData4(data: String, vm: FlowPracticeVM) {
+        viewModelScope.launch {
+            (1..8).asFlow().onEach { delay(1000) }.collect {
+                LoggerUtils.e("it = $it")
+                vm.getMutableLiveData().value = "$data$it/8"
             }
         }
     }

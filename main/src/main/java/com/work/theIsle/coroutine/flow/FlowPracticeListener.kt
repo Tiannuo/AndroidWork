@@ -9,7 +9,7 @@ import com.work.theIsle.coroutine.vm.FlowPracticeVM
  * @Email 1320917731@qq.com & wangweitikou1994@gmail.com
  * @Description
  */
-class FlowPracticeListener {
+class FlowPracticeListener() {
     // Databinding的调用点击事件不可以是suspend
     public fun test(v: View, vm: FlowPracticeVM, type: FlowType) {
         vm.getData("测试", vm,type)
