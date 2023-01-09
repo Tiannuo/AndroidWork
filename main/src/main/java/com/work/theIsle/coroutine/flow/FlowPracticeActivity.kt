@@ -12,7 +12,7 @@ class FlowPracticeActivity :
     BaseDataBindingViewModelActivity<ActivityFlowPracticeBinding, FlowPracticeVM>() {
 
     override fun initView() {
-
+        getBinding().event = FlowPracticeListener()
     }
 
     override fun initData() {

@@ -8,23 +8,32 @@
         <variable
             name="vm"
             type="com.work.theIsle.coroutine.vm.FlowPracticeVM" />
+
+        <variable
+            name="event"
+            type="com.work.theIsle.coroutine.flow.FlowPracticeListener" />
+
+        <variable
+            name="flowType"
+            type="com.work.theIsle.coroutine.flow.FlowType" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".coroutine.flow.FlowPracticeActivity">
+
         <TextView
-            style="@style/BaseTextView"
             android:id="@+id/tv_show"
+            style="@style/BaseTextView"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="@{vm.mutableLiveData.toString()}"
+            android:text="@{vm.mutableLiveData}"
             app:layout_constraintBottom_toTopOf="@+id/guideline16"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-     />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline16"
@@ -32,5 +41,17 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.25" />
+
+        <Button
+            android:id="@+id/btn_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:onClick="@{(v)->event.test(v,vm,flowType.THREE)}"
+            android:text="Test"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

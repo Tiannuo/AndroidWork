@@ -2,6 +2,9 @@ package com.work.theIsle.coroutine.vm
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.work.supportlib.LoggerUtils
+import com.work.theIsle.coroutine.flow.FlowRepository
+import com.work.theIsle.coroutine.flow.FlowType
 
 /**
  * @Author TIKOU
@@ -10,11 +13,24 @@ import androidx.lifecycle.ViewModel
  * @Description
  */
 class FlowPracticeVM : ViewModel() {
-    private val mutableLiveData: MutableLiveData<Int> = MutableLiveData()
+    private val mutableLiveData: MutableLiveData<String> = MutableLiveData()
+    private val flowRepository: FlowRepository by lazy {
+        FlowRepository()
+    }
 
     init {
-        mutableLiveData.value = 9527
+        mutableLiveData.value = "9527"
     }
 
     fun getMutableLiveData() = mutableLiveData
+
+    fun getData(data: String, vm: FlowPracticeVM, type: FlowType) {
+        when (type) {
+            FlowType.ONE -> flowRepository.getTestData(data, vm)
+            FlowType.TWO -> flowRepository.getTestData2(data, vm)
+            FlowType.THREE -> flowRepository.getTestData3(data, vm)
+            else -> LoggerUtils.e("type value not found!")
+        }
+
+    }
 }
