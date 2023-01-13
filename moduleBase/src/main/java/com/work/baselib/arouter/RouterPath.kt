@@ -32,4 +32,5 @@ object RouterPath {
     const val PATH_GLIDEACTIVITY = "/OSFTo/GlideActivity"
     const val PATH_FLOWPRACTICEACTIVITY = "/flowTo/FlowPracticeActivity"
     const val PATH_KOTLININDEXACTIVITY = "/articleIndexTo/KotlinIndexActivity"
+    const val PATH_FLOWPROJECTSTRUCTUREACTIVITY = "/coroutineTo/FlowProjectStructureActivity"
 }

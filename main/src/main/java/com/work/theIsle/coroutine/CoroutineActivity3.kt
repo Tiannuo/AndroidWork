@@ -33,22 +33,25 @@ class CoroutineActivity3 : BaseActivity() {
             coroutineViewModel.getUserData()
         }
         binding.btnFlow.setOnClickListener {
-            coroutineViewModel.gotoFlowActivity(this@CoroutineActivity3)
+            coroutineViewModel.gotoFlowActivity()
         }
         binding.btnContext.setOnClickListener {
-            coroutineViewModel.gotoContextActivity(this)
+            coroutineViewModel.gotoContextActivity()
         }
         binding.btnScope.setOnClickListener {
-            coroutineViewModel.gotoScopeActivity(this)
+            coroutineViewModel.gotoScopeActivity()
         }
         binding.btnLivedata.setOnClickListener {
-            coroutineViewModel.gotoViewModelLiveData(this)
+            coroutineViewModel.gotoViewModelLiveData()
         }
         binding.btnException.setOnClickListener {
-            coroutineViewModel.gotoExceptionHandler(this)
+            coroutineViewModel.gotoExceptionHandler()
         }
         binding.btnFlowPractice.setOnClickListener {
-            coroutineViewModel.gotoFlowPractice(this)
+            coroutineViewModel.gotoFlowPractice()
+        }
+        binding.btnFlowProject.setOnClickListener {
+            coroutineViewModel.gotoFlowProject()
         }
     }
 

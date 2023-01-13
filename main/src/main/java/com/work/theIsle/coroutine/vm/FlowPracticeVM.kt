@@ -15,7 +15,7 @@ import com.work.theIsle.coroutine.flow.FlowType
  */
 class FlowPracticeVM : ViewModel() {
     private val mutableLiveData: MutableLiveData<String> = MutableLiveData()
-    private val flowRepository: FlowRepository by lazy {
+    private val flowRepository: FlowRepository by lazy(LazyThreadSafetyMode.SYNCHRONIZED) {
         FlowRepository(viewModelScope)
     }
 
@@ -30,7 +30,7 @@ class FlowPracticeVM : ViewModel() {
             FlowType.ONE -> flowRepository.getTestData(data, vm)
             FlowType.TWO -> flowRepository.getTestData2(data, vm)
             FlowType.THREE -> flowRepository.getTestData3(data, vm)
-            FlowType.FOUR->flowRepository.getTestData4(data,vm)
+            FlowType.FOUR -> flowRepository.getTestData4(data, vm)
             else -> LoggerUtils.e("type value not found!")
         }
 

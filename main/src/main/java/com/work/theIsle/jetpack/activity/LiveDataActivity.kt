@@ -36,9 +36,7 @@ class LiveDataActivity : BaseActivity() {
         binding.btnPause.setOnClickListener {
             pauseClock()
         }
-        vm = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(application)).get(
-            LiveDataViewModel::class.java
-        )
+        vm = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(application))[LiveDataViewModel::class.java]
         binding.tvNumber.text = vm.getCurrentNumber().value.toString()
         vm.getCurrentNumber().observe(this) {
             binding.tvNumber.text = it.toString()

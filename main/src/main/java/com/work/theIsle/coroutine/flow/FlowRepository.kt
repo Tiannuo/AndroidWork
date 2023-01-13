@@ -23,10 +23,7 @@ class FlowRepository(private val viewModelScope: CoroutineScope) {
         }
     }
 
-    public fun getTestData(
-        data: String,
-        vm: FlowPracticeVM,
-    ) {
+    public fun getTestData(data: String, vm: FlowPracticeVM) {
         val flow = simpleFlow()
         coroutineScope.launch {
             flow.collect {

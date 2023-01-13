@@ -134,3 +134,4 @@ AndroidWork
    思路 [https://blog.csdn.net/z470567554/article/details/103896625](https://blog.csdn.net/z470567554/article/details/103896625)
 8. modulesBase:libBase 可以为添加双层结构的在new module的时候输入的module名字
 9. DataBinding & viewBinding 常见用法 [http://www.javashuo.com/article/p-xwtlmuzw-gw.html](http://www.javashuo.com/article/p-xwtlmuzw-gw.html) 
+10. Navigation Preview unavailable 问题 navigation.xml导航 需要tools:layout="@layout/xxx"才能显示

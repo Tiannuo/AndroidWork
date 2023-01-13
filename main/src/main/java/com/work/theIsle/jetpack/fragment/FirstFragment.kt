@@ -49,6 +49,7 @@ class FirstFragment : Fragment() {
     }
 
     companion object {
+        @JvmStatic
         fun newInstance() = FirstFragment()
     }
 }
