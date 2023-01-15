@@ -4,9 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.work.theIsle.viewmodel.CoroutineViewModel" />
+
+        <variable
+            name="event"
+            type="com.work.theIsle.coroutine.CoroutineClickListener" />
+
+        <import type="com.work.baselib.arouter.RouterPath" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -33,6 +40,7 @@
             android:id="@+id/btn_coroutine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{(v)->event.getUserData(v,viewModel)}"
             android:text="协程测试"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -42,6 +50,7 @@
             android:id="@+id/btn_flow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{(v)->event.gotoStepActivity(v,RouterPath.PATH_FLOWACTIVITY,viewModel)}"
             android:text="Flow"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -52,6 +61,7 @@
             android:id="@+id/btn_context"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{(v)->event.gotoStepActivity(v,RouterPath.PATH_CONTEXTACTIVITY,viewModel)}"
             android:text="Context"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btn_coroutine"
@@ -62,6 +72,7 @@
             android:id="@+id/btn_scope"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{(v)->event.gotoStepActivity(v,RouterPath.PATH_SCOPEACTIVITY,viewModel)}"
             android:text="Scope"
             app:layout_constraintBottom_toTopOf="@+id/btn_context"
             app:layout_constraintStart_toStartOf="@+id/btn_context" />
@@ -70,6 +81,7 @@
             android:id="@+id/btn_livedata"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{(v)->event.gotoStepActivity(v,RouterPath.PATH_VIEWMODELACTIVITY,viewModel)}"
             android:text="LiveData"
             app:layout_constraintBottom_toTopOf="@+id/btn_coroutine"
             app:layout_constraintEnd_toEndOf="parent"
@@ -79,6 +91,7 @@
             android:id="@+id/btn_exception"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{(v)->event.gotoStepActivity(v,RouterPath.PATH_EXCEOTIONHANDLERACTIVITY,viewModel)}"
             android:text="Exception"
             app:layout_constraintBottom_toTopOf="@+id/btn_flow"
             app:layout_constraintEnd_toEndOf="parent"
@@ -88,6 +101,7 @@
             android:id="@+id/btn_flow_practice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{(v)->event.gotoStepActivity(v,RouterPath.PATH_FLOWPRACTICEACTIVITY,viewModel)}"
             android:text="FlowPractice"
             app:layout_constraintBottom_toTopOf="@+id/btn_scope"
             app:layout_constraintEnd_toEndOf="@+id/btn_livedata"
@@ -97,9 +111,19 @@
             android:id="@+id/btn_flow_project"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{(v)->event.gotoStepActivity(v,RouterPath.PATH_FLOWPROJECTSTRUCTUREACTIVITY,viewModel)}"
             android:text="FlowProject"
             app:layout_constraintBottom_toTopOf="@+id/btn_exception"
             app:layout_constraintStart_toEndOf="@+id/btn_flow_practice" />
+
+        <Button
+            android:id="@+id/btn_demo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{(v)->event.gotoStepActivity(v,RouterPath.PATH_COROUTINE_PROJECT_DEMO,viewModel)}"
+            android:text="Demo"
+            app:layout_constraintBottom_toTopOf="@+id/btn_livedata"
+            app:layout_constraintEnd_toEndOf="@+id/btn_scope" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

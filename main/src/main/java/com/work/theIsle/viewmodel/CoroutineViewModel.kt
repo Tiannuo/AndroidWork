@@ -31,32 +31,4 @@ class CoroutineViewModel(application: Application) : AndroidViewModel(applicatio
             userDataLiveData.value = userDataRepository.getUserData()
         }
     }
-
-    fun gotoFlowActivity() {
-        ARouter.getInstance().build(RouterPath.PATH_FLOWACTIVITY).navigation(getApplication())
-    }
-
-    fun gotoContextActivity() {
-        ARouter.getInstance().build(RouterPath.PATH_CONTEXTACTIVITY).navigation(getApplication())
-    }
-
-    fun gotoScopeActivity() {
-        ARouter.getInstance().build(RouterPath.PATH_SCOPEACTIVITY).navigation(getApplication())
-    }
-
-    fun gotoViewModelLiveData() {
-        ARouter.getInstance().build(RouterPath.PATH_VIEWMODELACTIVITY).navigation(getApplication())
-    }
-
-    fun gotoExceptionHandler() {
-        ARouter.getInstance().build(RouterPath.PATH_EXCEOTIONHANDLERACTIVITY).navigation(getApplication())
-    }
-
-    fun gotoFlowPractice() {
-        ARouter.getInstance().build(RouterPath.PATH_FLOWPRACTICEACTIVITY).navigation(getApplication())
-    }
-
-    fun gotoFlowProject() {
-        ARouter.getInstance().build(RouterPath.PATH_FLOWPROJECTSTRUCTUREACTIVITY).navigation(getApplication())
-    }
 }

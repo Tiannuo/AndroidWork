@@ -118,6 +118,10 @@
             android:name=".coroutine.flow.FlowProjectStructureActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".coroutine.projectdemo.ProjectDemoActivity"
+            android:exported="false" />
+
         <service android:name=".jetpack.service.MyLocationService" />
 
         <meta-data

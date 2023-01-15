@@ -21,6 +21,9 @@ class CoroutineActivity3 : BaseActivity() {
 
     private lateinit var binding: ActivityCoroutine3Binding
     private val coroutineViewModel: CoroutineViewModel by viewModels()
+    private val event: CoroutineClickListener by lazy {
+        CoroutineClickListener()
+    }
 
     override fun initView() {
         binding = DataBindingUtil.setContentView(
@@ -29,30 +32,7 @@ class CoroutineActivity3 : BaseActivity() {
         )
         binding.viewModel = coroutineViewModel
         binding.lifecycleOwner = this
-        binding.btnCoroutine.setOnClickListener {
-            coroutineViewModel.getUserData()
-        }
-        binding.btnFlow.setOnClickListener {
-            coroutineViewModel.gotoFlowActivity()
-        }
-        binding.btnContext.setOnClickListener {
-            coroutineViewModel.gotoContextActivity()
-        }
-        binding.btnScope.setOnClickListener {
-            coroutineViewModel.gotoScopeActivity()
-        }
-        binding.btnLivedata.setOnClickListener {
-            coroutineViewModel.gotoViewModelLiveData()
-        }
-        binding.btnException.setOnClickListener {
-            coroutineViewModel.gotoExceptionHandler()
-        }
-        binding.btnFlowPractice.setOnClickListener {
-            coroutineViewModel.gotoFlowPractice()
-        }
-        binding.btnFlowProject.setOnClickListener {
-            coroutineViewModel.gotoFlowProject()
-        }
+        binding.event = event
     }
 
     override fun initData() {
