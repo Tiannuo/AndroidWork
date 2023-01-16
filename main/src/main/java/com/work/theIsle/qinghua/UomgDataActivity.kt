@@ -21,10 +21,12 @@ import com.work.theIsle.databinding.ActivityUomgBinding
  */
 @Route(path = PATH_UOMGDATA)
 class UomgDataActivity : BaseActivity() {
-    private lateinit var binding: ActivityUomgBinding
+    private val binding: ActivityUomgBinding by lazy {
+        ActivityUomgBinding.inflate(layoutInflater)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityUomgBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.btnQinghua.setOnClickListener {
             KTRequestApi.request(

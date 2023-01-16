@@ -1,10 +1,7 @@
 package com.work.httplib.dn.kt
 
 import android.text.TextUtils
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.OnLifecycleEvent
+import androidx.lifecycle.*
 import com.work.httplib.common.ExceptionEngine
 import com.work.httplib.dn.ResponseTransformer
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -22,12 +19,13 @@ import io.reactivex.rxjava3.schedulers.Schedulers
  * @Email wangweitikou1994@gmail.com
  * @Des
  */
-class KTResponseTransformer<T : Any> : ObservableTransformer<KTBaseResponse<T>, T>, LifecycleObserver {
+class KTResponseTransformer<T : Any> : ObservableTransformer<KTBaseResponse<T>, T>,
+    DefaultLifecycleObserver {
 
     private val compositeDisposable = CompositeDisposable()
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    fun onDestroy() {
+    override fun onDestroy(owner: LifecycleOwner) {
+        super.onDestroy(owner)
         if (!compositeDisposable.isDisposed) {
             compositeDisposable.dispose()
         }
@@ -40,8 +38,9 @@ class KTResponseTransformer<T : Any> : ObservableTransformer<KTBaseResponse<T>, 
             }
             .flatMap(Function<KTBaseResponse<T>, ObservableSource<T>> { response ->
                 // 对响应数据统一处理
-                if (TextUtils.equals("1", response.code)) {
-                    return@Function Observable.just(response.content)
+                val content: T? = response.content
+                if (TextUtils.equals("1", response.code) && content != null) {
+                    return@Function Observable.just(content)
                 }
                 Observable.error(KTApiException(response.code, response.msg))
             })
