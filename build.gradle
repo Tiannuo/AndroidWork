@@ -6,7 +6,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.google.dagger:hilt-android-gradle-plugin:' +hilt_version
+        classpath 'com.google.dagger:hilt-android-gradle-plugin:' + hilt_version
     }
 }
 plugins {
@@ -15,6 +15,20 @@ plugins {
     id 'org.jetbrains.kotlin.android' version '1.7.10' apply false
     id 'org.jetbrains.kotlin.jvm' version '1.6.21' apply false
 }
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://oss.jfrog.org/libs-snapshot" }
+        maven { url 'https://jitpack.io' }
+        maven { url "https://frontjs-static.pgyer.com/dist/sdk/pgyersdk" }  //主力仓库
+        maven { url "https://raw.githubusercontent.com/Pgyer/analytics/master" }
+        //备用仓库（主力仓库下载不下来使用）
+        maven { url 'https://www.jitpack.io' }
+    }
+}
+
 
 task clean(type: Delete) {
     delete rootProject.buildDir

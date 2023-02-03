@@ -144,4 +144,5 @@ dependencies {
     // https://github.com/bingoogolapple/BGABanner-Android
     //api "androidx.legacy:legacy-support-v4:latestVersion"
     api "com.github.bingoogolapple:BGABanner-Android:$androidBaseLib.version_BGAbanner"
+    api project(path:':flutter')
 }

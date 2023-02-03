@@ -5,7 +5,8 @@ pluginManagement {
         mavenCentral()
     }
 }
-dependencyResolutionManagement {
+
+/*dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
@@ -16,7 +17,7 @@ dependencyResolutionManagement {
         maven { url "https://raw.githubusercontent.com/Pgyer/analytics/master" }  //备用仓库（主力仓库下载不下来使用）
         maven { url 'https://www.jitpack.io' }
     }
-}
+}*/
 rootProject.name = "TheIsle"
 include ':main'
 include ':moduleSupport'
@@ -26,3 +27,15 @@ include ':moduleBase'
 include ':moduleHttpAnnotation'
 include ':moduleHttpAnnotationCompiler'
 include ':moduleArticle'
+
+/*
+settingsDir 对应的路径为Flutter项目的路口
+* */
+setBinding(new Binding([gradle:this]))
+evaluate(new File(
+        settingsDir,
+        '../../../../flutter/project/.android/include_flutter.groovy'
+))
+
+include ':project'
+project(':project').projectDir = new File('../../../../flutter/project')
