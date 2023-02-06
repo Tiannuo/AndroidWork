@@ -122,4 +122,16 @@
         app:layout_constraintEnd_toStartOf="@+id/btn_coroutine"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/btn_coroutine" />
+
+    <Button
+        android:id="@+id/btn_flutter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/design_default_color_primary"
+        android:text="@string/str_btn_flutter"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_coroutine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_coroutine"
+        app:layout_constraintTop_toTopOf="@+id/btn_coroutine" />
 </androidx.constraintlayout.widget.ConstraintLayout>

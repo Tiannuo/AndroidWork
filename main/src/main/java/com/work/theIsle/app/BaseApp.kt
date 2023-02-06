@@ -16,6 +16,9 @@ import com.work.theIsle.hilt.httpProcessor.IHttpProcessor
 import com.work.theIsle.hilt.httpProcessor.OkhttpProcessor
 import com.work.theIsle.jetpack.observer.ApplicationObserver
 import dagger.hilt.android.HiltAndroidApp
+import io.flutter.embedding.engine.FlutterEngine
+import io.flutter.embedding.engine.FlutterEngineCache
+import io.flutter.embedding.engine.dart.DartExecutor
 import javax.inject.Inject
 
 @HiltAndroidApp
@@ -24,6 +27,8 @@ class BaseApp : Application() {
     @BindXutils
     @Inject
     lateinit var baseHttp: IHttpProcessor
+
+    private lateinit var flutterEngine: FlutterEngine
 
     //DaggerSingletonComponent 持有的 module中的被Singleton修饰的对象数据全局共享，相当于于一个静态量
     private var daggerSingleComponent: DaggerSingletonComponent =
@@ -48,6 +53,14 @@ class BaseApp : Application() {
     override fun onCreate() {
         super.onCreate()
         ProcessLifecycleOwner.get().lifecycle.addObserver(ApplicationObserver())
+        initFlutterConfig()
+    }
+
+    private fun initFlutterConfig() {
+        flutterEngine = FlutterEngine(this)
+        flutterEngine.navigationChannel.setInitialRoute("main/homePage")
+        flutterEngine.dartExecutor.executeDartEntrypoint(DartExecutor.DartEntrypoint.createDefault())
+        FlutterEngineCache.getInstance().put("FlutterDemo",flutterEngine)
     }
 
     private fun initIHttpProcessor() {
@@ -74,5 +87,10 @@ class BaseApp : Application() {
 
     private fun initPgyerSDK() {
         PgyerSDKManager.Init().setContext(this).start()
+    }
+
+    override fun onTerminate() {
+        flutterEngine.destroy()
+        super.onTerminate()
     }
 }

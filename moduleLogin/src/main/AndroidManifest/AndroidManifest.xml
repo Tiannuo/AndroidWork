@@ -6,5 +6,6 @@
         <activity
             android:name="com.work.login.LoginActivity"
             android:exported="true" />
+        <activity android:name="io.flutter.embedding.android.FlutterFragmentActivity" />
     </application>
 </manifest>

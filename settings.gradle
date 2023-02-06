@@ -34,8 +34,8 @@ settingsDir 对应的路径为Flutter项目的路口
 setBinding(new Binding([gradle:this]))
 evaluate(new File(
         settingsDir,
-        '../../../../flutter/project/.android/include_flutter.groovy'
+        '../../../../flutter/moduleflutter/.android/include_flutter.groovy'
 ))
 
-include ':project'
-project(':project').projectDir = new File('../../../../flutter/project')
+include ':moduleflutter'
+project(':moduleflutter').projectDir = new File('../../../../flutter/moduleflutter')

@@ -1,12 +1,15 @@
 package com.work.login
 
 import android.app.Activity
+import android.content.Intent
 import com.alibaba.android.arouter.launcher.ARouter
 import com.work.applogin.databinding.ActivityLoginBinding
 import com.work.baselib.arouter.RouterPath
 import com.work.baselib.mvp.view.BaseView
 import com.work.login.bean.KotlinUserBean
 import com.work.login.bean.QingHuaBean
+import io.flutter.embedding.android.FlutterFragmentActivity
+
 
 interface LoginView : BaseView<ActivityLoginBinding, QingHuaBean> {
 
@@ -58,9 +61,15 @@ interface LoginView : BaseView<ActivityLoginBinding, QingHuaBean> {
                 .navigation()
         }
 
-        binding.btnArticle.setOnClickListener{
+        binding.btnArticle.setOnClickListener {
             ARouter.getInstance().build(RouterPath.PATH_KOTLININDEXACTIVITY)
                 .navigation()
+        }
+        binding.btnFlutter.setOnClickListener {
+            val flutterHomeActivity =
+                FlutterFragmentActivity.withCachedEngine("FlutterDemo")
+                    .build(it.context)
+            it.context.startActivity(flutterHomeActivity)
         }
     }
 }
