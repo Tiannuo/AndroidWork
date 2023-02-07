@@ -70,7 +70,7 @@ dependencies {
     androidTestApi androidBaseLib.espresso
     // jetpack
     api "androidx.activity:activity-ktx:$androidBaseLib.version_activity_ktx"
-    implementation "androidx.fragment:fragment-ktx:$androidBaseLib.version_fragment_ktx"
+    api "androidx.fragment:fragment-ktx:$androidBaseLib.version_fragment_ktx"
     // Testing Fragments in Isolation
     debugImplementation "androidx.fragment:fragment-testing:$androidBaseLib.version_fragment_ktx"
     //Room 数据库

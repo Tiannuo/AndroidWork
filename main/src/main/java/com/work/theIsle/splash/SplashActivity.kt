@@ -17,6 +17,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
+
 /*
 * 启动类就没有必要弄MVP了
 * */
@@ -38,28 +39,31 @@ class SplashActivity : AppCompatActivity() {
     private fun requestPermission() {
         XXPermissions.with(this)
             .permission(Permission.MANAGE_EXTERNAL_STORAGE)
-           // .permission(Permission.REQUEST_INSTALL_PACKAGES)
+            // .permission(Permission.REQUEST_INSTALL_PACKAGES)
             .permission(Permission.READ_PHONE_STATE)
             .permission(Permission.ACCESS_FINE_LOCATION)
             .permission(Permission.ACCESS_COARSE_LOCATION)
             .request(object : OnPermissionCallback {
-                override fun onGranted(permissions: MutableList<String>?, all: Boolean) {
-                    if (all) {
+                override fun onGranted(permissions: MutableList<String>, allGranted: Boolean) {
+                    if (allGranted) {
                         ToastUtils.show(R.string.toast_request_permission_success)
                     } else {
                         ToastUtils.show(R.string.toast_request_permission_not_all_success)
                     }
                 }
 
-                override fun onDenied(permissions: MutableList<String>?, never: Boolean) {
-                    super.onDenied(permissions, never)
-                    if (never) {
+                override fun onDenied(permissions: MutableList<String>, doNotAskAgain: Boolean) {
+                    super.onDenied(permissions, doNotAskAgain)
+                    if (doNotAskAgain) {
                         ToastUtils.show(R.string.toast_request_permission_never)
                     } else {
                         ToastUtils.show(R.string.toast_request_permission_fail)
                     }
                 }
+
             })
+
+
     }
 
     /*
@@ -73,8 +77,8 @@ class SplashActivity : AppCompatActivity() {
             .subscribe {
                 Log.e("===it", "$it")
                 tv_remain!!.text = 3.minus(it).toString().plus("秒")
-                when(it.toInt()){
-                    2-> skipToLoginActivity()
+                when (it.toInt()) {
+                    2 -> skipToLoginActivity()
                 }
             }
     }
