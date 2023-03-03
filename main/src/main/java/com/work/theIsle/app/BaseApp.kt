@@ -5,7 +5,7 @@ import android.content.Context
 import androidx.lifecycle.ProcessLifecycleOwner
 import androidx.multidex.MultiDex
 import com.alibaba.android.arouter.launcher.ARouter
-import com.hjq.toast.ToastUtils
+import com.hjq.toast.Toaster
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
 import com.pgyer.pgyersdk.PgyerSDKManager
@@ -82,7 +82,7 @@ class BaseApp : Application() {
     }
 
     private fun initToast() {
-        ToastUtils.init(this)
+        Toaster.init(this)
     }
 
     private fun initPgyerSDK() {

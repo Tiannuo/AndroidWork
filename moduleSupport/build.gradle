@@ -104,8 +104,8 @@ dependencies {
     // https://github.com/getActivity/XXPermissions
     api "com.github.getActivity:XXPermissions:$androidBaseLib.version_xxPermissions"
     api "com.pgyer:analytics:$androidBaseLib.version_pgyer"
-    // 吐司框架：https://github.com/getActivity/ToastUtils
-    api "com.github.getActivity:ToastUtils:$androidBaseLib.version_toastUtils"
+    // 吐司框架：https://github.com/getActivity/Toaster
+    api "com.github.getActivity:Toaster:$androidBaseLib.version_toastUtils"
     api "com.alibaba:arouter-api:$androidBaseLib.version_arouter_api"
     kapt "com.alibaba:arouter-compiler:$androidBaseLib.version_arouter_compiler"
     // 图片加载Glide

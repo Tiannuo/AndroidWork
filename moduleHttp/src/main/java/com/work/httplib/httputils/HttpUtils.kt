@@ -31,7 +31,7 @@ object HttpUtils {
 
 
     @Synchronized
-    private fun createClient(): OkHttpClient? {
+    private fun createClient(): OkHttpClient {
         if (mClient == null) {
             mClient = OkHttpClient.Builder()
                 //打印HTTP 请求信息
@@ -45,7 +45,7 @@ object HttpUtils {
                 //.addInterceptor(DynamicTimeoutInterceptor())
                 .build()
         }
-        return mClient
+        return mClient as OkHttpClient
     }
 
     private fun createInterceptor(): Interceptor {

@@ -8,7 +8,7 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.hjq.permissions.OnPermissionCallback
 import com.hjq.permissions.Permission
 import com.hjq.permissions.XXPermissions
-import com.hjq.toast.ToastUtils
+import com.hjq.toast.Toaster
 import com.work.baselib.arouter.RouterPath.PATH_LOGIN
 
 import com.work.theIsle.R
@@ -46,18 +46,18 @@ class SplashActivity : AppCompatActivity() {
             .request(object : OnPermissionCallback {
                 override fun onGranted(permissions: MutableList<String>, allGranted: Boolean) {
                     if (allGranted) {
-                        ToastUtils.show(R.string.toast_request_permission_success)
+                        Toaster.show(R.string.toast_request_permission_success)
                     } else {
-                        ToastUtils.show(R.string.toast_request_permission_not_all_success)
+                        Toaster.show(R.string.toast_request_permission_not_all_success)
                     }
                 }
 
                 override fun onDenied(permissions: MutableList<String>, doNotAskAgain: Boolean) {
                     super.onDenied(permissions, doNotAskAgain)
                     if (doNotAskAgain) {
-                        ToastUtils.show(R.string.toast_request_permission_never)
+                        Toaster.show(R.string.toast_request_permission_never)
                     } else {
-                        ToastUtils.show(R.string.toast_request_permission_fail)
+                        Toaster.show(R.string.toast_request_permission_fail)
                     }
                 }
 
